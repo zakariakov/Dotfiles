@@ -1,0 +1,48 @@
+rofi.color-enabled: true
+!                  bg       border   separator
+rofi.color-window: #3C3C3C, #9D6A47, #9D6A47
+!                  bg       fg       bg-alt   hl-bg    hl-fg
+rofi.color-normal: #3C3C3C, #EAD49B, #3C3C3C, #3C3C3C, #78824B
+rofi.color-active: #3C3C3C, #EAD49B, #3C3C3C, #3C3C3C, #78824B
+rofi.color-urgent: #3C3C3C, #EAD49B, #3C3C3C, #3C3C3C, #78824B
+
+rofi.separator-style: solid
+rofi.sidebar-mode: false
+rofi.lines: 9
+rofi.font: Hack Regular 12
+rofi.bw: 1
+rofi.columns: 2
+rofi.padding: 5
+rofi.fixed-num-lines: true
+rofi.hide-scrollbar: true
+rofi.line-margin: 10
+
+## theme transparent border
+#rofi.modi:                           ssh,window,drun,run
+#rofi.sidebar-mode:                   true
+#rofi.terminal:                       gnome-terminal
+#rofi.ssh-client:                     ssh
+#rofi.ssh-command:                    {terminal} -e "{ssh-client} {host}"
+#rofi.opacity:                        100
+#rofi.width:                          80
+#rofi.lines:                          7
+#rofi.columns:                        4
+#rofi.font:                           iosevka Nerd Font 9
+#rofi.bw:                             10
+#rofi.location:                       0
+#rofi.padding:                        30
+#rofi.levenshtein-sort:               true
+#rofi.case-sensitive:                 false
+#rofi.fuzzy:                          false
+#rofi.line-margin:                    10
+#rofi.separator-style:                solid
+#rofi.hide-scrollbar:                 true
+#rofi.markup-rows:                    false
+#rofi.scrollbar-width: 0
+#rofi.color-enabled: true
+#! State:           ´bg´,     ´fg´,     ´bgalt´,  ´hlbg´,   ´hlfg´
+#rofi.color-normal: #2f343f,  #e7e8eb,  #2f343f,  #e7e8eb,  #2f343f
+#rofi.color-urgent: #2f343f,  #e7e8eb,  #2f343f,  #e7e8eb,  #2f343f
+#rofi.color-active: #2f343f,  #e7e8eb,  #2f343f,  #e7e8eb,  #2f343f
+#!                  ´background´, ´border´
+#rofi.color-window: #2f343f, #75444A57

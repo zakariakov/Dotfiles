@@ -1,0 +1,127 @@
+#!/usr/bin/env bash
+
+Name=$(basename "$0")
+Version="0.1"
+
+_usage() {
+    cat <<- EOF
+Usage:   $Name [options]
+
+Options:
+     -h      Display this message
+     -v      Display script version
+     -q      Persistant calculator dialog
+     -w      Switch between open windows
+     -r      Program launcher & run dialog
+     -c      Select previous clipboard entries
+     -b      Browser search by keyword
+     -l      Session logout openbox choice
+     -s      Session logout i3 choice
+     -f		 Find files
+     -i		 Find icon
+
+EOF
+}
+
+#  Handle command line arguments
+while getopts ":hvqwcbrRlsfi" opt; do
+    case $opt in
+        h)
+            _usage
+            exit 0
+            ;;
+        v)
+            echo -e "$Name -- Version $Version"
+            exit 0
+            ;;
+        r)
+            rofi -width 350 -lines 16 -location 1 -yoffset 20 \
+                -modi run,drun -show drun -line-padding 4 \
+                -columns 1 -padding 10 -hide-scrollbar \
+                -show-icons -drun-icon-theme "ArchLabs-Light"
+            ;;
+         R)
+            rofi -width 350 -lines 16 -location 3 -yoffset 20 \
+                -modi run,drun -show drun -line-padding 4 \
+                -columns 1 -padding 10 -hide-scrollbar \
+                -show-icons -drun-icon-theme "ArchLabs-Light"
+            ;;   
+            
+        w)
+            rofi -modi window -show window -hide-scrollbar \
+                -eh 1 -padding 50 -line-padding 4
+            ;;
+        q)
+            rofi -modi "calc:qalc +u8 -nocurrencies" -padding 50 \
+                -show "calc:qalc +u8 -nocurrencies" -line-padding 4 \
+                -hide-scrollbar
+            ;;
+        c)
+            rofi -modi "clipboard:greenclip print" -padding 50 \
+                -line-padding 4 -show "clipboard:greenclip print" \
+                -hide-scrollbar
+            ;;
+        b)
+            surfraw -browser="$BROWSER" $(sr -elvi | awk -F'-' '{print $1}' \
+                | sed '/:/d' | awk '{$1=$1};1' | rofi -hide-scrollbar \
+                -kb-row-select 'Tab' -kb-row-tab 'Control+space' \
+                -dmenu -mesg 'Tab for Autocomplete' -i -p 'Web Search: ' \
+                -padding 50 -line-padding 4)
+            ;;
+        l)
+            ANS=$(echo " Lock| Logout| Reboot| Shutdown|Suspend| " | \
+                rofi -sep "|" -dmenu -i -p 'System: ' "" -width 20 \
+                -hide-scrollbar -eh 1 -line-padding 5 -padding 10 -lines 5)
+            case "$ANS" in
+                *Lock) xscreensaver-command -lock ;;
+                *Logout) openbox --exit ;;
+                *Reboot) systemctl reboot ;;
+                *Shutdown) systemctl poweroff;;
+                *Suspend) systemctl suspend
+            esac
+            ;;
+		s)
+            ANS=$(echo " Lock| Logout| Reboot| Shutdown|Suspend| " | \
+                rofi -sep "|" -dmenu -i -p 'System: ' "" -width 20 \
+                -hide-scrollbar -eh 1 -line-padding 5 -padding 10 -lines 5)
+            case "$ANS" in
+                *Lock) xscreensaver-command -lock ;;
+                *Logout) i3 exit ;;
+                *Reboot) systemctl reboot ;;
+                *Shutdown) systemctl poweroff;;
+                *Suspend) systemctl suspend
+            esac
+            ;;  
+		f) 
+             rofi  -show find -modi find:~/.config/rofi/finder.sh  
+             ;;
+             
+		i)
+				options='-columns 6 -width 100 -lines 20 -bw 2 -yoffset -2 -location 1'
+
+			selected=$(\
+			cat ~/.config/rofi/rofi-fontawesome/icon-list.txt \
+			| rofi -dmenu -i -markup-rows \
+			${options}
+			)
+			
+			# exit if nothing is selected
+			[[ -z $selected ]] && exit
+			
+			echo -ne $(echo "$selected" |\
+			awk -F';' -v RS='>' '
+			NR==2{sub("&#x","",$1);print "\\u" $1;exit}'
+			) |  xclip -selection clipboard && xdotool key ctrl+shift+v
+			;;
+
+        *)
+            echo -e "Option does not exist: -$OPTARG"
+            _usage
+            exit 1
+    esac
+done
+shift $((OPTIND - 1))
+
+
+exit 0
+

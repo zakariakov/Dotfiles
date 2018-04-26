@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+ANS=$(echo "   Play|   Pause|   Stop|  Next|   Previous|  Repeat|  Ncmpcpp| " | \
+                rofi -sep "|" -dmenu -i -p 'Mpd  ' "" -width 15 -l 7 -location 3 -yoffset 20\
+                -hide-scrollbar -eh 1 -line-padding 5 -padding 10 -columns 1 )
+            case "$ANS" in
+                *Play) mpc play ;;
+                *Pause) mpc pause;;
+                *Stop) mpc stop ;;
+                *Next) mpc next ;;
+                *Previous) mpc prev ;;
+                *Repeat) mpc repeat ;;
+                *Ncmpcpp) elokab-terminal -e ncmpcpp &
+            esac
+
+exit 0
+

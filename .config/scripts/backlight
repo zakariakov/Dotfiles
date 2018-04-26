@@ -1,0 +1,16 @@
+#!/usr/bin/perl
+
+
+
+
+
+my $xbacklight;
+
+# read the first line of the "acpi" command output
+open (XBACKLIGHT, 'xbacklight -get |') or die;
+$xbacklight = <XBACKLIGHT>;
+close(XBACKLIGHT);
+
+printf "  %.f%%\n", $xbacklight;
+
+exit 0

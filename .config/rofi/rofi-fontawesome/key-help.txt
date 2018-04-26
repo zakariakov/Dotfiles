@@ -1,0 +1,8 @@
+
+vim Left	one character left
+vim Right	one character right
+vim S-Left or C-Left	one word left
+vim S-Right or C-Right	one word right
+vim CTRL-B or Home	to begin of command line
+vim CTRL-E or End	to end of command line
+

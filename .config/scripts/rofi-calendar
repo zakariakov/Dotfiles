@@ -1,0 +1,11 @@
+#! /bin/sh
+
+blockdate=$(date '+%H:%M')
+
+case "$BLOCK_BUTTON" in
+    1|2|3) 
+      exec zenity --calendar --text ''
+    esac
+
+echo $blockdate
+

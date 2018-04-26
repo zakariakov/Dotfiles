@@ -1,0 +1,58 @@
+##### THIS FILE IS BEING CURRENTLY MANAGED BY URXVTCONFIG #####
+##### CHANGES DONE TO THIS FILE MANUALLY MAY AFFECT THE FUNCTIONALITY ######
+##### PROCEED WITH CAUTION! #####
+! COLOR PALETTE HERE !
+! special colors
+*.foreground:  #CFB882
+*.background:  #3C3C3C
+*.cursorColor:  #d0c8c6
+! black
+*.color0:      #43624B
+*.color8:      #8ECF9E
+! red
+*.color1:      #8D755C
+*.color9:      #BC9D7B
+! green
+*.color2:      #8F6243
+*.color10:     #BC8058
+! yellow
+*.color3:      #A3653F
+*.color11:     #D5956B
+! blue
+*.color4:      #636C40
+*.color12:     #ACBB6E
+! magenta
+*.color5:      #B08249
+*.color13:     #DEA45C
+! cyan
+*.color6:      #B7974F
+*.color14:     #F3C869
+! white
+*.color7:      #A8B991
+*.color15:     #DEF4C0
+
+! font
+xterm*faceName: Inconsolata:size=12:antialias=true
+xterm*font: 7x13
+
+
+! ROFI SETUP HERE !
+rofi.color-enabled: true
+!                  bg       border   separator
+rofi.color-window: #3C3C3C, #9D6A47, #9D6A47
+!                  bg       fg       bg-alt   hl-bg    hl-fg
+rofi.color-normal: #3C3C3C, #EAD49B, #3C3C3C, #3C3C3C, #78824B
+rofi.color-active: #3C3C3C, #EAD49B, #3C3C3C, #3C3C3C, #78824B
+rofi.color-urgent: #3C3C3C, #EAD49B, #3C3C3C, #3C3C3C, #78824B
+
+rofi.separator-style: solid
+rofi.sidebar-mode: false
+rofi.lines: 9
+rofi.font: Hack Regular 12
+rofi.bw: 1
+rofi.columns: 2
+rofi.padding: 5
+rofi.fixed-num-lines: true
+rofi.hide-scrollbar: true
+rofi.line-margin: 10
+

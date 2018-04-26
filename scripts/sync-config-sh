@@ -1,0 +1,9 @@
+#!/bin/bash
+
+ROOT="$(readlink -f $(dirname "$0"))"
+mkdir -p ./.config
+
+rsync -r  -t  --info=progress2 --delete -l -s $HOME/.config/i3  ./.config
+
+
+

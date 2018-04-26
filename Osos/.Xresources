@@ -1,0 +1,77 @@
+##### THIS FILE IS BEING CURRENTLY MANAGED BY URXVTCONFIG #####
+##### CHANGES DONE TO THIS FILE MANUALLY MAY AFFECT THE FUNCTIONALITY ######
+##### PROCEED WITH CAUTION! #####
+
+##### merge with the current settings
+##### $ xrdb -merge ~/.Xresources
+
+Xcursor.theme: Breeze
+Xcursor.size: 16
+
+! COLOR PALETTE HERE !
+! special colors
+*.background:  #171014
+*.foreground:  #b289ab
+*.color0:  #291B23
+*.color1:  #D83A1B
+*.color2:  #8B3503
+*.color3:  #8D4905
+*.color4:  #A63F16
+*.color5:  #C6700D
+*.color6:  #956840
+*.color7:  #c28d8d
+*.color8:  #9A856C
+*.color9:  #B44E41
+*.color10:  #7EB528
+*.color11:  #BD8928
+*.color12:  #1791AB
+*.color13:  #732A51
+*.color14:  #228B6A
+*.color15:  #DCBF9B
+
+! font
+xterm*faceName: xft:Inconsolata:size=12:antialias=true 
+!xterm*font:     -misc-fixed-medium-r-normal--18-120-100-100-c-90-iso10646-1
+!xterm*wideFont: -misc-fixed-medium-r-normal-ja-18-120-100-100-c-180-iso10646-1
+! ------------------------------------------------------------------------------
+! Font configuration
+! ------------------------------------------------------------------------------
+
+!URxvt*font:				xft:M+ Ubuntu:regular:size=12
+!URxvt*boldFont:			xft:M+ Ubuntu:bold:size=12
+!URxvt*italicFont:		xft:M+ Ubuntu:italic:size=12
+!URxvt*boldItalicFont:	xft:M+ Ubuntu:bold italic:size= 12
+
+! ------------------------------------------------------------------------------
+! Xft Font Configuration
+! ------------------------------------------------------------------------------
+
+Xft.autohint: 0
+Xft.lcdfilter: lcddefault
+Xft.hintstyle: hintslight
+Xft.hinting: 1
+Xft.antialias: 1
+Xft.rgba: rgb
+
+
+! ROFI SETUP HERE !
+rofi.color-enabled: true
+!                  bg       border   separator
+rofi.color-window: #171014, #C1452C, #C1452C
+
+!                  bg       fg       bg-alt   hl-bg    hl-fg
+rofi.color-normal: #171014, #B289AB, #171014, #171014, #C1452C
+rofi.color-active: #171014, #B289AB, #171014, #171014, #C1452C
+rofi.color-urgent: #C1452C, #B289AB, #C1452C, #C1452C, #171014
+
+rofi.separator-style: solid
+rofi.sidebar-mode: false
+rofi.lines: 9
+rofi.font: Hack Regular 11
+rofi.bw: 1
+rofi.columns: 2
+rofi.padding: 5
+rofi.fixed-num-lines: true
+rofi.hide-scrollbar: true
+rofi.line-margin: 10
+

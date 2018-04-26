@@ -1,0 +1,191 @@
+#!/bin/bash
+
+ROOT="$(readlink -f $(dirname "$0"))"
+COLORDIR=$ROOT/"$1"
+
+function set_config(){
+     sed -i "s/^\($1\s*=\s*\).*\$/\1$2/" "$3"
+}
+
+function set_msg(){
+BOLD="\e[1;34m"
+	COLORED="\e[1;33m"
+	NORMAL="\e[1;0m"
+	
+	printf "${COLORED}------------------------------------------------------------------------------${NORMAL}\n"
+	printf "${BOLD}$1${NORMAL}\n"
+	printf "${COLORED}------------------------------------------------------------------------------${NORMAL}\n"
+	
+}
+
+#set_msg "Backup i3."
+#"$ROOT/scripts/sync-config-sh"
+
+if [[ ! -f "$COLORDIR/.Xresources" ]]; then
+set_msg "color dir $COLORDIR/.Xresources not found.  Exiting."
+ exit 1
+fi
+
+
+
+set_msg "Color $COLORDIR found.  Generating..."
+
+#------------------------------------------------------------------------------------------------------------------------#
+# 1-                                                              XRESOURCE                                                                #
+#------------------------------------------------------------------------------------------------------------------------#
+set_msg "Xresource "
+echo "== creating Xresource backup"
+ mv $HOME/.Xresources $HOME/.Xresources-back
+ sleep 1s
+ 
+ echo "== cp $COLORDIR/.Xresources $HOME/.Xresources"
+ cp -f "$COLORDIR/.Xresources" $HOME/
+  sleep 1s
+  
+  echo "xrdb -merge $HOME/.Xresources"
+  xrdb -merge $HOME/.Xresources
+
+#------------------------------------------------------------------------------------------------------------------------#
+# 2-                                                   elokab-terminal colors                                                          #
+#------------------------------------------------------------------------------------------------------------------------#
+
+ ELOKABFILE="$HOME/.config/elokab/elokab-terminal.conf"
+ 
+if [[ ! -f $ELOKABFILE ]]; then
+    set_msg "$ELOKABFILE   no found."
+else
+	set_msg "Elokab-terminl Colors Scheme ..."
+	
+	echo "== copy $ELOKABFILE $HOME/.config/elokab/elokab-terminal.conf-back"
+	cp $ELOKABFILE "$HOME/.config/elokab/elokab-terminal.conf-back"
+	 
+	 XCOLOR=$( xrdb -query | egrep -m1 "^\*\.?background:" |  cut -d ":" -f 2-)
+	 echo "== background =" $XCOLOR
+	 #sed -i -e"/background/c background=$XCOLOR" $ELOKABFILE
+	  set_config "background"  $XCOLOR  "$ELOKABFILE"
+	  
+	 XCOLOR=$( xrdb -query | egrep -m1 "^\*\.?foreground:" |  cut -d ":" -f 2-)
+	 #sed -i -e"/foreground/c foreground=$XCOLOR" $ELOKABFILE
+	  set_config "foreground"  $XCOLOR  "$ELOKABFILE"
+	 echo "== foreground =" $XCOLOR
+	 
+	 for ((  i = 0 ;  i <= 15;  i++  ))
+	 do
+		XCOLOR=$( xrdb -query | egrep -m1 "^\*\.?color$i:" |  cut -d ":" -f 2-)
+          #sed -i -e"/color$i=/c color$i=$XCOLOR" $ELOKABFILE
+		  set_config "color$i"  $XCOLOR  "$ELOKABFILE"
+		echo "== color$i =" $XCOLOR
+		
+	 done
+fi
+ 
+#------------------------------------------------------------------------------------------------------------------------#
+# 2-                                                   Termite colors                                                          #
+#------------------------------------------------------------------------------------------------------------------------#
+
+ TERMITEFILE="$HOME/.config/termite/config"
+ 
+if [[ ! -f $TERMITEFILE ]]; then
+    set_msg "$TERMITEFILE   no found."
+else
+	set_msg "Termite Colors scheme..."
+	echo "== copy $TERMITEFILE $HOME/.config/termite/config-back"
+	 cp $TERMITEFILE "$HOME/.config/termite/config-back"
+	 
+	 XCOLOR=$( xrdb -query | egrep -m1 "^\*\.?background:" |  cut -d ":" -f 2-)
+	 echo "== background =" $XCOLOR
+	 set_config "background"  $XCOLOR  "$TERMITEFILE"
+	 
+	 XCOLOR=$( xrdb -query | egrep -m1 "^\*\.?foreground:" |  cut -d ":" -f 2-)
+	  set_config "foreground"  $XCOLOR  "$TERMITEFILE"
+	 echo "== foreground =" $XCOLOR
+	 
+	 for ((  i = 0 ;  i <= 15;  i++  ))
+	 do
+		XCOLOR=$( xrdb -query | egrep -m1 "^\*\.?color$i:" |  cut -d ":" -f 2-)
+		set_config "color$i"  $XCOLOR  "$TERMITEFILE"
+		echo "== color$i =" $XCOLOR
+		
+	 done
+fi
+ 
+
+#------------------------------------------------------------------------------------------------------------------------#
+#3-                                                          gtk-theme                                                                        #
+#------------------------------------------------------------------------------------------------------------------------#
+
+TEMEFILE="$COLORDIR/theme"
+
+if [[ ! -f $TEMEFILE ]]; then
+	#TODO : change icons colorize
+    set_msg "$TEMEFILE   no found."
+else
+    set_msg "$TEMEFILE  found....."
+     
+          echo "== creating backub files....gtkrc-2.0-back  settings.ini-back  qt5ct.conf-back"
+     	  cp "$HOME/.gtkrc-2.0" "$HOME/.gtkrc-2.0-back"
+     	  cp "$HOME/.config/gtk-3.0/settings.ini" "$HOME/.config/gtk-3.0/settings.ini-back"
+     	  cp "$HOME/.config/qt5ct/qt5ct.conf" "$HOME/.config/qt5ct/qt5ct.conf-back"
+     	  
+	THEMNAME=$(cat "$TEMEFILE" | grep "gtk-theme-name"| cut -d "=" -f 2-)
+	ICONNAME=$(cat "$TEMEFILE" | grep "gtk-icon-theme-name"| cut -d "=" -f 2-)
+	
+	 echo "== Theme name=" $THEMNAME
+	 echo "== Icon theme=" $ICONNAME
+	 
+	 if [[ -f "$HOME/.gtkrc-2.0" ]]; then
+		echo  "== $HOME/.gtkrc-2.0"
+		set_config "gtk-theme-name"  "\"$THEMNAME\""  "$HOME/.gtkrc-2.0"
+		set_config "gtk-icon-theme-name"  "\"$ICONNAME\""  "$HOME/.gtkrc-2.0"
+	fi
+	
+	if [[ -f "$HOME/.config/gtk-3.0/settings.ini" ]]; then
+		echo  "== $HOME/.config/gtk-3.0/settings.ini"
+		set_config "gtk-theme-name"  $THEMNAME  "$HOME/.config/gtk-3.0/settings.ini"
+		set_config "gtk-icon-theme-name"  $ICONNAME  "$HOME/.config/gtk-3.0/settings.ini"
+	fi
+	
+	 
+	  if [[ -f "$HOME/.config/qt5ct/qt5ct.conf" ]]; then
+		  echo  "== $HOME/.config/qt5ct/qt5ct.conf"
+		  set_config "icon_theme"  $ICONNAME  "$HOME/.config/qt5ct/qt5ct.conf"
+	  fi
+	  
+	
+	WAL="wal"
+		if [ "$THEMNAME" == "$WAL" ]; then
+		    set_msg "== creating gtk theme wal..."
+			"$ROOT/scripts/gtk-theme/change_color.sh" -o "wal" "$COLORDIR/gtk-color"
+		 fi
+
+	  if [ "$ICONNAME" == "$WAL"  ]; then
+	     set_msg "== creating icons wal..."
+	    COLORNAME=$(cat "$TEMEFILE" | grep "color-name"| cut -d "=" -f 2-)
+		"$ROOT/scripts/archdroid-icon-theme/change_color.sh" -o "wal" -c $COLORNAME
+	  fi
+	  
+fi
+
+#------------------------------------------------------------------------------------------------------------------------#
+#3-                                                         TINT2                                                                 #
+#------------------------------------------------------------------------------------------------------------------------#
+
+  set_msg "tint2 colors"
+  "$ROOT/scripts/tint2/generat-sh" -p "last" -r
+
+#------------------------------------------------------------------------------------------------------------------------#
+#3-                                                         Apply                                                                 #
+#------------------------------------------------------------------------------------------------------------------------#
+
+    set_msg "== Apply Colors..."
+
+   python2 "$ROOT/scripts/gtk_reload.py"
+
+   SESSIONNAME=$(cat "$HOME/.dmrc" | grep "Session"| cut -d "=" -f 2-)
+   if [ "$SESSIONNAME" == "openbox"  ]; then
+   echo "openbox  --restart"
+       openbox  --restart
+    else
+         echo " i3-msg restart"
+        i3-msg restart
+    fi   

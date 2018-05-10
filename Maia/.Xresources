@@ -1,0 +1,80 @@
+##### THIS FILE IS BEING CURRENTLY MANAGED BY URXVTCONFIG #####
+##### CHANGES DONE TO THIS FILE MANUALLY MAY AFFECT THE FUNCTIONALITY ######
+##### PROCEED WITH CAUTION! #####
+
+##### merge with the current settings
+##### $ xrdb -merge ~/.Xresources
+
+Xcursor.theme: Breeze
+Xcursor.size: 16
+
+
+
+
+! COLOR PALETTE HERE !
+! special colors
+*.background:  #222d31
+*.foreground:  #8bdacf
+*.color0:  #2f4048
+*.color1:  #b64028
+*.color2:  #0592AB
+*.color3:  #92933a
+*.color4:  #15AC8E
+*.color5:  #B83994
+*.color6:  #2AA198
+*.color7:  #AFEAE2
+*.color8:  #9ba0a4
+*.color9:  #B65B48
+*.color10:  #05B9D8
+*.color11:  #F4F46F
+*.color12:  #1FFACF
+*.color13:  #CF6BB3
+*.color14:  #44FEEF
+*.color15:  #8BDACF
+
+! font
+xterm*faceName: xft:Inconsolata:size=12:antialias=true 
+!xterm*font:     -misc-fixed-medium-r-normal--18-120-100-100-c-90-iso10646-1
+!xterm*wideFont: -misc-fixed-medium-r-normal-ja-18-120-100-100-c-180-iso10646-1
+! ------------------------------------------------------------------------------
+! Font configuration
+! ------------------------------------------------------------------------------
+
+!URxvt*font:				xft:M+ Ubuntu:regular:size=12
+!URxvt*boldFont:			xft:M+ Ubuntu:bold:size=12
+!URxvt*italicFont:		xft:M+ Ubuntu:italic:size=12
+!URxvt*boldItalicFont:	xft:M+ Ubuntu:bold italic:size= 12
+
+! ------------------------------------------------------------------------------
+! Xft Font Configuration
+! ------------------------------------------------------------------------------
+
+Xft.autohint: 0
+Xft.lcdfilter: lcddefault
+Xft.hintstyle: hintslight
+Xft.hinting: 1
+Xft.antialias: 1
+Xft.rgba: rgb
+
+
+! ROFI SETUP HERE !
+rofi.color-enabled: true
+!                  bg       border   separator
+rofi.color-window: #222d31, #8bdacf, #8bdacf
+
+!                               bg         fg             bg-alt        hl-bg       hl-fg
+rofi.color-normal: #222d31, #8bdacf, #222d31, #222d31, #15ac8e
+rofi.color-active: #222d31, #8bdacf, #222d31, #222d31, #15ac8e
+rofi.color-urgent: #15ac8e, #8bdacf, #15ac8e, #15ac8e, #222d31
+
+rofi.separator-style: solid
+rofi.sidebar-mode: false
+rofi.lines: 9
+rofi.font: Hack Regular 11
+rofi.bw: 1
+rofi.columns: 2
+rofi.padding: 5
+rofi.fixed-num-lines: true
+rofi.hide-scrollbar: true
+rofi.line-margin: 10
+

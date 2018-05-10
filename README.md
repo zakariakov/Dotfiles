@@ -20,20 +20,30 @@ This script will overwrite only the needed parts from your configuration files
   <li> change-color-sh <color folder></li>
   <li> ex: change-color-sh Sky</li>
 
- <li>Maia</li>
-![Screenshots](https://github.com/zakariakov/Dotfiles/blob/master/Maia/screenshot.jpg)
+<h1>Themes</h1>
 
- <li>Green-clear</li>
-![Screenshots](https://github.com/zakariakov/Dotfiles/blob/master/Green-clear/screenshot.png)
+<ul>
+  <li><h2>Maia</h2>
+    <img src="https://github.com/zakariakov/Dotfiles/blob/master/Maia/screenshot.jpg">
 
- <li>Maroon-red</li>
-![Screenshots](https://github.com/zakariakov/Dotfiles/blob/master/Maroon-red/screen-shot.png)
+ <li><h2>Green-clear</h2>
+    <img src="https://github.com/zakariakov/Dotfiles/blob/master/Green-clear/screenshot.png">
 
- <li>Osos</li>
-![Screenshots](https://github.com/zakariakov/Dotfiles/blob/master/Osos/screenshot.jpg)
+ <li><h2>Maia</h2>
+    <img src="https">
 
- <li>Peru</li>
-![Screenshots](https://github.com/zakariakov/Dotfiles/blob/master/Peru/screen-shots.png)
+ <li><h2>Maroon-red</h2>
+    <img src="https://github.com/zakariakov/Dotfiles/blob/master/Maroon-red/screen-shot.png">
 
- <li>Sky</li>
-![Screenshots](https://github.com/zakariakov/Dotfiles/blob/master/Sky/sky-i3.jpg)
+ <li><h2>Osos</h2>
+    <img src="https://github.com/zakariakov/Dotfiles/blob/master/Osos/screenshot.jpg">
+
+ <li><h2>Peru</h2>
+    <img src="https://github.com/zakariakov/Dotfiles/blob/master/Peru/screen-shots.png">
+ 
+ <li><h2>Sky</h2>
+    <img src="https://github.com/zakariakov/Dotfiles/blob/master/Sky/sky-i3.jpg">
+
+</ul>
+
+ 

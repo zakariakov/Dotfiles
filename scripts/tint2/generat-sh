@@ -69,7 +69,7 @@ xres() {
 checkfile() {
     if [[ -f "$USERPRESETDIR/$1.conf" ]]
     then
-        echo "Preset $PRESET found.  Generating..."
+        echo "[+] Preset $PRESET found.  Generating..."
         PRESETFILE=$USERPRESETDIR/$1.conf
     elif [[ -f "$PRESETDIR/$1.conf" ]]
     then
@@ -112,4 +112,4 @@ then
     pkill -USR1 -x tint2
 fi
 
-echo "Complete. Saved as $PRESET-preset.tintrc."
+echo "[+] Complete. Saved as $PRESET-preset.tintrc."

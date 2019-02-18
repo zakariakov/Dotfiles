@@ -70,10 +70,10 @@ if [[ -d "${output_dir}" ]] ; then
 fi
 mkdir -p "${output_dir}"
 cp -r "${root}/archdroid-icon-theme/"* "${output_dir}"/
-echo "== Template was copied to ${output_dir}"
+echo "[+] Template was copied to ${output_dir}"
 
 find "${output_dir}"/ -type f -exec sed -i \
 	-e "s/${lime}/${icons_color}/g" \
 	-e "s/Archdroid-Lime/${OUTPUT_THEME_NAME}/g" \
 	{} \; ;
-echo "== Theme was generated"
+echo "[+] Theme was generated"

@@ -1,0 +1,89 @@
+##### THIS FILE IS BEING CURRENTLY MANAGED BY URXVTCONFIG #####
+##### CHANGES DONE TO THIS FILE MANUALLY MAY AFFECT THE FUNCTIONALITY ######
+##### PROCEED WITH CAUTION! #####
+
+##### merge with the current settings
+##### $ xrdb -merge ~/.Xresources
+
+Xcursor.theme: Breeze-Adapta
+Xcursor.size: 16
+
+! COLOR PALETTE HERE !
+! special colors
+Xft.dpi: 102
+!Xft.dpi: 96
+Xft.antialias: true
+Xft.hinting: true
+Xft.rgba: rgb
+Xft.autohint: false
+Xft.hintstyle: hintfull
+Xft.lcdfilter: lcddefault
+
+
+xscreensaver.fade:   false
+xscreensaver.unfade: false
+! ===== urxvt =====
+URxvt.scrollBar: off
+URxvt.font: xft:monospace:size=12
+URxvt.internalBorder:     22
+! =================
+*background:	#1D1F28
+*foreground:	#FDFDFD
+*cursorColor:	#C574DD
+*color0:	#282A36
+*color1:	#F37F97
+*color2:	#5ADECD
+*color3:	#F2A272
+*color4:	#8897F4
+*color5:	#C574DD
+*color6:	#79E6F3
+*color7:	#FDFDFD
+*color8:	#414458
+*color9:	#FF4971
+*color10:	#18E3C8
+*color11:	#FF8037
+*color12:	#556FFF
+*color13:	#B043D1
+*color14:	#3FDCEE
+*color15:   #BEBEC1
+! font
+xterm*faceName: xft:Inconsolata:size=12:antialias=true 
+!xterm*font:     -misc-fixed-medium-r-normal--18-120-100-100-c-90-iso10646-1
+!xterm*wideFont: -misc-fixed-medium-r-normal-ja-18-120-100-100-c-180-iso10646-1
+! ------------------------------------------------------------------------------
+! Font configuration
+! ------------------------------------------------------------------------------
+urxvt*depth: 32
+!URxvt*font:				xft:M+ Ubuntu:regular:size=12
+!URxvt*boldFont:			xft:M+ Ubuntu:bold:size=12
+!URxvt*italicFont:		xft:M+ Ubuntu:italic:size=12
+!URxvt*boldItalicFont:	xft:M+ Ubuntu:bold italic:size= 12
+
+! ------------------------------------------------------------------------------
+! Xft Font Configuration
+! ------------------------------------------------------------------------------
+
+
+
+
+! ROFI SETUP HERE !
+rofi.color-enabled: true
+!               			    bg     	 border   separator
+rofi.color-window:              #1D1F28, #F37F97, #18E3C8
+
+!                              bg      	 fg      bg-alt   hl-bg    hl-fg
+rofi.color-normal:             #1D1F28, #FDFDFD, #1D1F28, #1D1F28, #B043D1
+rofi.color-active:             #1D1F28, #FDFDFD, #1D1F28, #1D1F28, #B043D1
+rofi.color-urgent:             #E32608, #F37F97, #E32608, #E32608, #FDFDFD
+
+rofi.separator-style: solid
+rofi.sidebar-mode: false
+rofi.lines: 9
+rofi.font: Segoe UI 11
+rofi.bw: 1
+rofi.columns: 2
+rofi.padding: 5
+rofi.fixed-num-lines: true
+rofi.hide-scrollbar: true
+rofi.line-margin: 5
+

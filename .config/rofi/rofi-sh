@@ -12,19 +12,22 @@ Options:
      -v      Display script version
      -q      Persistant calculator dialog
      -w      Switch between open windows
-     -r      Program launcher & run dialog
+     -R      Program launcher & run dialog
+      -r      Program launcher & run dialog 2column
      -c      Select previous clipboard entries
      -b      Browser search by keyword
      -l      Session logout openbox choice
      -s      Session logout i3 choice
      -f		 Find files
      -i		 Find icon
+     -x      Xrandr options
+     -m  custom menu
 
 EOF
 }
 
 #  Handle command line arguments
-while getopts ":hvqwcbrRlsfi" opt; do
+while getopts ":hvqwcbrRlsfixm" opt; do
     case $opt in
         h)
             _usage
@@ -35,10 +38,10 @@ while getopts ":hvqwcbrRlsfi" opt; do
             exit 0
             ;;
         r)
-            rofi -width 350 -lines 16 -location 1 -yoffset 20 \
+            rofi -width 550 -lines 12 -location 3 -yoffset 20 \
                 -modi run,drun -show drun -line-padding 4 \
-                -columns 1 -padding 10 -hide-scrollbar \
-                -show-icons -drun-icon-theme "ArchLabs-Light"
+                -columns 2 -padding 10  \
+                -show-icons 
             ;;
          R)
             rofi -width 350 -lines 16 -location 3 -yoffset 20 \
@@ -49,12 +52,12 @@ while getopts ":hvqwcbrRlsfi" opt; do
             
         w)
             rofi -modi window -show window -hide-scrollbar \
-                -eh 1 -padding 50 -line-padding 4
+                -eh 1 -padding 10 -line-padding 4 -show-icons 
             ;;
         q)
-            rofi -modi "calc:qalc +u8 -nocurrencies" -padding 50 \
+            rofi  -modi "calc:qalc +u8 -nocurrencies" -padding 50 \
                 -show "calc:qalc +u8 -nocurrencies" -line-padding 4 \
-                -hide-scrollbar
+                -hide-scrollbar  -width 300  -columns 1  -lines 3
             ;;
         c)
             rofi -modi "clipboard:greenclip print" -padding 50 \
@@ -69,9 +72,9 @@ while getopts ":hvqwcbrRlsfi" opt; do
                 -padding 50 -line-padding 4)
             ;;
         l)
-            ANS=$(echo " Lock| Logout| Reboot| Shutdown|Suspend| " | \
+            ANS=$(echo " Lock| Logout| Reboot| Shutdown|Suspend" | \
                 rofi -sep "|" -dmenu -i -p 'System: ' "" -width 20 \
-                -hide-scrollbar -eh 1 -line-padding 5 -padding 10 -lines 5)
+                -hide-scrollbar -eh 1 -line-padding 5 -padding 10 -columns 1  -lines 5)
             case "$ANS" in
                 *Lock) xscreensaver-command -lock ;;
                 *Logout) openbox --exit ;;
@@ -81,9 +84,9 @@ while getopts ":hvqwcbrRlsfi" opt; do
             esac
             ;;
 		s)
-            ANS=$(echo " Lock| Logout| Reboot| Shutdown|Suspend| " | \
+            ANS=$(echo " Lock| Logout| Reboot| Shutdown| Suspend" | \
                 rofi -sep "|" -dmenu -i -p 'System: ' "" -width 20 \
-                -hide-scrollbar -eh 1 -line-padding 5 -padding 10 -lines 5)
+                -hide-scrollbar -eh 1 -line-padding 5 -padding 10 -columns 1  -lines 5)
             case "$ANS" in
                 *Lock) xscreensaver-command -lock ;;
                 *Logout) i3 exit ;;
@@ -95,7 +98,12 @@ while getopts ":hvqwcbrRlsfi" opt; do
 		f) 
              rofi  -show find -modi find:~/.config/rofi/finder.sh  
              ;;
-             
+        x) 
+             ~/.config/rofi/rofi-randr  
+             ;;     
+         m) 
+             ~/.config/rofi/mainmenu/rofi-mainmenu
+             ;;     
 		i)
 				options='-columns 6 -width 100 -lines 20 -bw 2 -yoffset -2 -location 1'
 

@@ -9,21 +9,55 @@
 general {
         colors = true
         interval = 5
-          color_good =     '#33FFBD'  
+         color_good =     '#33FFBD'  
          color_degraded = '#ccdc90'  
          color_bad =      '#C40000'
 }
 
+order += "window_title"
 #order += "ipv6"
+#order += "conky memory"
+#order += "lm_sensors"
+order += "sysdata"
 order += "disk /"
-order += "wireless _first_"
+#order += "wireless _first_"
 #order += "ethernet _first_"
 order += "battery all"
-order += "load"
-order += "cpu_temperature 0"
+#order += "load"
+#order += "cpu_temperature 0"
+#order += "volume master"
+order += "volume_status"
 order += "tztime local"
-order += "volume master"
+order += "mpris"
 
+external_script {
+        cache_timeout = 2
+    format = "{output}"
+    script_path = "$HOME/.config/qobbar/blocks.sh 14"
+     # on_click 1 ='exec mpris-ctl pp'
+      on_click 2='exec goldfinch -togglehide'
+
+}
+
+mpris {
+    format = " {state} "
+    format_none = "?"
+    player_priority = "[goldfinch,mpd,vlc,*]"
+  icon_play=''
+  icon_pause=''
+  icon_stop=''
+  state_pause=''
+  state_play=''
+  state_stop=''
+}
+
+
+
+window_title {
+    format = '{title}|♥'
+     color="#f2a272"
+     max_width=50
+}
 wireless _first_ {
         #format_up = ":(%quality at %essid) %ip"
          format_up = ":(%quality at %essid)"
@@ -42,7 +76,7 @@ battery all {
                    format_down = "No battery"
                    status_chr = "⚡ CHR"
                    status_bat = "  BAT"
-                   status_unk = "? UNK"
+                   status_unk = "?"
                    status_full = "☻ FULL"
                    #path = "/sys/class/power_supply/BAT%d/uevent"
                    low_threshold = 40
@@ -50,7 +84,9 @@ battery all {
 }
 
 tztime local {
-        format = "  %Y-%m-%d   %H:%M:%S"
+        format = "  %H:%M:%S"
+         on_click 1 = "exec zenity --calendar "
+       
 }
 
 load {
@@ -66,12 +102,56 @@ load {
 
 disk "/" {
         format = "  %avail"
+         on_click 1 = "exec pcmanfm"
+         color="#33FFBD"
 }
 
  volume master {
-                   format = ":%volume"
-                   format_muted = ": muted (%volume)"
-                   device = "default"
-                   mixer = "Master"
-                   mixer_idx = 0
-           }
+        format = ":%volume"
+        format_muted = ": muted (%volume)"
+        device = "default"
+        mixer = "Master"
+        mixer_idx = 0
+        on_click 1 = "exec pavucontrol-qt"
+        on_click 2 = "exec amixer set Master toggle"
+        on_click 4 = "exec amixer set Master 1+"
+        on_click 5 = "exec amixer set Master 1-"
+    color="#33FFBD"
+ }
+volume_status {
+         on_click 2 = "exec pavucontrol-qt"
+    thresholds = [
+        (0, "#FF0000"),
+        (10, "#E2571E"),
+        (20, "#FF7F00"),
+        (30, "#FFFF00"),
+        (40, "#00FF00"),
+        (50, "#96BF33"),
+        (60, "#0000FF"),
+        (70, "#4B0082"),
+        (80, "#8B00FF"),
+        (90, "#FFFFFF")
+    ]
+}
+
+conky memory {
+    format = 'Memory [\?color=lightskyblue {mem}/{memmax}] '
+    format += '[\?color=memperc {memperc}% \[{membar}\]]'
+    thresholds = [
+        (0, 'darkgray'), (0.001, 'good'), (50, 'degraded'),
+        (75, 'orange'), (85, 'bad')
+    ]
+     on_click 1 = "exec urxvt -e gtop"
+}
+
+
+
+sysdata {
+        format='[\?color=color_good : {cpu_used_percent}% ]'
+        format +='[\?color=#33FFBD : {mem_used_percent}% ]'
+        format +='[ : {cpu_temp}°]'
+        thresholds = [(0.00, '#33FFBD'), (40.00, '#ccdc90'), (75.00, '#C40000')]
+
+        on_click 1 = "exec urxvt -e htop"
+}
+   

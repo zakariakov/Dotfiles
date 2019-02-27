@@ -1,0 +1,17 @@
+#!/bin/bash
+cd "$(readlink -f $(dirname "$0"))"
+
+  ANS=$(echo " System| Multimedia| Graphic| Devlopement| Settings| Internet| Office" | \
+                rofi -sep "|" -dmenu -i -p 'Main Menu' "" -width 20 \
+                -hide-scrollbar -eh 1 -line-padding 5 -padding 20 -columns 1 -lines 7)
+            case "$ANS" in
+                *Office)        ./rofi-office ;;
+                *Multimedia)    ./rofi-media ;;
+                *Devlopement)   ./rofi-devlopement ;;
+                *Graphic)       ./rofi-graphic;;
+                *Settings)      ./rofi-settings ;;
+                *Internet)      ./rofi-internet ;;
+                *System)        ./rofi-system ;;
+            esac 
+           
+exit 0

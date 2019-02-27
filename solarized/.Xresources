@@ -11,18 +11,18 @@ Xcursor.size: 16
 ! COLOR PALETTE HERE !
 ! special
 *.foreground:   #93a1a1
-*.background:   #002b36
+*.background:   #073642
 *.cursorColor:  #93a1a1
 
 ! black
-*.color0:       #01141e
+*.color0:       #002b36
 *.color8:       #657b83
 
 ! red
 *.color1:       #dc322f
 *.color9:       #dc908b
 
-! green
+
 *.color2:       #859900
 *.color10:      #999979
 
@@ -31,7 +31,7 @@ Xcursor.size: 16
 *.color11:      #b5a151
 
 ! blue
-*.color4:       #0055ff
+*.color4:       #268bd2
 *.color12:      #4da4d2
 
 ! magenta
@@ -55,10 +55,31 @@ xterm*faceName: xft:Inconsolata-dz for Powerline:size=12:antialias=true
 ! Font configuration
 ! ------------------------------------------------------------------------------
 
-!URxvt*font:				xft:M+ Ubuntu:regular:size=12
-!URxvt*boldFont:			xft:M+ Ubuntu:bold:size=12
-!URxvt*italicFont:		xft:M+ Ubuntu:italic:size=12
-!URxvt*boldItalicFont:	xft:M+ Ubuntu:bold italic:size= 12
+! ===== urxvt =====
+
+URxvt*scrollBar:         false
+URxvt*scrollBar_right:   false
+
+URxvt*transparent:       true
+URxvt*shading:       30
+
+!URxvt.font: xft:Droid Sans Mono for Powerline Plus Nerd File Types Mono:size=10
+
+URxvt.font:xft:DroidSansMono Nerd Font:bold:size=9
+URxvt.letterSpace: 0
+URxvt.internalBorder: 5
+*antialias:  true
+*autohint:   true
+
+URxvt.perl-ext:
+URxvt.perl-ext-common:
+
+!URxvt.perl-ext-common: ...,tabbed,...
+!URxvt.tabbed.tabbar-fg: 2
+!URxvt.tabbed.tabbar-bg: 0
+!URxvt.tabbed.tab-fg: 3
+!URxvt.tabbed.tab-bg: 2
+
 
 ! ------------------------------------------------------------------------------
 ! Xft Font Configuration
@@ -75,7 +96,8 @@ Xft.rgba: rgb
 ! ROFI SETUP HERE !
 rofi.color-enabled: true
 !                   bg       border   separator
-rofi.color-window: #05333e, #268BD2, #218A69
+rofi.color-window: #05333e, #b58900, #218A69
+
 
 !                  bg       fg       bg-alt   hl-bg    hl-fg
 rofi.color-normal: #05333e, #93a1a1, #05333e, #05333e, #268BD2

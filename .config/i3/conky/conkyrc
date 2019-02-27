@@ -1,0 +1,44 @@
+conky.config = {
+	wm_class_name = 'Conky',
+	own_window_class='Conky',
+	update_interval 	= 5,
+    alignment 		= 'top_left',
+	background 		= true,
+	color1			= '#FBA922',
+	color2 			= '#16A085',
+	color3			= '#0d0d0d',
+	cpu_avg_samples 	= 2,
+	default_color 		= '#131313',
+	draw_shades 		= false,
+	draw_borders 		=false,
+	default_shade_color 	= '#2d2d2d',
+	double_buffer 		= true,
+	font 			= 'Monospace:size=8',
+	gap_x 			= 35,
+	gap_y 			= 35,
+    minimum_width 		= 300,
+    minimum_height      = 350,
+	no_buffers 		= true,
+	own_window 		= true,
+	own_window_type 	= 'override',
+	own_window_transparent 	= true,
+    own_window_hints 	= 'undecorated,below,sticky,skip_taskbar,skip_pager',
+	update_interval 	= 2.0,
+    use_xft			= true,
+    own_window_argb_visual =true,
+   own_window_argb_value =0,
+}
+
+
+conky.text = [[
+
+${goto 10}${color1}${font Neuropolitical:size=40}${time %H : %M} ${font}${color}
+${goto 30}${color #729FCF}${voffset -20}${font  Janda Cheerful Script:pixelsize=58}${execi 300 LANG=${template1} date +"%A"}${font}${color}
+${color #FCD97B}${font Ubuntu:pixelsize=42}${alignr}${time %d}${color #dddddd}${font Ubuntu:pixelsize=22} ${execi 300 LANG=${template1} date +"%B"} ${alignr}${time %Y}${font}
+${voffset 10}${font Ubuntu:pixelsize=12}${color2}HD ${offset 5}${color1}${fs_free /home} / ${fs_size /}${alignr} ${color2}RAM ${color1}$mem / $memmax
+${voffset 5}${color2}CPU ${offset 5}${color1}${cpu cpu}%
+${voffset 5}${color2}Top ${color1}${top name 1}${top cpu 1}%
+
+${image ~/.cache/wttr.png -p 0,220 }
+${texeci 1800 wget wttr.in/algiers_0tqp_lang=fr.png -O ~/.cache/wttr.png}
+]]

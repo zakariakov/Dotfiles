@@ -1,0 +1,15 @@
+#!/bin/bash
+cd  "$(readlink -f $(dirname "$0"))"
+  ANS=$(echo "...Back| "Color picker"| Inkscape| Gimp| Krita" | \
+                rofi -sep "|" -dmenu -i -p 'Graphic ' "" -width 20 \
+                -hide-scrollbar -eh 1 -line-padding 5 -padding 20 -columns 1 -lines 7)
+           
+            case "$ANS" in
+                *...Back)           ./rofi-mainmenu ;;
+                *"Color picker")    gcolor3 ;;
+                *Inkscape)          inkscape ;;
+                *Gimp)              gimp ;;
+                *Krita)             krita
+            esac 
+           
+exit 0

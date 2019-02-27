@@ -1,0 +1,18 @@
+#!/bin/bash
+cd  "$(readlink -f $(dirname "$0"))"
+
+  ANS=$(echo "...Back|  Charmap| Pcmanfm| Elokab-fm| Kwrite| Calculator| "حارس نظامك"" | \
+                rofi -sep "|" -dmenu -i -p 'Office ' "" -width 20 \
+                -hide-scrollbar -eh 1 -line-padding 5 -padding 20 -columns 1 -lines 7)
+           
+            case "$ANS" in
+                *...Back)     ./rofi-mainmenu ;;
+                *Pcmanfm)     pcmanfm ;;
+                *Elokab-fm)   elokab-fm ;;
+                *Kwrite)      kwrite ;;
+                *Calculator)  kcalc ;;
+                *"حارس نظامك")  ksysguard ;;
+                 *Charmap)     kcharselect --qwindowtitle ;;
+            esac 
+           
+exit 0

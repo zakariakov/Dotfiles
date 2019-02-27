@@ -1,0 +1,14 @@
+#!/bin/bash
+cd  "$(readlink -f $(dirname "$0"))"
+  ANS=$(echo "...Back|  Firefox| uGet| "الجدار الناري"" | \
+                rofi -sep "|" -dmenu -i -p 'Office ' "" -width 20 \
+                -hide-scrollbar -eh 1 -line-padding 5 -padding 20 -columns 1 -lines 7)
+           
+            case "$ANS" in
+                *...Back)   ./rofi-mainmenu ;;
+                *Firefox)   /usr/lib/firefox/firefox  ;;
+                *uGet)      env GDK_BACKEND=x11 uget-gtk;;
+                *"الجدار الناري")   gufw 
+            esac 
+           
+exit 0

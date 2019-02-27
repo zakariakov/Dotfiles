@@ -1,0 +1,21 @@
+#!/bin/bash
+cd  "$(readlink -f $(dirname "$0"))"
+  ANS=$(echo "...Back|  "Kvantum Manager"| Oomox| Compton| Pamac-manager|" \
+                " "إعدادات Qt5"| Lxapearence| Nitrogen| "Conky Manager"" | \
+                rofi -sep "|" -dmenu -i -p 'Settings ' "" -width 20 \
+                -hide-scrollbar -eh 1 -line-padding 5 -padding 20 -columns 1 -lines 7)
+           
+            case "$ANS" in
+                *...Back)           ./rofi-mainmenu ;;
+                *Lxapearence)       lxappearance ;;
+                *Nitrogen)          nitrogen ;;
+                *"Conky Manager")   conky-manager ;;
+                *Oomox)             oomox-gui ;;
+                *Compton)           compton-conf ;;
+                *"Pamac-manager")   pamac-manager ;;
+                *"Kvantum Manager") kvantummanager ;;
+                *"إعدادات Qt5")     qt5ct ;;
+               
+            esac 
+           
+exit 0

@@ -1,0 +1,16 @@
+#!/bin/bash
+cd  "$(readlink -f $(dirname "$0"))"
+
+  ANS=$(echo "...Back| "Code OSS"| Geany|" Qt Creator"| "DB Browser for SQLite"" | \
+                rofi -sep "|" -dmenu -i -p 'Devlopement ' "" -width 20 \
+                -hide-scrollbar -eh 1 -line-padding 5 -padding 20 -columns 1 -lines 7)
+           
+            case "$ANS" in
+                *...Back)       ./rofi-mainmenu ;;
+                *"Code OSS")    code-oss --unity-launch ;;
+                *Geany)         geany ;;
+                *"Qt Creator")  qtcreator ;;
+                *"DB Browser for SQLite")   sqlitebrowser
+            esac 
+           
+exit 0

@@ -1,0 +1,14 @@
+#!/bin/bash
+  ANS=$(echo "...Back|  Pavucontrol|  Goldfinch| VLC|  PulseEffects" | \
+                rofi -sep "|" -dmenu -i -p 'Multimedia ' "" -width 20 \
+                -hide-scrollbar -eh 1 -line-padding 5 -padding 20 -columns 1 -lines 7)
+           
+            case "$ANS" in
+                *...Back)       ./rofi-mainmenu ;;
+                *Pavucontrol) 	pavucontrol-qt ;;
+                *Goldfinch)    	goldfinch ;;
+                *VLC)  			/usr/bin/vlc ;;
+                *PulseEffects)  pulseeffects
+            esac 
+           
+exit 0

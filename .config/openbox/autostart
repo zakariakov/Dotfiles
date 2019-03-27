@@ -1,0 +1,67 @@
+#
+# These things are run when an Openbox X Session is started.
+# You may place a similar script in $HOME/.config/openbox/autostart
+# to run user-specific things.
+#
+
+# If you want to use GNOME config tools...
+#
+#if test -x /usr/lib/openbox/gnome-settings-daemon >/dev/null; then
+#  /usr/lib/openbox/gnome-settings-daemon &
+#elif which gnome-settings-daemon >/dev/null 2>&1; then
+#  gnome-settings-daemon &
+#fi
+
+# If you want to use XFCE config tools...
+#
+#xfce-mcs-manager &
+
+# /usr/lib/mate-polkit/polkit-mate-authentication-agent-1 &
+/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+/usr/lib/notification-daemon-1.0/notification-daemon &
+################# KEYMAP ####################
+ #setxkbmap -option grp:alt_shift_toggle fr,ar &
+
+################# Touch Pad ####################
+#setxkbmap -option terminate:ctrl_alt_bksp &
+ synclient TapButton1=1 TapButton2=3 TapButton3=2  &
+
+################# COMPOSITING ###############
+ compton &
+#xcompmgr -c   &
+
+################# WALLpaper #################
+nitrogen --restore &
+ #/home/yahia/.fehbg &
+################# PANELS ####################
+ tint2 &
+ #plank &
+
+################# SYS TRAY ##################
+ #pamac-tray &
+  #nm-applet &
+ connman-gtk &
+ #mate-volume-control-applet &
+cbatticon &
+volumeicon &
+
+################# SCREENSAVER ##################
+xscreensaver -no-splash &
+
+####################  CONKY #################
+#sh "/home/yahia/.config/openbox/conky-startup.sh" &
+ #sleep 5s
+ #killall conky &
+# sh $HOME/.config/conky/start-conkybox-sh &
+sh "/home/yahia/.conky/conky-startup.sh" &
+################## GAME ########################
+# oneko -fg green -bg black -tofocus -position +30+10 &
+# sleep 5s
+# oneko-restore-cursor &
+
+
+setxkbmap -option grp:alt_shift_toggle fr,ar  -option terminate:ctrl_alt_bksp &
+
+ sleep 5s
+ 
+gxkb &

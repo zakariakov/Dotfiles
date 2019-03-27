@@ -212,6 +212,7 @@ function initialize_globals() {
   for output in $(grep ' connected' <<< "${XRANDR_TXT}" | cut -d ' ' -f 1); do
     OUTPUT_CONFIGURED[${output}]='false'
   done
+  ~/.fehbg
 }
 
 initialize_globals

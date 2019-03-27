@@ -1,0 +1,81 @@
+--[[
+
+# Conky settings #
+
+]]
+conky.config = {
+
+	background=false,
+	update_interval= 1,
+
+	cpu_avg_samples= 2,
+	net_avg_samples= 2,
+
+	override_utf8_locale= true,
+
+	double_buffer= true,
+	no_buffers=true,
+
+	text_buffer_size= 2048,
+
+
+	temperature_unit= celsius,
+
+--------------------------------------
+-- Window specifications ---
+--------------------------------------
+	own_window =true,
+	own_window_type ='normal',
+	own_window_transparent =false,
+	own_window_hints= 'undecorated,below,skip_taskbar,skip_pager,sticky',
+
+        -- own_window_colour gray--
+
+	own_window_class= 'Conky',
+	own_window_title= 'Chronograph',
+	own_window_argb_value =0,
+	own_window_argb_visual=true,
+	own_window_colour ='#000000',
+
+	border_inner_margin =0,
+	border_outer_margin =1,
+
+	alignment ='top_left',
+
+-- Graphics settings ---
+	draw_shades =false,
+	draw_outline =false,
+	draw_borders =false,
+	draw_graph_borders= true,
+
+-- Text settings ---
+use_xft =true,
+override_utf8_locale =true,
+xftfont= 'Ubuntu:normal:size=8',
+xftalpha =1.0,
+uppercase =false,
+
+minimum_width = 300, minimum_height = 320,
+gap_x =35,
+gap_y =35,
+imlib_cache_size= 0,
+color1='#A9B165',
+color2='#7B9274',
+color3='#876C8E',
+};
+
+conky.text = [[
+${goto 10}${color1}${font Neuropolitical:size=40}${time %H : %M} ${font}${color}
+${goto 30}${color3}${voffset -20}${font  Janda Cheerful Script:pixelsize=58}${execi 300 LANG=${template1} date +"%A"}${font}${color}
+${color1}${font Ubuntu:pixelsize=42}${alignr}${time %d}${color2}${font Ubuntu:pixelsize=22} ${execi 300 LANG=${template1} date +"%B"} ${alignr}${time %Y}${font}
+#---------------------- HD MEM CPU ----------------------
+${voffset 10}${font Ubuntu:pixelsize=12}${color2}HD ${offset 5}${color1}${fs_free /home} / ${fs_size /}${alignr} ${color2}RAM ${color1}$mem / $memmax
+${voffset 5}${color2}CPU ${offset 5}${color1}${cpu cpu}%
+${voffset 5}${color2}Top ${color1}${top name 1}${top cpu 1}%
+${image ~/.cache/wttr.png -p 0,210 }
+
+#---------------------- WTTR.IN--------------------
+#${texeci 1800 curl wttr.in/algiers_0tqp_lang=fr.png | convert - -transparent black ~/.cache/wttr1.png}
+${texeci 1800 wget wttr.in/algiers_0tqp_lang=fr.png -O ~/.cache/wttr.png}
+
+]]

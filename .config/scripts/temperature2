@@ -51,31 +51,28 @@ while (<SENSORS>) {
         last;
     }
 }
-
 close(SENSORS);
 
 $temperature eq -9999 and die 'Cannot find temperature';
 
 if($temperature<45){
-
-	print "   $temperature "
-
+	print "🌡 $temperature°C\n" ;
+#		print " 🌡  $temperature|  color=#00ffff font=Neuropolitical size=10  "
 }elsif($temperature<55){
-
-	print "   $temperature  "
-       
+	print "🌡 $temperature°C\n" ;
+#		print " 🌡  $temperature|  color=#00ffff font=Neuropolitical size=10  "
 }elsif($temperature<65){
-
-	print "  $temperature "
-  
+	print "🌡 $temperature°C\n" ;
+#	print " 🌡 $temperature|  color=#ff5500 font=Neuropolitical size=10  "
 }elsif($temperature<80){
+#print "<span style=' color:#ff0000;'> 🌡  </span>$temperature°C\n" ;
+	print "    $temperature°C\n" ;
 	
-    print "  $temperature "
-
+#print " 🌡 $temperature|  color=#ff0000 font=Neuropolitical size=10 "
 }else{
-
-    print "  $temperature"
-
+	print "    $temperature°C\n" ;
+	
+#print " 🌡 $temperature|  color=#ff0000 font=Neuropolitical size=10 "
 }
 
 

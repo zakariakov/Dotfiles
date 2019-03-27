@@ -100,6 +100,7 @@ while getopts ":hvqwcbrRlsfixm" opt; do
              ;;
         x) 
              ~/.config/rofi/rofi-randr  
+              ~/.fehbg
              ;;     
          m) 
              ~/.config/rofi/mainmenu/rofi-mainmenu

@@ -38,16 +38,14 @@ SCONTROL="${BLOCK_INSTANCE:-$(amixer -D $MIXER scontrols |
 # The first parameter sets the step to change the volume by (and units to display)
 # This may be in in % or dB (eg. 5% or 3dB)
 STEP="${1:-5%}"
-
 #------------------------------------------------------------------------
-
 capability() { # Return "Capture" if the device is a capture device
   amixer -D $MIXER get $SCONTROL |
     sed -n "s/  Capabilities:.*cvolume.*/Capture/p"
 }
 
-volume() { $
- amixer -D $MIXER getSCONTROL $(capability)
+volume() { 
+ amixer -D $MIXER get $SCONTROL $(capability)
 
 }
 

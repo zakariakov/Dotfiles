@@ -1,6 +1,6 @@
 #! /bin/sh
 
-blockdate=$(date '+%H:%M')
+blockdate=$(date '+%H:%M|%d/%m/%y')
 
 case "$BLOCK_BUTTON" in
     1|2|3) 

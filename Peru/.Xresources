@@ -31,6 +31,30 @@
 *.color7:      #A8B991
 *.color15:     #DEF4C0
 
+! ===== urxvt =====
+
+URxvt*scrollBar:         false
+URxvt*scrollBar_right:   false
+URxvt*scrollBar_left:   false
+URxvt*transparent:       false
+URxvt*shading:       30
+
+!URxvt.font: xft:Droid Sans Mono for Powerline Plus Nerd File Types Mono:size=9
+
+URxvt.font:xft:DroidSansMono Nerd Font:bold:size=9
+URxvt.letterSpace: 0
+URxvt.internalBorder: 5
+*antialias:  true
+*autohint:   true
+
+URxvt.perl-ext:
+URxvt.perl-ext-common:
+
+!URxvt.perl-ext-common: ...,tabbed,...
+!URxvt.tabbed.tabbar-fg: 2
+!URxvt.tabbed.tabbar-bg: 0
+!URxvt.tabbed.tab-fg: 3
+!URxvt.tabbed.tab-bg: 2
 ! font
 xterm*faceName: Inconsolata:size=12:antialias=true
 xterm*font: 7x13

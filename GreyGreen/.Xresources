@@ -5,45 +5,66 @@
 ##### merge with the current settings
 ##### $ xrdb -merge ~/.Xresources
 
-Xcursor.theme: Breeze-Adapta
+Xcursor.theme: Breeze
 Xcursor.size: 16
 
 ! COLOR PALETTE HERE !
-! special colors
-*.foreground:   #8793A3
-*.background:   #131822
+! special
 
-*.color0:       #131822
-*.color8:       #626975
-*.color1:       #7b8ba3
-*.color9:       #EE6356
-*.color2:       #657893
-*.color10:      #6AA35D
-*.color3:       #4e6584
-*.color11:      #B4AE44
-*.color4:       #233f66
-*.color12:      #416EB5
-*.color5:       #1c3251
-*.color13:      #964290
-*.color6:       #15253d
-*.color14:      #70BABB
-*.color7:       #aab0bc
-*.color15:      #CED0D1
+*background:  #1D1F21
+*foreground:  #c5c8c6
+*cursorColor:  #93a1a1
+
+!: black
+*color0: #282a2e
+*color8: #373b41
+
+! red
+*color1: #a54242
+*color9: #cc6666
+
+! green
+*color2: #5f819d
+*color10: #81a2be
+
+! yellow
+*color3: #d4de61
+*color11: #f0c674
+
+! blue
+*color4: #8c9440
+*color12: #b5bd68
+
+! magentals
+*color5: #85678f
+*color13: #b294bb
+
+! cyan
+*color6: #5e8d87
+*color14: #8abeb7
+
+! white
+*color7: #707880
+*color15: #c5c8c6
+
 
 ! font
-xterm*faceName: xft:Inconsolata:size=12:antialias=true 
+xterm*faceName: xft:Inconsolata-dz for Powerline:size=12:antialias=true 
 !xterm*font:     -misc-fixed-medium-r-normal--18-120-100-100-c-90-iso10646-1
 !xterm*wideFont: -misc-fixed-medium-r-normal-ja-18-120-100-100-c-180-iso10646-1
 ! ------------------------------------------------------------------------------
+! Font configuration
+! ------------------------------------------------------------------------------
+
 ! ===== urxvt =====
 
 URxvt*scrollBar:         false
 URxvt*scrollBar_right:   false
-URxvt*scrollBar_left:   false
-URxvt*transparent:       false
+
+URxvt*transparent:       true
 URxvt*shading:       30
 
-!URxvt.font: xft:Droid Sans Mono for Powerline Plus Nerd File Types Mono:size=9
+!URxvt.font: xft:Droid Sans Mono for Powerline Plus Nerd File Types Mono:size=10
 
 URxvt.font:xft:DroidSansMono Nerd Font:bold:size=9
 URxvt.letterSpace: 0
@@ -58,7 +79,10 @@ URxvt.perl-ext-common:
 !URxvt.tabbed.tabbar-fg: 2
 !URxvt.tabbed.tabbar-bg: 0
 !URxvt.tabbed.tab-fg: 3
-!URxvt.tabbed.tab-bg: 2 ------------------------------------------------------------------------------
+!URxvt.tabbed.tab-bg: 2
+
+
+! ------------------------------------------------------------------------------
 ! Xft Font Configuration
 ! ------------------------------------------------------------------------------
 
@@ -72,22 +96,24 @@ Xft.rgba: rgb
 
 ! ROFI SETUP HERE !
 rofi.color-enabled: true
-!               			   bg     		  border   separator
-rofi.color-window: #131822, #233f66, #233f66
+!                  bg       border   separator
 
-!                              bg      	 fg       			bg-alt   	hl-bg  		  hl-fg
-rofi.color-normal: #131822, #aab0bc, #131822, #131822, #233f66
-rofi.color-active:   #131822, #aab0bc, #131822, #131822, #233f66
-rofi.color-urgent:   #E32608, #233f66, #E32608, #E32608, #aab0bc
+rofi.color-window: #1D1F21, #8c9440, #b5bd68
+
+!                  bg       fg       bg-alt   hl-bg    hl-fg
+rofi.color-normal: #1D1F21, #c5c8c6, #1D1F21, #8c9440, #1D1F21
+rofi.color-active: #1D1F21, #c5c8c6, #1D1F21, #8c9440, #1D1F21
+rofi.color-urgent: #FF2C00, #c5c8c6, #FF2C00, #8c9440, #0F1D28
 
 rofi.separator-style: solid
 rofi.sidebar-mode: false
 rofi.lines: 9
-rofi.font: monofur 13
+rofi.font: Hack Regular 11
 rofi.bw: 1
 rofi.columns: 2
 rofi.padding: 5
 rofi.fixed-num-lines: true
 rofi.hide-scrollbar: true
 rofi.line-margin: 10
+
 

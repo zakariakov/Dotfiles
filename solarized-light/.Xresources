@@ -5,41 +5,46 @@
 ##### merge with the current settings
 ##### $ xrdb -merge ~/.Xresources
 
-Xcursor.theme: Breeze-Adapta
+Xcursor.theme: Breeze
 Xcursor.size: 16
 
 ! COLOR PALETTE HERE !
-! special colors
-*.foreground:   #8793A3
-*.background:   #131822
+! special
 
-*.color0:       #131822
-*.color8:       #626975
-*.color1:       #7b8ba3
-*.color9:       #EE6356
-*.color2:       #657893
-*.color10:      #6AA35D
-*.color3:       #4e6584
-*.color11:      #B4AE44
-*.color4:       #233f66
-*.color12:      #416EB5
-*.color5:       #1c3251
-*.color13:      #964290
-*.color6:       #15253d
-*.color14:      #70BABB
-*.color7:       #aab0bc
-*.color15:      #CED0D1
+*.cursorColor:  #93a1a1
+*background:  #eee8d5
+*foreground:  #657b83
+*color0:  #eee8d5
+*color1:  #dc322f
+*color2:  #859900
+*color3:  #b58900
+*color4:  #268bd2
+*color5:  #d33682
+*color6:  #2aa198
+*color7:  #84a4af
+*color8:  #fdf6e3
+*color9:  #f26a66
+*color10:  #9aa93a
+*color11:  #c6a12e
+*color12:  #4eabe6
+*color13:  #ce6a9b
+*color14:  #55b4ad
+*color15:  #f0f0ee
+
 
 ! font
-xterm*faceName: xft:Inconsolata:size=12:antialias=true 
+xterm*faceName: xft:Inconsolata-dz for Powerline:size=12:antialias=true 
 !xterm*font:     -misc-fixed-medium-r-normal--18-120-100-100-c-90-iso10646-1
 !xterm*wideFont: -misc-fixed-medium-r-normal-ja-18-120-100-100-c-180-iso10646-1
 ! ------------------------------------------------------------------------------
+! Font configuration
+! ------------------------------------------------------------------------------
+
 ! ===== urxvt =====
 
 URxvt*scrollBar:         false
 URxvt*scrollBar_right:   false
-URxvt*scrollBar_left:   false
+
 URxvt*transparent:       false
 URxvt*shading:       30
 
@@ -58,7 +63,10 @@ URxvt.perl-ext-common:
 !URxvt.tabbed.tabbar-fg: 2
 !URxvt.tabbed.tabbar-bg: 0
 !URxvt.tabbed.tab-fg: 3
-!URxvt.tabbed.tab-bg: 2 ------------------------------------------------------------------------------
+!URxvt.tabbed.tab-bg: 2
+
+
+! ------------------------------------------------------------------------------
 ! Xft Font Configuration
 ! ------------------------------------------------------------------------------
 
@@ -72,18 +80,20 @@ Xft.rgba: rgb
 
 ! ROFI SETUP HERE !
 rofi.color-enabled: true
-!               			   bg     		  border   separator
-rofi.color-window: #131822, #233f66, #233f66
+!                   bg       border   separator
+rofi.color-window: #eee8d5, #c6a12e, #859900
 
-!                              bg      	 fg       			bg-alt   	hl-bg  		  hl-fg
-rofi.color-normal: #131822, #aab0bc, #131822, #131822, #233f66
-rofi.color-active:   #131822, #aab0bc, #131822, #131822, #233f66
-rofi.color-urgent:   #E32608, #233f66, #E32608, #E32608, #aab0bc
+
+!                  bg       fg       bg-alt   hl-bg    hl-fg
+rofi.color-normal: #eee8d5, #586e75, #eee8d5, #eee8d5, #268BD2
+rofi.color-active: #eee8d5, #586e75, #eee8d5, #0055ff, #fff
+rofi.color-urgent: #268BD2, #586e75, #268BD2, #268BD2, #05333e
+
 
 rofi.separator-style: solid
 rofi.sidebar-mode: false
 rofi.lines: 9
-rofi.font: monofur 13
+rofi.font: Hack Regular 11
 rofi.bw: 1
 rofi.columns: 2
 rofi.padding: 5

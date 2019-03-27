@@ -37,15 +37,30 @@ xterm*faceName: xft:Inconsolata:size=12:antialias=true
 !xterm*font:     -misc-fixed-medium-r-normal--18-120-100-100-c-90-iso10646-1
 !xterm*wideFont: -misc-fixed-medium-r-normal-ja-18-120-100-100-c-180-iso10646-1
 ! ------------------------------------------------------------------------------
-! Font configuration
-! ------------------------------------------------------------------------------
+! ===== urxvt =====
 
-!URxvt*font:				xft:M+ Ubuntu:regular:size=12
-!URxvt*boldFont:			xft:M+ Ubuntu:bold:size=12
-!URxvt*italicFont:		xft:M+ Ubuntu:italic:size=12
-!URxvt*boldItalicFont:	xft:M+ Ubuntu:bold italic:size= 12
+URxvt*scrollBar:         false
+URxvt*scrollBar_right:   false
+URxvt*scrollBar_left:   false
+URxvt*transparent:       false
+URxvt*shading:       30
 
-! ------------------------------------------------------------------------------
+!URxvt.font: xft:Droid Sans Mono for Powerline Plus Nerd File Types Mono:size=9
+
+URxvt.font:xft:DroidSansMono Nerd Font:bold:size=9
+URxvt.letterSpace: 0
+URxvt.internalBorder: 5
+*antialias:  true
+*autohint:   true
+
+URxvt.perl-ext:
+URxvt.perl-ext-common:
+
+!URxvt.perl-ext-common: ...,tabbed,...
+!URxvt.tabbed.tabbar-fg: 2
+!URxvt.tabbed.tabbar-bg: 0
+!URxvt.tabbed.tab-fg: 3
+!URxvt.tabbed.tab-bg: 2 ------------------------------------------------------------------------------
 ! Xft Font Configuration
 ! ------------------------------------------------------------------------------
 

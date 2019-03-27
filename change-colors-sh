@@ -75,8 +75,12 @@ function set_config(){
      sed -i "s/^\($1\s*=\s*\).*\$/\1$2/" "$3"
 }
 
-  function set_config_conky(){
+function set_config_conky(){
      sed -i "s/^\($1\s*=\s*\).*\$/\1'$2',/" "$3"
+}
+
+function set_config_i3power(){
+     sed -i "s/^\($1\s*=\s*\).*\$/\1'$2'/" "$3"
 }
 
 function set_msg(){
@@ -84,9 +88,9 @@ function set_msg(){
 	COLORED="\e[1;33m"
 	NORMAL="\e[1;0m"
 	
-	printf "${COLORED}------------------------------------------------------------------------------${NORMAL}\n"
+	printf "${COLORED}------------------------------------------------${NORMAL}\n"
 	printf "${BOLD}	$1${NORMAL}\n"
-	printf "${COLORED}------------------------------------------------------------------------------${NORMAL}\n"
+	printf "${COLORED}------------------------------------------------${NORMAL}\n"
 	
 }
 
@@ -103,24 +107,23 @@ function termite_config(){
 	    set_msg "$TERMITEFILE   no found."
 	else
 		set_msg "Termite Colors scheme..."
-		echo "[+] copy $TERMITEFILE $HOME/.config/termite/config-back"
+
+		echo "[+] copy config config-back"
 		 cp $TERMITEFILE "$HOME/.config/termite/config-back"
 		 
-		 XCOLOR=$( xrdb -query | egrep -m1 "^\*\.?background:" |  cut -d ":" -f 2-)
-		 echo "[+] background =" $XCOLOR
-		 set_config "background"  $XCOLOR  "$TERMITEFILE"
 		 
-		 XCOLOR=$( xrdb -query | egrep -m1 "^\*\.?foreground:" |  cut -d ":" -f 2-)
-		  set_config "foreground"  $XCOLOR  "$TERMITEFILE"
-		 echo "[+] foreground =" $XCOLOR
+		 set_config "background"  $XCOLORBG  "$TERMITEFILE"
 		 
+		 set_config "foreground"  $XCOLORFG  "$TERMITEFILE"
+				 
 		 for ((  i = 0 ;  i <= 15;  i++  ))
 		 do
 			XCOLOR=$( xrdb -query | egrep -m1 "^\*\.?color$i:" |  cut -d ":" -f 2-)
 			set_config "color$i"  $XCOLOR  "$TERMITEFILE"
-			echo "[+] fcolor$i =" $XCOLOR
-			
+		
 		 done
+
+		 echo "[+] termite Colors Scheme genirated"
 	fi
 }
 
@@ -134,27 +137,31 @@ function elokab_config(){
 	else
 		set_msg "Elokab-terminl Colors Scheme ..."
 		
-		echo "[+] copy $ELOKABFILE $HOME/.config/elokab/elokab-terminal.conf-back"
+		echo "[+] copy elokab-terminal.conf elokab-terminal.conf-back"
 		cp $ELOKABFILE "$HOME/.config/elokab/elokab-terminal.conf-back"
 		 
-		 XCOLOR=$( xrdb -query | egrep -m1 "^\*\.?background:" |  cut -d ":" -f 2-)
-		 echo "[+] background =" $XCOLOR
-		 #sed -i -e"/background/c background=$XCOLOR" $ELOKABFILE
-		  set_config "background"  $XCOLOR  "$ELOKABFILE"
-		  
-		 XCOLOR=$( xrdb -query | egrep -m1 "^\*\.?foreground:" |  cut -d ":" -f 2-)
-		 #sed -i -e"/foreground/c foreground=$XCOLOR" $ELOKABFILE
-		  set_config "foreground"  $XCOLOR  "$ELOKABFILE"
-		 echo "[+] foreground =" $XCOLOR
-		 
-		 for ((  i = 0 ;  i <= 15;  i++  ))
-		 do
-			XCOLOR=$( xrdb -query | egrep -m1 "^\*\.?color$i:" |  cut -d ":" -f 2-)
-	          #sed -i -e"/color$i=/c color$i=$XCOLOR" $ELOKABFILE
-			  set_config "color$i"  $XCOLOR  "$ELOKABFILE"
-			echo "[+] color$i =" $XCOLOR
-			
-		 done
+		
+		 set_config "background"  $XCOLORBG  "$ELOKABFILE"
+		 set_config "foreground"  $XCOLORFG  "$ELOKABFILE"
+
+		 set_config "color0"  $XCOLOR0  "$ELOKABFILE"
+		 set_config "color1"  $XCOLOR1  "$ELOKABFILE"
+		 set_config "color2"  $XCOLOR2  "$ELOKABFILE"
+		 set_config "color3"  $XCOLOR3  "$ELOKABFILE"
+		 set_config "color4"  $XCOLOR4  "$ELOKABFILE"
+		 set_config "color5"  $XCOLOR5  "$ELOKABFILE"
+		 set_config "color6"  $XCOLOR6  "$ELOKABFILE"
+		 set_config "color7"  $XCOLOR7  "$ELOKABFILE"
+		 set_config "color8"  $XCOLOR8  "$ELOKABFILE"
+		 set_config "color9"  $XCOLOR9  "$ELOKABFILE"
+		 set_config "color10"  $XCOLOR10  "$ELOKABFILE"
+		 set_config "color11"  $XCOLOR11  "$ELOKABFILE"
+		 set_config "color12"  $XCOLOR12  "$ELOKABFILE"
+		 set_config "color13"  $XCOLOR13  "$ELOKABFILE"
+		 set_config "color14"  $XCOLOR14  "$ELOKABFILE"
+		 set_config "color15"  $XCOLOR15  "$ELOKABFILE"
+
+		echo "[+] elokab-terminal Colors Scheme genirated"
 	fi
  
 }
@@ -170,26 +177,22 @@ function mlterm_config(){
 	else
 		set_msg "mlterm Colors Scheme ..."
 		
-		echo "[+] copy $MLTERMFILE $HOME/.mlterm/color-back"
+		echo "[+] copy color color-back"
 		cp $MLTERMFILE "$HOME/.mlterm/color-back"
-		echo "[+] copy $MLTERMMAINFILE $HOME/.mlterm/main-back"
+		echo "[+] copy main main-back"
 		cp $MLTERMMAINFILE "$HOME/.mlterm/main-back"
 		 
-		 XCOLOR=$( xrdb -query | egrep -m1 "^\*\.?background:" |  cut -d ":" -f 2-)
-		 echo "[+] bg_color =" $XCOLOR
-		 set_config "bg_color"  $XCOLOR  "$MLTERMMAINFILE"
-		  
-		 XCOLOR=$( xrdb -query | egrep -m1 "^\*\.?foreground:" |  cut -d ":" -f 2-)
-		 set_config "fg_color"  $XCOLOR  "$MLTERMMAINFILE"
-		 echo "[+] fg_color =" $XCOLOR
 		 
+		 set_config "bg_color"  $XCOLORBG  "$MLTERMMAINFILE"
+		 set_config "fg_color"  $XCOLORFG  "$MLTERMMAINFILE"
+	
+		
 		 for ((  i = 0 ;  i <= 15;  i++  ))
 		 do
 			XCOLOR=$( xrdb -query | egrep -m1 "^\*\.?color$i:" |  cut -d ":" -f 2-)
-	          set_config "$i"  $XCOLOR  "$MLTERMFILE"
-			  echo "[+] $i =" $XCOLOR
-			
+	          set_config "$i"  $XCOLOR  "$MLTERMFILE"		
 		 done
+		 	echo "[+] mlterm Colors Scheme genirated"
 	fi
  
 }
@@ -201,10 +204,11 @@ function gtktheme_config(){
 	if [[ -f $THEMEFILE ]]; then
 		set_msg " creating gtk theme ..."
 		THEMNAME=$(cat "$THEMEFILE" | grep "gtk-theme-name"| cut -d "=" -f 2-)
+		WAllTILED=$(cat "$THEMEFILE" | grep "wallteled"| cut -d "=" -f 2-)
 		
 		 echo "[+] Theme name=" $THEMNAME
 		 
-		 if [[ -f "$HOME/.gtkrc-2.0" ]]; then
+		if [[ -f "$HOME/.gtkrc-2.0" ]]; then
 			echo  "[+] $HOME/.gtkrc-2.0"
 			set_config "gtk-theme-name"  "\"$THEMNAME\""  "$HOME/.gtkrc-2.0"
 		fi
@@ -215,12 +219,13 @@ function gtktheme_config(){
 		fi
 		
 		 WAL="wal"
-			if [ "$THEMNAME" == "$WAL" ]; then
+		if [ "$THEMNAME" == "$WAL" ]; then
 			    echo "[+] generating gtk theme wal..."
 				"$ROOT/scripts/gtk-theme/change_color.sh" -o "wal" "$COLORDIR/gtk-color"
-			 fi
+		fi
 	
-		  
+		  cp $HOME/.config/gtk-3.0/settings.ini  $HOME/.config/gtk-3.0/settings.ini-i3
+		  cp $HOME/.gtkrc-2.0 $HOME/.gtkrc-2.0-i3
 	fi
 
 }
@@ -233,10 +238,11 @@ function iconstheme_config(){
 		  set_msg " creating icons themes..."
 		  
 			ICONNAME=$(cat "$THEMEFILE" | grep "gtk-icon-theme-name"| cut -d "=" -f 2-)
+		WAllTILED=$(cat "$THEMEFILE" | grep "wallteled"| cut -d "=" -f 2-)
 		
 			 echo "[+] Icon theme=" $ICONNAME
 		 
-		 if [[ -f "$HOME/.gtkrc-2.0" ]]; then
+		if [[ -f "$HOME/.gtkrc-2.0" ]]; then
 			echo  "[+] $HOME/.gtkrc-2.0"
 			set_config "gtk-icon-theme-name"  "\"$ICONNAME\""  "$HOME/.gtkrc-2.0"
 		fi
@@ -247,10 +253,10 @@ function iconstheme_config(){
 		fi
 		
 		 
-		  if [[ -f "$HOME/.config/qt5ct/qt5ct.conf" ]]; then
+		if [[ -f "$HOME/.config/qt5ct/qt5ct.conf" ]]; then
 			  echo  "[+] $HOME/.config/qt5ct/qt5ct.conf"
 			  set_config "icon_theme"  $ICONNAME  "$HOME/.config/qt5ct/qt5ct.conf"
-		  fi
+		fi
 		  
 		
 		WAL="wal"
@@ -258,7 +264,7 @@ function iconstheme_config(){
 		  if [ "$ICONNAME" == "$WAL"  ]; then
 		    echo  "[+] generating icons themes wal..."
 		    COLORNAME=$(cat "$THEMEFILE" | grep "color-name"| cut -d "=" -f 2-)
-			"$ROOT/scripts/archdroid-icon-theme/change_color.sh" -o "wal" -c $COLORNAME
+			  "$ROOT/scripts/archdroid-icon-theme/change_color.sh" -o "wal" -c $COLORNAME
 		  fi
 		  
 	fi
@@ -274,26 +280,101 @@ function tint2_config(){
 
 #[6---------------------------------------------------------------------------------------------------------------
 function conky_config(){
-   	 set_msg "Conky Colors"
-    CONKYFILE=$HOME/.config/conky/conkyrc
-    
-	XCOLOR1=$( xrdb -query | egrep -m1 "^\*\.?foreground:" |  cut -d ":" -f 2-)
-	set_config_conky "color1"  $XCOLOR1  "$CONKYFILE"
-	echo "[+] color1 =" $XCOLOR1
-	
-	XCOLOR2=$( xrdb -query | egrep -m1 "^\*\.?color11" |  cut -d ":" -f 2-)
-	set_config_conky "color2"  $XCOLOR2  "$CONKYFILE"
-	echo "[+] color2 =" $XCOLOR2
-	
-	XCOLOR3=$( xrdb -query | egrep -m1 "^\*\.?color12:" |  cut -d ":" -f 2-)
-	set_config_conky "color3"  $XCOLOR3  "$CONKYFILE"
-	echo "[+] color3 =" $XCOLOR3
+  set_msg "Conky Colors"
+  CONKYFILE=$HOME/.config/conky/conkyrc
+
+ 	set_config_conky "color1"  $XCOLORFG  "$CONKYFILE"
+	set_config_conky "color2"  $XCOLOR11  "$CONKYFILE"
+	set_config_conky "color3"  $XCOLOR12  "$CONKYFILE"
+	#echo "[+] color3 =" $XCOLOR3
 
   
 }
 
+#[2]---------------------------------------------------------------------------------------------------------------
+function i3powerline_config(){
+    
+ I3POWERFILE="$HOME/.config/i3/i3powerline.conf"
+ 
+	if [[ ! -f $I3POWERFILE ]]; then
+	    set_msg "$I3POWERFILE   no found."
+	else
+		set_msg "i3powerline Colors Scheme ..."
+		
+		echo "[+] copy ../i3/i3powerline.conf ../i3/i3powerline.conf-back"
+		cp -f $I3POWERFILE "$HOME/.config/i3/i3powerline.conf-back"
+		 
+		 set_config_i3power "backColor"  $XCOLORBG  "$I3POWERFILE"
+		 set_config_i3power "forColor"   $XCOLORFG  "$I3POWERFILE"
 
-#-------------------------------------------------Generating----------------------------------------------------
+		 set_config_i3power "clockColor"  $XCOLOR7  "$I3POWERFILE"
+		 set_config_i3power "alsaColor"  $XCOLOR6  "$I3POWERFILE"
+		 set_config_i3power "bklightColor"  $XCOLOR9  "$I3POWERFILE"
+		 set_config_i3power "networkColor"  $XCOLOR10  "$I3POWERFILE"
+		 set_config_i3power "batteryColor"  $XCOLOR11  "$I3POWERFILE"
+		 set_config_i3power "tempColor"  $XCOLOR12  "$I3POWERFILE"
+		 set_config_i3power "cpuColor"  $XCOLOR13  "$I3POWERFILE"
+		 set_config_i3power "memColor"  $XCOLOR14  "$I3POWERFILE"
+		 set_config_i3power "diskColor"  $XCOLOR15  "$I3POWERFILE"
+
+	 echo "[+] i3powerline Colors Scheme genirated"
+	fi
+ 
+}
+#[2]---------------------------------------------------------------------------------------------------------------
+function py3status_config(){
+    
+ PY3STATUS="$HOME/.config/i3/py3status.conf"
+ 
+	if [[ ! -f $PY3STATUS ]]; then
+	    set_msg "$PY3STATUS   no found."
+	else
+		set_msg "py3status Colors Scheme ..."
+		
+		echo "[+] copy ..i3/py3status.conf ..i3/py3status.conf-back"
+		cp -f $PY3STATUS "$HOME/.config/i3/py3status.conf-back"
+		 
+		    # color_good =     '#33FFBD'  
+        # color_degraded = '#ccdc90'  
+        # color_prebad =   '#C45500'
+        # color_bad =      '#C40000'
+		
+		
+		  set_config_i3power "color_good"  $XCOLOR4  "$PY3STATUS"
+		  set_config_i3power "color_degraded"  $XCOLOR3  "$PY3STATUS"
+		  set_config_i3power "color_bad"  $XCOLOR1  "$PY3STATUS"
+
+			set_config_i3power "color_color0"  $XCOLOR0  "$PY3STATUS"
+			set_config_i3power "color_color1"  $XCOLOR1  "$PY3STATUS"
+			set_config_i3power "color_color2"  $XCOLOR2  "$PY3STATUS"
+			set_config_i3power "color_color3"  $XCOLOR3  "$PY3STATUS"
+			set_config_i3power "color_color4"  $XCOLOR4  "$PY3STATUS"
+			set_config_i3power "color_color5"  $XCOLOR5  "$PY3STATUS"
+			set_config_i3power "color_color6"  $XCOLOR6  "$PY3STATUS"
+			set_config_i3power "color_color7"  $XCOLOR7  "$PY3STATUS"
+			set_config_i3power "color_color8"  $XCOLOR8  "$PY3STATUS"
+			set_config_i3power "color_color9"  $XCOLOR9  "$PY3STATUS"
+			set_config_i3power "color_color10"  $XCOLOR10  "$PY3STATUS"
+			set_config_i3power "color_color11"  $XCOLOR11  "$PY3STATUS"
+			set_config_i3power "color_color12"  $XCOLOR12  "$PY3STATUS"
+			set_config_i3power "color_color13"  $XCOLOR13  "$PY3STATUS"
+			set_config_i3power "color_color14"  $XCOLOR14  "$PY3STATUS"
+			set_config_i3power "color_color15"  $XCOLOR15  "$PY3STATUS"
+		# for ((  i = 0 ;  i <= 15;  i++  ))
+		# 	do
+		# 		XCOLOR=$( xrdb -query | egrep -m1 "^\*\.?color$i:" |  cut -d ":" -f 2-)
+		# 		set_config_i3power "color_color$i"  $XCOLOR  "$PY3STATUS"
+		# 		echo "[+] color_color$i =" $XCOLOR
+				
+		# 	done
+		 echo "[+] py3status Colors Scheme genirated"
+	fi
+ 
+}
+
+#-------------------------------------------------BEGIN----------------------------------------------------
+
+#-----------------------------------------------Generating----------------------------------------------------
 
 set_msg "Color $COLORDIR found.  Generating..."
 
@@ -301,26 +382,84 @@ set_msg "Color $COLORDIR found.  Generating..."
 # 0-                                                              XRESOURCE                                                                #
 #------------------------------------------------------------------------------------------------------------------------#
 set_msg "Xresource "
-echo "[+] creating Xresource backup"
- mv $HOME/.Xresources $HOME/.Xresources-back
- sleep 1s
+	echo "[+] creating Xresource backup"
+	mv $HOME/.Xresources $HOME/.Xresources-back
+	sleep 1s
  
- echo "[+] cp $COLORDIR/.Xresources $HOME/.Xresources"
- cp -f "$COLORDIR/.Xresources" $HOME/
+	echo "[+] cp $COLORDIR/.Xresources $HOME/.Xresources"
+	cp -f "$COLORDIR/.Xresources" $HOME/
   sleep 1s
-  
-  echo "[+] xrdb -merge $HOME/.Xresources"
-  xrdb -merge $HOME/.Xresources
 
+	echo "[+] xrdb -merge $HOME/.Xresources"
+  xrdb -merge $HOME/.Xresources
+	sleep 1s
+#------------------------------------------------------------------------------------------------------------------------#
+# 0-0                                                    VARIABLES XRESOURCE                                                                #
+#------------------------------------------------------------------------------------------------------------------------#
+
+	XCOLORBG=$( xrdb -query | egrep -m1 "^\*\.?background:" |  cut -d ":" -f 2-)
+  	echo "[+] background =" $XCOLORBG
+		  
+	XCOLORFG=$( xrdb -query | egrep -m1 "^\*\.?foreground:" |  cut -d ":" -f 2-)
+		echo "[+] foreground =" $XCOLORFG
+		 
+	XCOLOR0=$( xrdb -query | egrep -m1 "^\*\.?color0:" |  cut -d ":" -f 2-)
+		echo "[+] color0 =" $XCOLOR0
+	
+	XCOLOR1=$( xrdb -query | egrep -m1 "^\*\.?color1:" |  cut -d ":" -f 2-)
+		echo "[+] color1 =" $XCOLOR1
+		 
+	XCOLOR2=$( xrdb -query | egrep -m1 "^\*\.?color2:" |  cut -d ":" -f 2-)
+		echo "[+] color2 =" $XCOLOR2
+	
+	XCOLOR3=$( xrdb -query | egrep -m1 "^\*\.?color3:" |  cut -d ":" -f 2-)
+		echo "[+] color3 =" $XCOLOR3
+
+	XCOLOR4=$( xrdb -query | egrep -m1 "^\*\.?color4:" |  cut -d ":" -f 2-)
+		echo "[+] color4 =" $XCOLOR4
+
+	XCOLOR5=$( xrdb -query | egrep -m1 "^\*\.?color5:" |  cut -d ":" -f 2-)
+		echo "[+] color5 =" $XCOLOR5
+	
+	XCOLOR6=$( xrdb -query | egrep -m1 "^\*\.?color6:" |  cut -d ":" -f 2-)
+		echo "[+] color6 =" $XCOLOR6
+
+	XCOLOR7=$( xrdb -query | egrep -m1 "^\*\.?color7:" |  cut -d ":" -f 2-)
+		echo "[+] color7 =" $XCOLOR7
+
+	XCOLOR8=$( xrdb -query | egrep -m1 "^\*\.?color8:" |  cut -d ":" -f 2-)
+		echo "[+] color8 =" $XCOLOR8
+
+	XCOLOR9=$( xrdb -query | egrep -m1 "^\*\.?color9:" |  cut -d ":" -f 2-)
+		echo "[+] color9 =" $XCOLOR9
+
+	XCOLOR10=$( xrdb -query | egrep -m1 "^\*\.?color10:" |  cut -d ":" -f 2-)
+		echo "[+] color10 =" $XCOLOR10
+
+	XCOLOR11=$( xrdb -query | egrep -m1 "^\*\.?color11:" |  cut -d ":" -f 2-)
+		echo "[+] color11 =" $XCOLOR11
+		 
+	XCOLOR12=$( xrdb -query | egrep -m1 "^\*\.?color12:" |  cut -d ":" -f 2-)
+		echo "[+] color12 =" $XCOLOR12
+	
+	XCOLOR13=$( xrdb -query | egrep -m1 "^\*\.?color13:" |  cut -d ":" -f 2-)
+		echo "[+] color13 =" $XCOLOR13
+
+	XCOLOR14=$( xrdb -query | egrep -m1 "^\*\.?color14:" |  cut -d ":" -f 2-)
+		echo "[+] color14 =" $XCOLOR14
+
+	XCOLOR15=$( xrdb -query | egrep -m1 "^\*\.?color15:" |  cut -d ":" -f 2-)
+		echo "[+] color15 =" $XCOLOR15
+	
 #------------------------------------------------------------------------------------------------------------------------#
 # 1-                                                  Termite colors                                                          #
 #------------------------------------------------------------------------------------------------------------------------#
+	if [[ -n "$SKIPTERMITE" ]];then
+  	set_msg "skiping termite !"
+	else
+		termite_config
+	fi
 
-if [[ -n "$SKIPTERMITE" ]];then
-   set_msg "skiping termite !"
-else
-	termite_config
-fi
 
 #------------------------------------------------------------------------------------------------------------------------#
 # 2-                                                   elokab-terminal colors                                                          #
@@ -331,9 +470,20 @@ fi
 		else
 			elokab_config
 		fi
+#------------------------------------------------------------------------------------------------------------------------#
+#3-                                                         i3powerline.conf                                                              #
+#------------------------------------------------------------------------------------------------------------------------#
+
+ 	i3powerline_config
 
 #------------------------------------------------------------------------------------------------------------------------#
-#3-                                                          gtk-theme                                                                        #
+#3-                                                         py3status.conf                                                              #
+#------------------------------------------------------------------------------------------------------------------------#
+
+ 	py3status_config
+
+#------------------------------------------------------------------------------------------------------------------------#
+#4-                                                          gtk-theme                                                                        #
 #------------------------------------------------------------------------------------------------------------------------#
 	    THEMEFILE="$COLORDIR/theme"
 	    
@@ -347,7 +497,7 @@ fi
 	     	  cp "$HOME/.gtkrc-2.0" "$HOME/.gtkrc-2.0-back"
 	     	  cp "$HOME/.config/gtk-3.0/settings.ini" "$HOME/.config/gtk-3.0/settings.ini-back"
 	     	  cp "$HOME/.config/qt5ct/qt5ct.conf" "$HOME/.config/qt5ct/qt5ct.conf-back"
-	  fi
+	fi
 	  
 	  #[3]Gtk-theme
 	  if [[ -n "$SKIPGTKTHEME" ]];then
@@ -381,8 +531,42 @@ fi
 		else
 			conky_config
 		fi
+
+
 #------------------------------------------------------------------------------------------------------------------------#
-#3-                                                         Apply                                                                 #
+#7-                                                         Wallpaper                                                                 #
+#------------------------------------------------------------------------------------------------------------------------#
+   Wallpaper="$COLORDIR/wall.jpg"
+		if [[ -f $Wallpaper ]]; then
+		 set_msg "walppaper"
+		  
+			cp -f $Wallpaper ~/.config/
+			
+			 tile="true"
+			if [ "$WAllTILED" == "$tile" ]; then
+				feh --bg-tile ~/.config/wall.jpg		
+			else
+				feh --bg-scale ~/.config/wall.jpg
+			fi
+			
+
+			echo  "[+]  Walppaper Changed"
+		fi
+
+#------------------------------------------------------------------------------------------------------------------------#
+#8-                                                         Zathura                                                                 #
+#------------------------------------------------------------------------------------------------------------------------#
+   ZATHURA="$COLORDIR/zathurarc"
+		if [[ -f $ZATHURA ]]; then
+			set_msg "Zathura"
+			cp -f $ZATHURA ~/.config/zathura/
+			echo  "[+]  Zathura theme Changed"
+
+		fi
+
+
+#------------------------------------------------------------------------------------------------------------------------#
+#                                                         Apply                                                                 #
 #------------------------------------------------------------------------------------------------------------------------#
 
     set_msg "Apply Colors..."
@@ -390,13 +574,13 @@ fi
    python2 "$ROOT/scripts/gtk_reload.py"
 
    SESSIONNAME=$(cat "$HOME/.dmrc" | grep "Session"| cut -d "=" -f 2-)
-   if [ "$SESSIONNAME" == "openbox"  ]; then
+  if [ "$SESSIONNAME" == "openbox"  ]; then
 		echo  "[+] openbox  --restart"
        openbox  --restart
-    else
+  else
          echo "[+]  i3-msg restart"
         i3-msg restart
-    fi   
+  fi   
 
 set_msg "Done."
 

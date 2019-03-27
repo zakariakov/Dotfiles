@@ -17,6 +17,7 @@ This script will overwrite only the needed parts from your configuration files
 
   <li> git clone https://github.com/zakariakov/Dotfiles.git</li>
   <li> cd Dotfiles</li>
+  <li> change-color-sh -h for help</li>
   <li> change-color-sh <color folder></li>
   <li> ex: change-color-sh Sky</li>
 
@@ -29,9 +30,6 @@ This script will overwrite only the needed parts from your configuration files
  <li><h2>Green-clear</h2>
     <img src="https://github.com/zakariakov/Dotfiles/blob/master/Green-clear/screenshot.png">
 
- <li><h2>Maia</h2>
-    <img src="https">
-
  <li><h2>Maroon-red</h2>
     <img src="https://github.com/zakariakov/Dotfiles/blob/master/Maroon-red/screen-shot.png">
 
@@ -43,6 +41,9 @@ This script will overwrite only the needed parts from your configuration files
  
  <li><h2>Sky</h2>
     <img src="https://github.com/zakariakov/Dotfiles/blob/master/Sky/sky-i3.jpg">
+
+  <li><h2>GreyGreen</h2>
+    <img src="https://github.com/zakariakov/Dotfiles/blob/master/GreyGreen/screenshot.jpg">
 
 </ul>
 

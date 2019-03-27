@@ -3,7 +3,7 @@
 <h1>What you might need</h1>
 <ul>
   <li> i3-wm (maybe i3-gaps in some sections) in any Linux distro you prefer</li>
-  <li> <a href="https://github.com/jaagr/polybar">Polybar</a> (for most of the themes)</li>
+  <li> <a href="https://github.com/jaagr/polybar">Polybar</a> (for most of the themes) or i3pystatus or py3status</li>
   <li> <a href="https://davedavenport.github.io/rofi/">Rofi</a> (for most of the themes)</li>
   <li> termite or elokab-terminal or urxvt </li>
   <li> Most of the GTK Themes and Icons were created using <a href="https://github.com/actionless/oomox">oomox</a></li>

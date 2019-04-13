@@ -1,86 +1,100 @@
 
 	set $mod Mod4
-
+    set $Terminal elokab-terminal
 ## title_align left|center|right
 	title_align left
 
 ## Fonts
 	#font pango: monospace Bold 10
-	#font pango: FontAwesome Bold 10
-	#font pango: Droid Arabic Kufi Bold 8
-	font pango: Inconsolata-dz for Powerline ,  10
+	#font pango: FontAwesome Bold 9
+	#font pango: Hack Regular 8
+	#font pango: Inconsolata-dz for Powerline ,  9
 	#font pango: DejaVu Sans 9
 
 ## Use Mouse+$mod to drag floating windows to their wanted position
 	floating_modifier $mod
 
 ## Configure border style <normal|1pixel|pixel xx|none|pixel>
-	new_window pixel 1
-	new_float  pixel  1
+	new_window pixel 2
+	new_float  pixel 2
 
-## Hide borders
+## Hide borders hide_edge_borders none|vertical|horizontal|both|smart
 	hide_edge_borders none
 
 ## change borders
-	bindsym $mod+u border pixel 1
+	bindsym $mod+u border pixel 2
 	bindsym $mod+y border normal
 	bindsym $mod+n border none
 	
 ## floating all window
 	#for_window [class=.*] floating enable
 ##	enable window floating Gcolor2
-	for_window [class="Nitrogen"] floating enable border normal
-	for_window [class="Lxappearance"] floating enable border normal
-	for_window [class="Pavucontrol"] floating enable border normal
-	for_window [class="pavucontrol-qt"] floating enable border normal
-    for_window [class="Connman-gtk"] floating enable border normal
-    for_window [class="Gnome-calculator"] floating enable border normal
-    for_window [class="gnome-calculator"] floating enable border normal
-	for_window [class="Gcolor2"] floating enable border normal
-	for_window [class="Gcolor3"] floating enable border normal
-	for_window [class="MPlayer"] floating enable,resize set 640 480
-	#for_window [class="xv"] floating enable
-
-	for_window [class="elokab-terminal" title="floating"] floating enable,resize set 640 480
+	for_window [class="Nitrogen"]			floating enable border normal
+	for_window [class="Lxappearance"]		floating enable border normal
+	for_window [class="Pavucontrol"]		floating enable border normal
+	for_window [class="pavucontrol-qt"]		floating enable border normal
+    for_window [class="Connman-gtk"] 		floating enable border normal
+    for_window [class="Gnome-calculator"] 	floating enable border normal
+    for_window [class="gnome-calculator"] 	floating enable border normal
+	for_window [class="Gcolor2"] 			floating enable border normal
+	for_window [class="Gcolor3"] 			floating enable border normal
+	for_window [class="MPlayer"]			floating enable,resize set 640 480
+	#for_window [class="xv"] 				floating enable
+	for_window [class="elokab-terminal" title="floating"] 	 floating enable,resize set 700 400
+	for_window [class="elokab-terminal" title="pavucontrol"] floating enable,resize set 500 300
+	
 #----------------------------------------------------------------------------------------------------------
 #                                    Apps launcher menu ex..
 #----------------------------------------------------------------------------------------------------------
-## Program launcher
-	bindsym $mod+d 					exec  rofi -show run
-	bindsym $mod+p 					exec dmenu_run
 
-## toggle compton
+# %%hotkey: rofi -show run %%
+	bindsym $mod+d 					exec  rofi -show run 
+	
+# %%hotkey: dmenu_run %%
+	bindsym $mod+p 					exec dmenu_run 
+
+# %%hotkey: toggle compton %%
 	bindsym $mod+Shift+o 			exec  ~/.local/bin/toggle-compton
 
-## Switch between open windows
+## %%hotkey: Switch between open windows  %%
 	bindsym Mod1+Tab 				exec ~/.config/rofi/rofi-sh -w
 
-## Menu
-	#bindsym $mod+m exec ~/.config/rofi/rofi-sh -r
+## %%hotkey: costum apps menu  %%
     bindsym $mod+m 					exec ~/.config/rofi/rofi-sh -m
 
-## Claculator
- bindsym $mod+c 					exec ~/.config/rofi/rofi-sh -q
+## %%hotkey: morc menu  %%   		
+    bindsym $mod+Shift+m         	exec ~/.config/rofi/morc_menu    
 
-## Font Awsom Icons
- bindsym $mod+i 					exec ~/.config/rofi/rofi-sh -i
+## %%hotkey: calculator  %%
+	bindsym $mod+c 					exec ~/.config/rofi/rofi-sh -q
 
-## shutdown
+## %%hotkey: Font Awsom Icons  %% 
+	bindsym $mod+i 					exec ~/.config/rofi/rofi-sh -i
+
+## %%hotkey: shutdown i3  %%  
 	bindsym $mod+Shift+x 			exec ~/.config/rofi/rofi-sh -s
 
-## Desplay
+## %%hotkey: Desplay i3  %%   
 	bindsym $mod+Shift+s 			exec ~/.config/rofi/rofi-sh -x
 
-## start a terminal
-   
-	bindsym $mod+Return 			exec elokab-terminal
-    bindsym $mod+Shift+Return 		exec urxvt  
-    bindsym $mod+Ctrl+Return 		exec elokab-terminal  -title floating 
-## change wallpaper nitrogen
-	#bindsym $mod+Shift+w exec ~/.config/nitrogen/wallchange-sh
-	bindsym $mod+Shift+w 			exec feh --recursive --randomize --bg-fill ~/الصور/wallpaper/*
-	bindsym $mod+Shift+b 			exec ~/.config/nitrogen/colorchange-sh
+## %%hotkey:  start  terminal  %%  
+	bindsym $mod+Return 			exec $Terminal
 
+## %%hotkey:  start  urxvt  %%  	
+    bindsym $mod+Shift+Return 		exec urxvt  
+
+## %%hotkey:  start  terminal floating %%  
+    bindsym $mod+Ctrl+Return 		exec $Terminal  -title floating 
+
+## %%hotkey:  start  ncpamixer  %%  
+	bindsym $mod+Ctrl+v 			exec $Terminal  -title 'pavucontrol' -e ncpamixer
+	
+	#bindsym $mod+Shift+w exec ~/.config/nitrogen/wallchange-sh
+## %%hotkey:  change feh wallpaper %%  	
+	bindsym $mod+Shift+w 			exec feh --recursive --randomize --bg-fill /media/Data/Pictures/wallpapers/devian/*
+	
+## %%hotkey:  chande nitrogen color end logo %%  		
+	bindsym $mod+Shift+b 			exec ~/.config/nitrogen/colorchange-sh
 
 ## Sreen brightness controls
 	bindsym XF86MonBrightnessUp 	exec xbacklight -inc 5 # increase screen brightness
@@ -91,16 +105,32 @@
 	bindsym XF86AudioLowerVolume 	exec amixer -D pulse set Master 5%- unmute
 	bindsym XF86AudioMute  			exec amixer -D pulse set Master toggle
 
-## Screenshot
+## %%hotkey:    Screenshot %%  	
 	bindsym Print 					exec scrot
-	#bindsym Print exec spectacle
 
-## Xkill cratched window
-	bindsym $mod+Shift+e 			exec xkill
+## %%hotkey:    firefox %%  
+    bindsym $mod+Ctrl+g 			exec firefox
+
+## %%hotkey:    pcmanfm %% 
+	bindsym $mod+Ctrl+f 			exec pcmanfm
+
+## %%hotkey:    code-oss %% 
+	bindsym $mod+Ctrl+d 			exec code-oss
+
+## %%hotkey:    zathura %% 
+	bindsym $mod+Ctrl+z 			exec zathura
+
+## %%hotkey:    goldfinch %% 
+	bindsym $mod+Ctrl+m				exec goldfinch
+
+## %%hotkey:    actve win invert color %% 	
+	bindsym $mod+Ctrl+i exec --no-startup-id ~/.local/bin/invertcolor.sh
 
 #----------------------------------------------------------------------------------------------------------
 #                                       I3
 #----------------------------------------------------------------------------------------------------------
+## %%hotkey:   sticky toggle %% 
+	bindsym $mod+Shift+t sticky toggle
 
 ##? button1= Left mouse button.  
 ##? button2= Middle mouse button.  
@@ -108,8 +138,12 @@
 ##? button4= Scroll wheel up.  
 ##? button5= Scroll wheel down.
 
-## kill focused window
+	bindsym $mod+F1 exec python ~/.local/bin/dmenu_hotkeys.py i3
+## %%hotkey:     kill focused window %% 
 	bindsym $mod+x kill
+
+## Xkill cratched window
+	bindsym $mod+Ctrl+e 			exec xkill
 
 ## change focus
 	bindsym $mod+j 			focus left
@@ -135,45 +169,52 @@
 	bindsym $mod+Shift+Up 		 move up
 	bindsym $mod+Shift+Right 	 move right
 
-## split in horizontal orientation
+## %%hotkey:  split in horizontal orientation %%
 	bindsym $mod+h split h
 
-## split in vertical orientation
+## %%hotkey:  split in vertical orientation %% 
 	bindsym $mod+v split v
 
-## split toggle orientation
-	bindsym $mod+t split toggle
+## %%hotkey:  split toggle orientation %% 
+#	bindsym $mod+t split toggle
 
 ## enter fullscreen mode for the focused container
 	bindsym $mod+f fullscreen toggle
 
 ##  (stacked, tabbed, toggle split)
+## %%hotkey: layout stacking %%
 	bindsym $mod+s layout stacking
+
+## %%hotkey:  layout tabbed %%
 	bindsym $mod+w layout tabbed
+
+## %%hotkey:  layout toggle split %%s
 	bindsym $mod+e layout toggle split
 
-## toggle tiling / floating
-	bindsym $mod+Shift+space floating toggle
+## %%hotkey:   toggle tiling/floating %% 
+	bindsym $mod+t floating toggle
+#	bindsym $mod+Shift+space floating toggle
 
-## change focus between tiling / floating windows
+## %%hotkey:  change focus between tiling/floating windows %% 
 	bindsym $mod+space focus mode_toggle
 
-## focus the parent container
+## %%hotkey: focus the parent container  %%
 	bindsym $mod+a focus parent
 
 ## focus the child container
 #	bindsym $mod+d focus child
 
-## reload the configuration file
+## %%hotkey:  reload the configuration file %% 
 	bindsym $mod+Shift+c reload
 
-## restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+## %%hotkey:  restart i3 inplace %%  (preserves your layout/session, can be used to upgrade i3)
 	bindsym $mod+Shift+r restart
 
 ## exit i3 (logs you out of your X session)
 #	bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 ## resize window (you can also use the mouse for that)
+	
 	mode "resize" {
 
         bindsym j resize shrink width 5 px or 5 ppt
@@ -192,6 +233,7 @@
         bindsym Escape mode "default"
 	}
 
+## %%hotkey:  resize %%
 	bindsym $mod+r mode "resize"
 
 #----------------------------------------------------------------------------------------------------------
@@ -233,140 +275,147 @@
 	bindsym $mod+Shift+9 move container to workspace $w9
 	bindsym $mod+Shift+0 move container to workspace $dw10
 
-## Open applications on specific workspaqqqces
-	 assign [class="Firefox"] $w5
+## Open applications on specific workspace
+	
 	#~ assign [class="vlc"] $w8
 	#~ assign [class="Gnome-mpv"] $w8
 	#~ assign [class="Clementine"] $w7
+	 assign [class="Firefox"] $w5
 	
-# Move the current workspace to the next output
-bindsym $mod+Ctrl+Left move workspace to output left
-bindsym $mod+Ctrl+Right move workspace to output right
+## %%hotkey:  Move the current workspace to the next output %% 
+	bindsym $mod+Ctrl+Left move workspace to output left
+## %%hotkey:  Move the current workspace to the next output %% 
+	bindsym $mod+Ctrl+Right move workspace to output right
+
 #----------------------------------------------------------------------------------------------------------
 #                                     settings for i3-Gaps:
 #----------------------------------------------------------------------------------------------------------
 
 ## Set inner/outer gaps
-	gaps inner 7
-	gaps outer 3
+	gaps inner 5
+	gaps outer 5
 
-##? Additionally, you can issue commands with the following syntax. This is useful to bind keys to changing the gap size.
-##? gaps inner|outer current|all set|plus|minus <px>
-##? gaps inner all set 10
-##? gaps outer all plus 5
+	bindsym Mod1+plus  	 gaps inner current plus 5
+	bindsym Mod1+minus 	 gaps inner current minus 5
+	bindsym Mod1+0     	 gaps inner current set 0
+	bindsym Mod1+1     	 gaps inner current set 50
 
-##? Smart gaps (gaps used if only more than one container on the workspace)
-##? smart_gaps on
+	bindsym Shift+plus   gaps outer current plus 5
+	bindsym Shift+minus  gaps outer current minus 5
+	bindsym Shift+0      gaps outer current set 0
+	bindsym Shift+1      gaps outer current set 50
 
-##? Smart borders (draw borders around container only if it is not the only container on this workspace)
-##? on|no_gaps (on=always activate and no_gaps=only activate if the gap size to the edge of the screen is 0)
-##? smart_borders on
 
-##? Press $mod+Shift+g to enter the gap mode. Choose o or i for modifying outer/inner gaps. Press one of + / - (in-/decrement for current workspace) or 0 (remove gaps for current workspace). If you also press Shift with these keys, the change will be global for all workspaces.
-	set $mode_gaps Gaps: (o) outer, (i) inner
-	set $mode_gaps_outer Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)
-	set $mode_gaps_inner Inner Gaps: +|-|0 (local), Shift + +|-|0 (global)
-	bindsym $mod+Shift+g mode "$mode_gaps"
+	# set $mode_gaps Gaps: (o) outer, (i) inner
+	# set $mode_gaps_outer Outer Gaps: +|-|0|1 (local), Shift + +|-|0 (global)
+	# set $mode_gaps_inner Inner Gaps: +|-|0|1 (local), Shift + +|-|0 (global)))))
 
-	mode "$mode_gaps" {
-	        bindsym o      mode "$mode_gaps_outer"
-	        bindsym i      mode "$mode_gaps_inner"
-	        bindsym Return mode "default"
-	        bindsym Escape mode "default"
-	}
 
-	mode "$mode_gaps_inner" {
-	        bindsym plus  gaps inner current plus 5
-	        bindsym minus  gaps inner current minus 5
-	        bindsym 0  gaps inner current set 0
+	# bindsym $mod+Shift+g mode "$mode_gaps"
 
-	        bindsym Shift+plus  gaps inner all plus 5
-	        bindsym Shift+minus gaps inner all minus 5
-	        bindsym Shift+0     gaps inner all set
+	# mode "$mode_gaps" {
+	#         bindsym o      mode "$mode_gaps_outer"
+	#         bindsym i      mode "$mode_gaps_inner"
+	#         bindsym Return mode "default"
+	#         bindsym Escape mode "default"
+	# }
 
-	        bindsym Return mode "default"
-	        bindsym Escape mode "default"
+	# mode "$mode_gaps_inner" {
+	#         bindsym plus  gaps inner current plus 5
+	#         bindsym minus  gaps inner current minus 5
+	#         bindsym 0  gaps inner current set 0
+ 	# 		bindsym 1  gaps inner current set 50
 
-	}
+	#         bindsym Shift+plus  gaps inner all plus 5
+	#         bindsym Shift+minus gaps inner all minus 5
+	#         bindsym Shift+0     gaps inner all set 0
 
-	mode "$mode_gaps_outer" {
-	        bindsym plus  gaps outer current plus 5
-	        bindsym minus gaps outer current minus 5
-	        bindsym 0     gaps outer current set 0
+	#         bindsym Return mode "default"
+	#         bindsym Escape mode "default"
 
-	        bindsym Shift+plus  gaps outer all plus 5
-	        bindsym Shift+minus gaps outer all minus 5
-	        bindsym Shift+0     gaps outer all set 0
+	# }
 
-	        bindsym Return mode "default"
-	        bindsym Escape mode "default"
-	}
+	# mode "$mode_gaps_outer" {
+	#         bindsym plus  gaps outer current plus 5
+	#         bindsym minus gaps outer current minus 5
+	#         bindsym 0     gaps outer current set 0
+	# 		bindsym 1     gaps outer current set 50
+
+	#         bindsym Shift+plus  gaps outer all plus 5
+	#         bindsym Shift+minus gaps outer all minus 5
+	#         bindsym Shift+0     gaps outer all set 0
+
+	#         bindsym Return mode "default"
+	#         bindsym Escape mode "default"
+	# }
+
+#	workspace $ws1 gaps horizontal 200
 
 #----------------------------------------------------------------------------------------------------------
 #                                  Color of window && border-
 #----------------------------------------------------------------------------------------------------------
 # Colors set
 
+    set_from_resource	$Background		background 	,#222222
+	set_from_resource	$Foreground		foreground 	,#ffffff
+	set_from_resource	$black			color0	  	,#0c0c0c
+	set_from_resource	$red			color1		,#900000
+	set_from_resource	$green			color2      ,#237965
+	set_from_resource	$yellow			color3		,#d4de61
+	set_from_resource	$blue			color4		,#285577
+	set_from_resource	$magenta		color5		,#85678f
+	set_from_resource	$cyan			color6		,#2e9ef4
+	set_from_resource	$white			color7		,#c5c8c6
+	set					$Urgent			#FF2D00
 
-    set_from_resource	$Background		background
-	set_from_resource	$Foreground		foreground
-	set_from_resource	$black			color0
-	set_from_resource	$red			color1
-	set_from_resource	$green			color2
-	set_from_resource	$yellow			color3
-	set_from_resource	$blue			color4
-	set_from_resource	$magenta		color5
-	set_from_resource	$cyan			color6
-	set_from_resource	$white			color7
-
-	set					$Urgent					#FF2D00
-   
-
-
-# class                 border  backgr. text    indicator child_border
+## DEFAULT COLORS 
+# class                 border    backgr. text    indicator child_border
 # client.focused          #4c7899 #285577 #ffffff #2e9ef4   #285577
 # client.focused_inactive #333333 #5f676a #ffffff #484e50   #5f676a
 # client.unfocused        #333333 #222222 #888888 #292d2e   #222222
 # client.urgent           #2f343a #900000 #ffffff #900000   #900000
 # client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
-
 # client.background       #ffffff
 
-
-
 ## class						border			backgr		    text 			indicator		child_border
-	client.focused				$yellow			$yellow			$Background		$green			$yellow
-	client.focused_inactive		$black	        $black 			$foreground		$black		  	$black
-	client.unfocused			$black			$black			$foreground		$black			$black
-	client.urgent				$Urgent			$Urgent			$white			$Urgent			$Urgent
-	client.placeholder			$magenta 		$magenta		$white			$magenta		$magenta
-	client.background			$Background
+	client.focused				$blue			$blue	    	$Foreground		$cyan			$blue
+	client.focused_inactive		$Background	    $Background 	$Foreground		$black		  	$Background
+	client.unfocused			$Background		$Background		$Foreground		$black			$Background
+	client.urgent				$Urgent			$Urgent			$Background		$Urgent			$Urgent
+	client.placeholder			$black 			$black			$white			$black			$black
+	client.background			$Foreground
 
 #----------------------------------------------------------------------------------------------------------
 #                                              BAR
 #----------------------------------------------------------------------------------------------------------
-## hide/unhide i3status bar
+
+## %%hotkey:   hide/unhide i3status bar %%
  	bindsym $mod+b bar mode toggle
+
 ## Start i3bar to display a workspace bar (plus the system information i3status
 ## finds out, if available)
- 	bar {
+	bar {
 		id bar-0
 		strip_workspace_numbers no
-		#font pango:DroidSansMono Nerd Font 9
-		font pango:Hack Regular 9 
+		#font pango:DroidSansMono Nerd Font Bold 9
+		#font pango:Hack Bold 10
+		##font pango:Iosevka Nerd Font Bold 9
+		font pango: Inconsolata-dz for Powerline 9
+		#font pango:Inconsolata Nerd Font Bold 9
 		#output primary
+		# separator_symbol ""
+	#height 25
  		colors {
 			##Whole color settings
 			background 	$Background
-			#border 	#000000
 			statusline	$Foreground
 			separator  	$Background
 
 			##Type           	border				background			font
-			active_workspace 	$cyan				$background			$Foreground
-			focused_workspace   $cyan				$blue 		  		$background
+			active_workspace 	$Background			$Background			$cyan
+			focused_workspace   $Background			$blue    		 	$Foreground
 			inactive_workspace 	$Background			$Background	 		$Foreground
-			urgent_workspace   	$Urgent 			$Urgent				$white
+			urgent_workspace   	$Urgent 			$Urgent				$Background
  		}
 
 		##i3bar position
@@ -375,29 +424,39 @@ bindsym $mod+Ctrl+Right move workspace to output right
 		#status_command i3status
 		#status_command i3status --config ~/.config/i3/i3status.conf
 		#status_command i3blocks -c ~/.config/i3/i3blocks.conf
-		#status_command    python ~/.config/i3/i3pystatus.conf
-	    status_command    python ~/.config/i3/i3powerline.conf
-		#status_command py3status -c ~/.config/i3/i3status.conf-old
+		#status_command python ~/.config/i3/i3pystatus.conf
+	    status_command  python ~/.config/i3/i3powerline.conf 
+		#status_command py3status -c ~/.config/i3/py3status.conf --include ~/.config/i3/py3status
+		#i3bar_command ~/.config/i3/lemonbar/i3_lemonbar.sh
+		#i3bar_command qobbar -r -c solarized
 	}
 
-# bar {
-# 		 id bar-1
-# }
+#bar {
+#		id bar-1
+#		i3bar_command ~/.config/i3/lemonbar/i3_lemonbar.sh
+# 		workspace_buttons no
+# 		colors {
+# 					##Whole color settings
+# 					background 	$Background
+# 					#border 	#000000
+# 					statusline	$Foreground
+# 					separator  	$Foreground
+# 				}
+#	}
 
-#---------------------------------    BAR POWERLINE -------------------------------------------------------#
-	
+#---------------------------------    BAR POlybar Qobbar  --------------------------------------------------#
 ## POlybar
-	# exec_always --no-startup-id $HOME/.config/i3/polybar/run_polybar.sh -r
+#	 exec_always --no-startup-id $HOME/.config/i3/polybar/run_polybar.sh -r
 
 ## Qobbar
-	# exec_always --no-startup-id qobbar -c solarized
-	# exec_always --no-startup-id qobbar -c solarized-bot
+# 	exec_always --no-startup-id qobbar -c solarized
+#	exec_always --no-startup-id qobbar -c solarized-bot
 
 #-----------------------------------------------------------------------------------------------------------#
 #                                        STARTUP APPS														#
 #-----------------------------------------------------------------------------------------------------------#
+	#exec        --no-startup-id     ~/swich-theme-sh i3
 	exec        --no-startup-id     numlockx on
-	exec        --no-startup-id     ~/swich-theme-sh i3
 	exec_always --no-startup-id   	synclient TapButton1=1 TapButton2=3 TapButton3=2
 	exec_always --no-startup-id   	setxkbmap -option grp:alt_shift_toggle fr,ar  -option terminate:ctrl_alt_bksp
 	
@@ -406,15 +465,21 @@ bindsym $mod+Ctrl+Right move workspace to output right
 	exec 		--no-startup-id	    ~/.fehbg
     #exec 		--no-startup-id	    /usr/lib/xscreensaver/glmatrix -root
 	exec 		--no-startup-id		compton
-	#exec 		--no-startup-id		connman-gtk
+
+	exec 		--no-startup-id		connman-gtk
+	#exec  		--no-startup-id		cmst
+	#exec_always --no-startup-id	nm-applet
+
 	exec 		--no-startup-id		cbatticon
 	exec 		--no-startup-id		volumeicon
-	#exec_always --no-startup-id		nm-applet
-	exec  --no-startup-id	cmst
+	
 	#exec_always --no-startup-id	elokab-polkit-agent
-	exec_always --no-startup-id		/usr/lib/polkit-kde-authentication-agent-1 
-	exec_always --no-startup-id		elokab-notify
+	#exec_always --no-startup-id	/usr/lib/polkit-kde-authentication-agent-1 
+	exec_always --no-startup-id		/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+
+	#exec_always --no-startup-id	elokab-notify -t -p 1
+	exec_always --no-startup-id		dunst
+
 	exec 		--no-startup-id		gxkb
 	#exec 		--no-startup-id		conky -c ~/.config/i3/conky/conky-info-i3
-	exec 		--no-startup-id		conky -c ~/.config/i3/conky/conkyrc
-	
+	#exec 		--no-startup-id		conky -c ~/.config/i3/conky/conkyrc

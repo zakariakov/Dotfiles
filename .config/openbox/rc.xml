@@ -40,7 +40,9 @@
                   'Active' - where the active window is -->
   </placement>
   <theme>
-    <name>wal</name>
+    <name>Adapta-Nokto</name>
+    <cornerRadius>3</cornerRadius>
+    <cornerRadius menu="yes">3</cornerRadius>
     <titleLayout>CMILSN</titleLayout>
     <!--
       available characters are NDSLIMC, each can occur at most once.
@@ -118,13 +120,13 @@
 
        use obconf if you want to change these without having to log out
        and back in -->
-    <number>2</number>
+    <number>4</number>
     <firstdesk>1</firstdesk>
     <names>
-      <name>1</name>
-      <name>2</name>
-      <name>3</name>
-      <name>4</name>
+      <name>&#x2776;</name>
+      <name>&#x2777;</name>
+      <name>&#x2778;</name>
+      <name>&#x2779;</name>
     </names>
     <popupTime>875</popupTime>
     <!-- The number of milliseconds to show the popup for when switching
@@ -169,7 +171,7 @@
     <!-- 'Left', 'Middle', 'Right' -->
   </dock>
   <keyboard>
-    <chainQuitKey>C-g</chainQuitKey>
+    <chainQuitKey>S-W-s</chainQuitKey>
     <keybind key="C-A-Left">
       <action name="DesktopLeft"/>
     </keybind>
@@ -217,6 +219,15 @@
     </keybind>
     <keybind key="A-Tab">
       <action name="NextWindow"/>
+    </keybind>
+    <keybind key="W-s">
+      <action name="Execute">
+        <command>~/.local/bin/rofi-sh -x</command>
+        <startupnotify>
+          <enabled>yes</enabled>
+          <name>xrander</name>
+        </startupnotify>
+      </action>
     </keybind>
     <keybind key="A-S-Tab">
       <action name="PreviousWindow"/>
@@ -359,15 +370,6 @@
         <command>amixer -D pulse set Master toggle</command>
       </action>
     </keybind>
-    <keybind key="W-e">
-      <action name="Execute">
-        <command>firefox</command>
-        <startupnotify>
-          <enabled>yes</enabled>
-          <name>epiphany</name>
-        </startupnotify>
-      </action>
-    </keybind>
     <keybind key="W-t">
       <action name="Execute">
         <command>elokab-terminal</command>
@@ -389,6 +391,15 @@
     <keybind key="S-W-e">
       <action name="Exit"/>
     </keybind>
+    <keybind key="W-o">
+      <action name="Execute">
+        <command>~/.local/bin/toggle-compton</command>
+        <startupnotify>
+          <enabled>yes</enabled>
+          <name>Toggle-compton</name>
+        </startupnotify>
+      </action>
+    </keybind>
     <keybind key="W-f">
       <action name="ToggleFullscreen"/>
     </keybind>
@@ -399,7 +410,7 @@
     </keybind>
     <keybind key="W-m">
       <action name="Execute">
-        <command>~/.config/rofi/rofi-menu-global</command>
+        <command>~/.config/rofi/rofi-sh -m</command>
       </action>
     </keybind>
     <keybind key="S-W-w">
@@ -416,7 +427,14 @@
       <action name="ToggleDecorations"/>
     </keybind>
     <keybind key="W-KP_Insert">
-      <action name="ToggleMaximizeFull"/>
+      <action name="UnmaximizeFull"/>
+      <action name="Undecorate"/>
+      <action name="MoveResizeTo">
+        <x>1%</x>
+        <y>1%</y>
+        <width>98%</width>
+        <height>98%</height>
+      </action>
     </keybind>
   </keyboard>
   <mouse>
@@ -877,9 +895,9 @@
 -->
   </applications>
   <margins>
-    <left>0</left>
-    <right>0</right>
-    <top>0</top>
-    <bottom>0</bottom>
+    <left>5</left>
+    <right>5</right>
+    <top>5</top>
+    <bottom>5</bottom>
   </margins>
 </openbox_config>

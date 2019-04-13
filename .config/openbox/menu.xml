@@ -4,185 +4,141 @@
   xsi:schemaLocation="http://openbox.org/">
   <menu id="root-menu" label="Applications">
   <separator label="ArchLInux"/>
-    <item label="تشغيل تطبيق" icon="/home/yahia/.config/obmenu-generator/icons/168ebd93bd805b45ede870062387ebc0.png"><action name="Execute"><command><![CDATA[rofi -show run]]></command></action></item>
-    <item label="الطرفية" icon="/home/yahia/.config/obmenu-generator/icons/b5df56ba2c3c88bef5c31d9f59fa8f72.png"><action name="Execute"><command><![CDATA[elokab-terminal]]></command></action></item>
-    <item label="متصفح الويب" icon="/home/yahia/.config/obmenu-generator/icons/e7d1c8ebc6975186a0a2290474f3a5be.png"><action name="Execute"><command><![CDATA[firefox]]></command></action></item>
-    <item label="مدير الملفات" icon="/home/yahia/.config/obmenu-generator/icons/404ef42f3fd9c37c43d4419bef987bda.png"><action name="Execute"><command><![CDATA[nautilus]]></command></action></item>
-    <item label="محرر النصوص" icon="/home/yahia/.config/obmenu-generator/icons/3bc9cc779de9ba0cc0aebafa704ef0f1.png"><action name="Execute"><command><![CDATA[gedit]]></command></action></item>
-    <item label="قارئ الاصوات" icon="/home/yahia/.config/obmenu-generator/icons/96930a00132d78cafdfdfdc3082425dd.png"><action name="Execute"><command><![CDATA[audacious]]></command></action></item>
+    <item label="تشغيل تطبيق" icon="/home/youcef/.config/obmenu-generator/icons/243dae5db725e535a76161f84bef7996.png"><action name="Execute"><command><![CDATA[rofi -show run]]></command></action></item>
+    <item label="الطرفية" icon="/home/youcef/.config/obmenu-generator/icons/8a8a8163efadef55ff4f51a0ee60c704.png"><action name="Execute"><command><![CDATA[elokab-terminal]]></command></action></item>
+    <item label="متصفح الويب" icon="/home/youcef/.config/obmenu-generator/icons/1232b2aba829668859c6b132915f819f.png"><action name="Execute"><command><![CDATA[firefox]]></command></action></item>
+    <item label="مدير الملفات" icon="/home/youcef/.config/obmenu-generator/icons/ebdcc549e49a31f8324faf10b0626d72.png"><action name="Execute"><command><![CDATA[elokab-fm]]></command></action></item>
+    <item label="محرر النصوص" icon="/home/youcef/.config/obmenu-generator/icons/947cb2b835bca55577cd9adbf8373456.png"><action name="Execute"><command><![CDATA[geany]]></command></action></item>
   <separator/>
-  <menu id="0.648288189507188" icon="/home/yahia/.config/obmenu-generator/icons/2c6d3d199d9b1dd67df8a114f6a50e96.png" label="كل التطبيقات">
-  <menu id="0.94962532105589" icon="/home/yahia/.config/obmenu-generator/icons/8169062865ae1b036a02973e666ba920.png" label="ملحقات">
-    <item label="compton" icon="/home/yahia/.config/obmenu-generator/icons/dde5a5a09c6aa0c37544b53beb370367.png"><action name="Execute"><command><![CDATA[compton --xrender-sync-fence]]></command></action></item>
-    <item label="GPRename" icon="/home/yahia/.config/obmenu-generator/icons/6d962a8da869576acbc0c2bd798e8c37.png"><action name="Execute"><command><![CDATA[gprename]]></command></action></item>
-    <item label="GVim" icon="/home/yahia/.config/obmenu-generator/icons/215db029b6915d83634c1ab328f11ade.png"><action name="Execute"><command><![CDATA[gvim -f]]></command></action></item>
-    <item label="gxkb" icon="/home/yahia/.config/obmenu-generator/icons/bce74d11cda59b926fef113429b2bf55.png"><action name="Execute"><command><![CDATA[gxkb]]></command></action></item>
-    <item label="nitrogen" icon="/home/yahia/.config/obmenu-generator/icons/5bbeec1414900815afa707cb89646739.png"><action name="Execute"><command><![CDATA[nitrogen]]></command></action></item>
-    <item label="Plank" icon="/home/yahia/.config/obmenu-generator/icons/a2d197133ef5df7ad5bbc0d595dd1b0d.png"><action name="Execute"><command><![CDATA[plank]]></command></action></item>
-    <item label="Réglage de la température de couleur" icon="/home/yahia/.config/obmenu-generator/icons/c9253d85afdc9de79a2d429238e0b3c3.png"><action name="Execute"><command><![CDATA[redshift-gtk]]></command></action></item>
-    <item label="Vim" icon="/home/yahia/.config/obmenu-generator/icons/215db029b6915d83634c1ab328f11ade.png"><action name="Execute"><command><![CDATA[elokab-terminal -e 'vim']]></command></action></item>
-    <item label="آلة حاسبة" icon="/home/yahia/.config/obmenu-generator/icons/8b067c57a60e919a3bbfa68b98a0aa02.png"><action name="Execute"><command><![CDATA[gnome-calculator]]></command></action></item>
-    <item label="إعدادات ترحيب LightDM GTK+" icon="/home/yahia/.config/obmenu-generator/icons/8e592f1ac9ecd62b72de9e2787315370.png"><action name="Execute"><command><![CDATA[lightdm-gtk-greeter-settings-pkexec]]></command></action></item>
-    <item label="الأقراص" icon="/home/yahia/.config/obmenu-generator/icons/5a1024a50e24dc7d3b694fd3796296ad.png"><action name="Execute"><command><![CDATA[gnome-disks]]></command></action></item>
-    <item label="الخطوط" icon="/home/yahia/.config/obmenu-generator/icons/4c8a9b4c7689be6f3d467e0359ab2fdb.png"><action name="Execute"><command><![CDATA[gnome-font-viewer]]></command></action></item>
-    <item label="الطقس" icon="/home/yahia/.config/obmenu-generator/icons/e2a079e33abe43f8ea137b93dc85db17.png"><action name="Execute"><command><![CDATA[gapplication launch org.gnome.Weather.Application]]></command></action></item>
-    <item label="الملفات" icon="/home/yahia/.config/obmenu-generator/icons/f4413c6c514ea57766e678dc5c638534.png"><action name="Execute"><command><![CDATA[nautilus --new-window]]></command></action></item>
-    <item label="خريطة المحارف" icon="/home/yahia/.config/obmenu-generator/icons/b6db8856f8bb9729a039205f3b2a4f76.png"><action name="Execute"><command><![CDATA[gucharmap]]></command></action></item>
-    <item label="لقطة الشاشة" icon="/home/yahia/.config/obmenu-generator/icons/7a8b565a0f7f9fd9721c8dea6e0dfadb.png"><action name="Execute"><command><![CDATA[gnome-screenshot --interactive]]></command></action></item>
-    <item label="محرّر النصوص" icon="/home/yahia/.config/obmenu-generator/icons/ec93097a3002633f0c2469d8bbb7b496.png"><action name="Execute"><command><![CDATA[gedit]]></command></action></item>
-    <item label="مدير الأرشيفات" icon="/home/yahia/.config/obmenu-generator/icons/0e562a3768a2df66cb5a1d6881a11e99.png"><action name="Execute"><command><![CDATA[file-roller]]></command></action></item>
-    <item label="مدير الملفات PCManFM" icon="/home/yahia/.config/obmenu-generator/icons/f528b5e95590b90a779f1b1a8482bb13.png"><action name="Execute"><command><![CDATA[pcmanfm]]></command></action></item>
+  <menu id="0.915213021290587" icon="/home/youcef/.config/obmenu-generator/icons/2b71336b25aa340f0012426790818e59.png" label="كل التطبيقات">
+  <menu id="0.429418505259918" icon="/home/youcef/.config/obmenu-generator/icons/e7bc95c346232be328c575c679d2355c.png" label="ملحقات">
+    <item label="Character Map" icon="/home/youcef/.config/obmenu-generator/icons/99c9e5ae54d31ae9d41bf97d5a10bdb4.png"><action name="Execute"><command><![CDATA[gucharmap]]></command></action></item>
+    <item label="Code - OSS" icon="/home/youcef/.config/obmenu-generator/icons/92da6c5592403155d5b90447c4b4abc8.png"><action name="Execute"><command><![CDATA[code-oss --unity-launch]]></command></action></item>
+    <item label="compton" icon="/home/youcef/.config/obmenu-generator/icons/cf5ced23d1ce5460c5d3dd9445f0c1db.png"><action name="Execute"><command><![CDATA[compton]]></command></action></item>
+    <item label="Conky Manager" icon="/home/youcef/.config/obmenu-generator/icons/ac6651e3b11c550406f86d5dbc772619.png"><action name="Execute"><command><![CDATA[conky-manager]]></command></action></item>
+    <item label="DB Browser for SQLite" icon="/home/youcef/.config/obmenu-generator/icons/5fe678927ec9d58cfb5632e62b20f3e4.png"><action name="Execute"><command><![CDATA[sqlitebrowser]]></command></action></item>
+    <item label="File Manager PCManFM" icon="/home/youcef/.config/obmenu-generator/icons/368222792500a58431ce09aa9c861795.png"><action name="Execute"><command><![CDATA[pcmanfm]]></command></action></item>
+    <item label="gxkb" icon="/home/youcef/.config/obmenu-generator/icons/bce74d11cda59b926fef113429b2bf55.png"><action name="Execute"><command><![CDATA[gxkb]]></command></action></item>
+    <item label="LightDM GTK+ Greeter settings" icon="/home/youcef/.config/obmenu-generator/icons/a621b1b5caa75809bc24a348105b492d.png"><action name="Execute"><command><![CDATA[lightdm-gtk-greeter-settings-pkexec]]></command></action></item>
+    <item label="nitrogen" icon="/home/youcef/.config/obmenu-generator/icons/8df4a0f2417bc5e7a9de7e0f6230c494.png"><action name="Execute"><command><![CDATA[nitrogen]]></command></action></item>
+    <item label="Plank" icon="/home/youcef/.config/obmenu-generator/icons/c56a915f40b647b40361c032e6fed9bf.png"><action name="Execute"><command><![CDATA[plank]]></command></action></item>
+    <item label="Redshift" icon="/home/youcef/.config/obmenu-generator/icons/e5a50da74b11e8b96871702c3a2b386f.png"><action name="Execute"><command><![CDATA[redshift-gtk]]></command></action></item>
+    <item label="Safe Eyes" icon="/home/youcef/.config/obmenu-generator/icons/f2831dc6239ae46bdfac378a7c980359.png"><action name="Execute"><command><![CDATA[env GDK_BACKEND=x11 safeeyes]]></command></action></item>
+    <item label="Vim" icon="/home/youcef/.config/obmenu-generator/icons/626b39fec3ade2926da50091fcce787e.png"><action name="Execute"><command><![CDATA[elokab-terminal -e 'vim']]></command></action></item>
+    <item label="Xarchiver" icon="/home/youcef/.config/obmenu-generator/icons/1f149401f3580c10b1bead1b25455105.png"><action name="Execute"><command><![CDATA[xarchiver]]></command></action></item>
   </menu>
-  <menu id="0.574555469016683" icon="/home/yahia/.config/obmenu-generator/icons/9dc0a0ed794cc31220ed3e0769e151c8.png" label="النظام">
-    <item label="Avahi Zeroconf Browser" icon="/home/yahia/.config/obmenu-generator/icons/84151272245074b058cbe4cda91ddea4.png"><action name="Execute"><command><![CDATA[/usr/bin/avahi-discover]]></command></action></item>
-    <item label="Connman UI Setup" icon="/home/yahia/.config/obmenu-generator/icons/a9bb34063ab09c6cb2af58a38885de92.png"><action name="Execute"><command><![CDATA[cmst]]></command></action></item>
-    <item label="Nettoyeur de fichiers inutiles" icon="/home/yahia/.config/obmenu-generator/icons/7bb3e97a6d009771e19f030f213073a1.png"><action name="Execute"><command><![CDATA[bleachbit]]></command></action></item>
-    <item label="Oracle VM VirtualBox" icon="/home/yahia/.config/obmenu-generator/icons/7767cc1021403f52d86980ee3c7d1120.png"><action name="Execute"><command><![CDATA[VirtualBox]]></command></action></item>
-    <item label="Panneau" icon="/home/yahia/.config/obmenu-generator/icons/e4fa2ff3f98fe830a067da699fd20238.png"><action name="Execute"><command><![CDATA[tint2]]></command></action></item>
-    <item label="QTerminal" icon="/home/yahia/.config/obmenu-generator/icons/b5df56ba2c3c88bef5c31d9f59fa8f72.png"><action name="Execute"><command><![CDATA[qterminal]]></command></action></item>
-    <item label="ranger" icon="/home/yahia/.config/obmenu-generator/icons/b5df56ba2c3c88bef5c31d9f59fa8f72.png"><action name="Execute"><command><![CDATA[elokab-terminal -e 'ranger']]></command></action></item>
-    <item label="Terminal déroulant" icon="/home/yahia/.config/obmenu-generator/icons/b5df56ba2c3c88bef5c31d9f59fa8f72.png"><action name="Execute"><command><![CDATA[qterminal --drop]]></command></action></item>
-    <item label="Termite" icon="/home/yahia/.config/obmenu-generator/icons/b5df56ba2c3c88bef5c31d9f59fa8f72.png"><action name="Execute"><command><![CDATA[termite]]></command></action></item>
-    <item label="urxvt (client)" icon="/home/yahia/.config/obmenu-generator/icons/b5df56ba2c3c88bef5c31d9f59fa8f72.png"><action name="Execute"><command><![CDATA[urxvtc]]></command></action></item>
-    <item label="urxvt (tabbed)" icon="/home/yahia/.config/obmenu-generator/icons/b5df56ba2c3c88bef5c31d9f59fa8f72.png"><action name="Execute"><command><![CDATA[urxvt-tabbed]]></command></action></item>
-    <item label="urxvt" icon="/home/yahia/.config/obmenu-generator/icons/b5df56ba2c3c88bef5c31d9f59fa8f72.png"><action name="Execute"><command><![CDATA[urxvt]]></command></action></item>
-    <item label="UXTerm" icon="/home/yahia/.config/obmenu-generator/icons/6c678baa7244339942d55ecebf08af5d.png"><action name="Execute"><command><![CDATA[uxterm]]></command></action></item>
-    <item label="Visualiseur de processus" icon="/home/yahia/.config/obmenu-generator/icons/34ffe4cf6943497173d1f461b90a90b9.png"><action name="Execute"><command><![CDATA[elokab-terminal -e 'htop']]></command></action></item>
-    <item label="XTerm" icon="/home/yahia/.config/obmenu-generator/icons/6c678baa7244339942d55ecebf08af5d.png"><action name="Execute"><command><![CDATA[xterm]]></command></action></item>
-    <item label="إضافة وإزالة البرمجيات" icon="/home/yahia/.config/obmenu-generator/icons/7d7076560b5632b298757139599a7f94.png"><action name="Execute"><command><![CDATA[pamac-manager]]></command></action></item>
-    <item label="إعدادات ترحيب LightDM GTK+" icon="/home/yahia/.config/obmenu-generator/icons/8e592f1ac9ecd62b72de9e2787315370.png"><action name="Execute"><command><![CDATA[lightdm-gtk-greeter-settings-pkexec]]></command></action></item>
-    <item label="تحديث البرمجيات" icon="/home/yahia/.config/obmenu-generator/icons/27a0b3118cea5b1d02779df09160be65.png"><action name="Execute"><command><![CDATA[pamac-updater]]></command></action></item>
-    <item label="طرفية العقاب" icon="/home/yahia/.config/obmenu-generator/icons/b5df56ba2c3c88bef5c31d9f59fa8f72.png"><action name="Execute"><command><![CDATA[elokab-terminal]]></command></action></item>
-    <item label="محرر dconf" icon="/home/yahia/.config/obmenu-generator/icons/b8b3152f24ec0bc0af92e75964cda9f2.png"><action name="Execute"><command><![CDATA[dconf-editor]]></command></action></item>
-    <item label="محلّل استخدام القرص" icon="/home/yahia/.config/obmenu-generator/icons/7c38c90018fd66f39f1089ed6fe455cd.png"><action name="Execute"><command><![CDATA[baobab]]></command></action></item>
-    <item label="مدير الملفات PCManFM" icon="/home/yahia/.config/obmenu-generator/icons/f528b5e95590b90a779f1b1a8482bb13.png"><action name="Execute"><command><![CDATA[pcmanfm]]></command></action></item>
-    <item label="مراقب نظام جنو�" icon="/home/yahia/.config/obmenu-generator/icons/6883f2fe566082068d1df4a95f891645.png"><action name="Execute"><command><![CDATA[gnome-system-monitor]]></command></action></item>
-    <item label="مرقاب النّظا�" icon="/home/yahia/.config/obmenu-generator/icons/6883f2fe566082068d1df4a95f891645.png"><action name="Execute"><command><![CDATA[gnome-system-monitor]]></command></action></item>
-    <item label="مُقسِّم‌ج" icon="/home/yahia/.config/obmenu-generator/icons/d9cbfecceab554eea1837a827bfb57ac.png"><action name="Execute"><command><![CDATA[/usr/bin/gparted]]></command></action></item>
+  <menu id="0.310579828024981" icon="/home/youcef/.config/obmenu-generator/icons/a0143874b0974c14518f2a07c89ed437.png" label="النظام">
+    <item label="Add/Remove Software" icon="/home/youcef/.config/obmenu-generator/icons/2f51a6321b6a522ba6d8f48199edf4bb.png"><action name="Execute"><command><![CDATA[pamac-manager]]></command></action></item>
+    <item label="Avahi Zeroconf Browser" icon="/home/youcef/.config/obmenu-generator/icons/3f058b89f1aeafc42a4b3c929e0de3ed.png"><action name="Execute"><command><![CDATA[/usr/bin/avahi-discover]]></command></action></item>
+    <item label="BleachBit" icon="/home/youcef/.config/obmenu-generator/icons/6ed7f7620078ead701d0dce70805854f.png"><action name="Execute"><command><![CDATA[bleachbit]]></command></action></item>
+    <item label="conky" icon="/home/youcef/.config/obmenu-generator/icons/f9b6aee775daa4132d112ea8a5e2bbb1.png"><action name="Execute"><command><![CDATA[conky --daemonize --pause=1]]></command></action></item>
+    <item label="Connman UI Setup" icon="/home/youcef/.config/obmenu-generator/icons/a9bb34063ab09c6cb2af58a38885de92.png"><action name="Execute"><command><![CDATA[cmst]]></command></action></item>
+    <item label="Cool Retro Term" icon="/home/youcef/.config/obmenu-generator/icons/3f31873aafa2925032ef61c663b3f5f9.png"><action name="Execute"><command><![CDATA[cool-retro-term]]></command></action></item>
+    <item label="Elokab Fm" icon="/home/youcef/.config/obmenu-generator/icons/368222792500a58431ce09aa9c861795.png"><action name="Execute"><command><![CDATA[elokab-fm]]></command></action></item>
+    <item label="Elokab Terminal" icon="/home/youcef/.config/obmenu-generator/icons/8a8a8163efadef55ff4f51a0ee60c704.png"><action name="Execute"><command><![CDATA[elokab-terminal]]></command></action></item>
+    <item label="File Manager PCManFM" icon="/home/youcef/.config/obmenu-generator/icons/368222792500a58431ce09aa9c861795.png"><action name="Execute"><command><![CDATA[pcmanfm]]></command></action></item>
+    <item label="Htop" icon="/home/youcef/.config/obmenu-generator/icons/e7bc95c346232be328c575c679d2355c.png"><action name="Execute"><command><![CDATA[elokab-terminal -e 'htop']]></command></action></item>
+    <item label="LightDM GTK+ Greeter settings" icon="/home/youcef/.config/obmenu-generator/icons/a621b1b5caa75809bc24a348105b492d.png"><action name="Execute"><command><![CDATA[lightdm-gtk-greeter-settings-pkexec]]></command></action></item>
+    <item label="ranger" icon="/home/youcef/.config/obmenu-generator/icons/8a8a8163efadef55ff4f51a0ee60c704.png"><action name="Execute"><command><![CDATA[elokab-terminal -e 'ranger']]></command></action></item>
+    <item label="Software Update" icon="/home/youcef/.config/obmenu-generator/icons/bfe1d02cea967ca6e7e4de07372df57a.png"><action name="Execute"><command><![CDATA[pamac-manager --updates]]></command></action></item>
+    <item label="urxvt (client)" icon="/home/youcef/.config/obmenu-generator/icons/8a8a8163efadef55ff4f51a0ee60c704.png"><action name="Execute"><command><![CDATA[urxvtc]]></command></action></item>
+    <item label="urxvt (tabbed)" icon="/home/youcef/.config/obmenu-generator/icons/8a8a8163efadef55ff4f51a0ee60c704.png"><action name="Execute"><command><![CDATA[urxvt-tabbed]]></command></action></item>
+    <item label="urxvt" icon="/home/youcef/.config/obmenu-generator/icons/8a8a8163efadef55ff4f51a0ee60c704.png"><action name="Execute"><command><![CDATA[urxvt]]></command></action></item>
+    <item label="UXTerm" icon="/home/youcef/.config/obmenu-generator/icons/b17d506ad4e4060f5d055ed96e39c221.png"><action name="Execute"><command><![CDATA[uxterm]]></command></action></item>
+    <item label="XTerm" icon="/home/youcef/.config/obmenu-generator/icons/b17d506ad4e4060f5d055ed96e39c221.png"><action name="Execute"><command><![CDATA[xterm]]></command></action></item>
   </menu>
-  <menu id="0.242542848546641" icon="/home/yahia/.config/obmenu-generator/icons/0ab16f52a03788daa5f9571aa9962276.png" label="الرسومات">
-    <item label="Gcolor2" icon="/home/yahia/.config/obmenu-generator/icons/ef1a47a2e5dd654a6d24908aed687bd7.png"><action name="Execute"><command><![CDATA[gcolor2]]></command></action></item>
-    <item label="Gpick" icon="/home/yahia/.config/obmenu-generator/icons/2d1e84c712423e876380dc739be8ee81.png"><action name="Execute"><command><![CDATA[gpick]]></command></action></item>
-    <item label="LibreOffice Draw" icon="/home/yahia/.config/obmenu-generator/icons/2cc9b5cedde669a4e94b78b0fdea7a82.png"><action name="Execute"><command><![CDATA[libreoffice --draw]]></command></action></item>
-    <item label="إنكسكيب" icon="/home/yahia/.config/obmenu-generator/icons/1eb02bac60f2bf913b38bcbb6470afd2.png"><action name="Execute"><command><![CDATA[inkscape]]></command></action></item>
-    <item label="برنامج جنو لمعالجة الصور" icon="/home/yahia/.config/obmenu-generator/icons/fd98253fa3c6e0f24c2821bcd3dad957.png"><action name="Execute"><command><![CDATA[gimp-2.8]]></command></action></item>
-    <item label="عارض الصّور" icon="/home/yahia/.config/obmenu-generator/icons/6b179a0f540179119272887d27ca04d9.png"><action name="Execute"><command><![CDATA[eog]]></command></action></item>
-    <item label="عارض المستندات" icon="/home/yahia/.config/obmenu-generator/icons/115c163bc8d62e40cf8b6f0b305400d2.png"><action name="Execute"><command><![CDATA[evince]]></command></action></item>
+  <menu id="0.208273283528747" icon="/home/youcef/.config/obmenu-generator/icons/1646a5d9f6206bd0435ee7ea5a2cacef.png" label="الرسومات">
+    <item label="Color picker" icon="/home/youcef/.config/obmenu-generator/icons/dc6ee09c17e033c03e38529f80d4bd27.png"><action name="Execute"><command><![CDATA[gcolor3]]></command></action></item>
+    <item label="GNU Image Manipulation Program" icon="/home/youcef/.config/obmenu-generator/icons/d202f339457c057af7dea96741c11f54.png"><action name="Execute"><command><![CDATA[gimp-2.10]]></command></action></item>
+    <item label="Inkscape" icon="/home/youcef/.config/obmenu-generator/icons/ac84c5e8ee2d26beeb999b72441050e0.png"><action name="Execute"><command><![CDATA[inkscape]]></command></action></item>
+    <item label="Viewnior" icon="/home/youcef/.config/obmenu-generator/icons/b4c4a4bcc458629dcb2164552a96ef87.png"><action name="Execute"><command><![CDATA[viewnior]]></command></action></item>
   </menu>
-  <menu id="0.859041199449241" icon="/home/yahia/.config/obmenu-generator/icons/87124006dab72a8f66d90901100af61a.png" label="الوسائط">
-    <item label="Clementine" icon="/home/yahia/.config/obmenu-generator/icons/0b9c4d65609dc999c65045b8dd81aa2d.png"><action name="Execute"><command><![CDATA[clementine]]></command></action></item>
-    <item label="Contrôle du volume" icon="/home/yahia/.config/obmenu-generator/icons/f1d79fdc6c2c14327abdb24618ee70ad.png"><action name="Execute"><command><![CDATA[pavucontrol]]></command></action></item>
-    <item label="Diffuseur de musique" icon="/home/yahia/.config/obmenu-generator/icons/96930a00132d78cafdfdfdc3082425dd.png"><action name="Execute"><command><![CDATA[audacious]]></command></action></item>
-    <item label="GNOME MPV" icon="/home/yahia/.config/obmenu-generator/icons/1a14c47d2f448231e9e506f69340b346.png"><action name="Execute"><command><![CDATA[gnome-mpv --new-window]]></command></action></item>
-    <item label="Lecteur multimédia" icon="/home/yahia/.config/obmenu-generator/icons/d137156b33dd6df03d4a0ef1de10ef94.png"><action name="Execute"><command><![CDATA[/usr/bin/vlc --started-from-file]]></command></action></item>
-    <item label="Qt V4L2 test Utility" icon="/home/yahia/.config/obmenu-generator/icons/c6ea4952c10183e1250a5646a8b93bd3.png"><action name="Execute"><command><![CDATA[qv4l2]]></command></action></item>
-    <item label="Shotcut" icon="/home/yahia/.config/obmenu-generator/icons/87124006dab72a8f66d90901100af61a.png"><action name="Execute"><command><![CDATA[shotcut]]></command></action></item>
-    <item label="SimpleScreenRecorder" icon="/home/yahia/.config/obmenu-generator/icons/6ea7f1b1eb9857b5db7f6f2aa544be6e.png"><action name="Execute"><command><![CDATA[simplescreenrecorder --logfile]]></command></action></item>
+  <menu id="0.65546186281161" icon="/home/youcef/.config/obmenu-generator/icons/bca836a1cfd6b83cac8e6025c64ae870.png" label="الوسائط">
+    <item label="EasyTAG" icon="/home/youcef/.config/obmenu-generator/icons/4683fc8329da45033fe780ebed781e12.png"><action name="Execute"><command><![CDATA[easytag]]></command></action></item>
+    <item label="goldfinch" icon="/home/youcef/.config/obmenu-generator/icons/29dc6f6e1f9f76710187e4ed1a64ad03.png"><action name="Execute"><command><![CDATA[goldfinch]]></command></action></item>
+    <item label="Kid3-qt" icon="/home/youcef/.config/obmenu-generator/icons/4683fc8329da45033fe780ebed781e12.png"><action name="Execute"><command><![CDATA[kid3-qt]]></command></action></item>
+    <item label="PulseAudio Volume Control" icon="/home/youcef/.config/obmenu-generator/icons/375fdfa45d789937ef9d723c25101e75.png"><action name="Execute"><command><![CDATA[pavucontrol-qt]]></command></action></item>
+    <item label="Qt V4L2 test Utility" icon="/home/youcef/.config/obmenu-generator/icons/d7d8f5be7f1deba3edfc184eaf09f566.png"><action name="Execute"><command><![CDATA[qv4l2]]></command></action></item>
+    <item label="Qt V4L2 video capture utility" icon="/home/youcef/.config/obmenu-generator/icons/fed3b2cf5d8ca7e1454a7ac6edc29835.png"><action name="Execute"><command><![CDATA[qvidcap]]></command></action></item>
+    <item label="VLC media player" icon="/home/youcef/.config/obmenu-generator/icons/1d16cc46ff1fd6e9f90843818f483fc0.png"><action name="Execute"><command><![CDATA[/usr/bin/vlc --started-from-file]]></command></action></item>
+    <item label="Volume Icon" icon="/home/youcef/.config/obmenu-generator/icons/375fdfa45d789937ef9d723c25101e75.png"><action name="Execute"><command><![CDATA[volumeicon]]></command></action></item>
   </menu>
-  <menu id="0.857035608481951" icon="/home/yahia/.config/obmenu-generator/icons/078b8e14d59aa87ca7369e1211b23323.png" label="الانترنت">
-    <item label="Avahi SSH Server Browser" icon="/home/yahia/.config/obmenu-generator/icons/84151272245074b058cbe4cda91ddea4.png"><action name="Execute"><command><![CDATA[/usr/bin/bssh]]></command></action></item>
-    <item label="Avahi VNC Server Browser" icon="/home/yahia/.config/obmenu-generator/icons/84151272245074b058cbe4cda91ddea4.png"><action name="Execute"><command><![CDATA[/usr/bin/bvnc]]></command></action></item>
-    <item label="Client Twitter" icon="/home/yahia/.config/obmenu-generator/icons/708e843be05ac9471022db00896ba748.png"><action name="Execute"><command><![CDATA[corebird]]></command></action></item>
-    <item label="Connman UI Setup" icon="/home/yahia/.config/obmenu-generator/icons/a9bb34063ab09c6cb2af58a38885de92.png"><action name="Execute"><command><![CDATA[cmst]]></command></action></item>
-    <item label="lftp" icon="/home/yahia/.config/obmenu-generator/icons/7e21e40f07a33ec6373e79114e78c6e3.png"><action name="Execute"><command><![CDATA[elokab-terminal -e 'lftp']]></command></action></item>
-    <item label="Navigateur Web" icon="/home/yahia/.config/obmenu-generator/icons/e7d1c8ebc6975186a0a2290474f3a5be.png"><action name="Execute"><command><![CDATA[/usr/lib/firefox/firefox]]></command></action></item>
-    <item label="Persepolis Download Manager" icon="/home/yahia/.config/obmenu-generator/icons/03ded582a026dacd14d00787866b71cb.png"><action name="Execute"><command><![CDATA[persepolis]]></command></action></item>
-    <item label="qutebrowser" icon="/home/yahia/.config/obmenu-generator/icons/5a341bcff8da0211e6b67f6d1e38e6c3.png"><action name="Execute"><command><![CDATA[qutebrowser]]></command></action></item>
-    <item label="Telegram Desktop" icon="/home/yahia/.config/obmenu-generator/icons/2e39ae3cf66764d0d1ab411c34ee735b.png"><action name="Execute"><command><![CDATA[/opt/Telegram/Telegram --]]></command></action></item>
-    <item label="uGet" icon="/home/yahia/.config/obmenu-generator/icons/8a7fb6c9b8dc15b872d7e0a6ce2742d1.png"><action name="Execute"><command><![CDATA[env GDK_BACKEND=x11 uget-gtk]]></command></action></item>
-    <item label="Zenmap (as root)" icon="/home/yahia/.config/obmenu-generator/icons/e96c957960fd2d2741811f8672de0b51.png"><action name="Execute"><command><![CDATA[/usr/share/zenmap/su-to-zenmap.sh]]></command></action></item>
-    <item label="Zenmap" icon="/home/yahia/.config/obmenu-generator/icons/e96c957960fd2d2741811f8672de0b51.png"><action name="Execute"><command><![CDATA[zenmap]]></command></action></item>
-    <item label="ترانزميشن" icon="/home/yahia/.config/obmenu-generator/icons/3cc90d7457e2ed75c62516557c0e2ba9.png"><action name="Execute"><command><![CDATA[transmission-gtk]]></command></action></item>
+  <menu id="0.0525706170446796" icon="/home/youcef/.config/obmenu-generator/icons/b55b210f0d03e4a8e2048a836322ff1b.png" label="الانترنت">
+    <item label="Avahi SSH Server Browser" icon="/home/youcef/.config/obmenu-generator/icons/3f058b89f1aeafc42a4b3c929e0de3ed.png"><action name="Execute"><command><![CDATA[/usr/bin/bssh]]></command></action></item>
+    <item label="Avahi VNC Server Browser" icon="/home/youcef/.config/obmenu-generator/icons/3f058b89f1aeafc42a4b3c929e0de3ed.png"><action name="Execute"><command><![CDATA[/usr/bin/bvnc]]></command></action></item>
+    <item label="Connman UI Setup" icon="/home/youcef/.config/obmenu-generator/icons/a9bb34063ab09c6cb2af58a38885de92.png"><action name="Execute"><command><![CDATA[cmst]]></command></action></item>
+    <item label="Firefox" icon="/home/youcef/.config/obmenu-generator/icons/1232b2aba829668859c6b132915f819f.png"><action name="Execute"><command><![CDATA[/usr/lib/firefox/firefox]]></command></action></item>
+    <item label="uGet" icon="/home/youcef/.config/obmenu-generator/icons/bd603fea3d3048c625cb00a8a3ded2e1.png"><action name="Execute"><command><![CDATA[env GDK_BACKEND=x11 uget-gtk]]></command></action></item>
   </menu>
-  <menu id="0.320020076722667" icon="/home/yahia/.config/obmenu-generator/icons/4cafe90149d027531adcdbad81041928.png" label="التطوير">
-    <item label="CMake" icon="/home/yahia/.config/obmenu-generator/icons/8d059d031ba6e698139655e4b1929f17.png"><action name="Execute"><command><![CDATA[cmake-gui]]></command></action></item>
-    <item label="Geany" icon="/home/yahia/.config/obmenu-generator/icons/ff3b088d150ba47e750f18556df2a5ec.png"><action name="Execute"><command><![CDATA[geany]]></command></action></item>
-    <item label="Qt Assistant" icon="/home/yahia/.config/obmenu-generator/icons/0ee7b1b65f14c3b5e85b380b561c9bfd.png"><action name="Execute"><command><![CDATA[assistant]]></command></action></item>
-    <item label="Qt Creator" icon="/home/yahia/.config/obmenu-generator/icons/a51acf172d0a59f270cf7c05b6576d09.png"><action name="Execute"><command><![CDATA[qtcreator]]></command></action></item>
-    <item label="Qt Designer" icon="/home/yahia/.config/obmenu-generator/icons/7fd26f1890e9f084666cd1c93f28c912.png"><action name="Execute"><command><![CDATA[designer]]></command></action></item>
-    <item label="Qt Linguist" icon="/home/yahia/.config/obmenu-generator/icons/82f2afb05b90f869afec7f46164a171a.png"><action name="Execute"><command><![CDATA[linguist]]></command></action></item>
-    <item label="Qt QDbusViewer" icon="/home/yahia/.config/obmenu-generator/icons/2ff38eac5986a04f9bc5d6bfdc84138b.png"><action name="Execute"><command><![CDATA[qdbusviewer]]></command></action></item>
-    <item label="Qt4 Assistant" icon="/home/yahia/.config/obmenu-generator/icons/341d4ac683fad382db25383365533b3a.png"><action name="Execute"><command><![CDATA[assistant-qt4]]></command></action></item>
-    <item label="Qt4 Designer" icon="/home/yahia/.config/obmenu-generator/icons/0134f5e4232897f67fb5f16f89e438ed.png"><action name="Execute"><command><![CDATA[designer-qt4]]></command></action></item>
-    <item label="Qt4 Linguist" icon="/home/yahia/.config/obmenu-generator/icons/9f02e3117703ea2605b09ac89d2666ab.png"><action name="Execute"><command><![CDATA[linguist-qt4]]></command></action></item>
-    <item label="Qt4 QDbusViewer" icon="/home/yahia/.config/obmenu-generator/icons/466333ba12fc516548789c57cf1f257a.png"><action name="Execute"><command><![CDATA[qdbusviewer-qt4]]></command></action></item>
+  <menu id="0.638998093685895" icon="/home/youcef/.config/obmenu-generator/icons/2a70d931375235297cce5b967d33eb6d.png" label="التطوير">
+    <item label="CMake" icon="/home/youcef/.config/obmenu-generator/icons/01b3cfac4249074161c1c26c6fba3c1b.png"><action name="Execute"><command><![CDATA[cmake-gui]]></command></action></item>
+    <item label="Code - OSS" icon="/home/youcef/.config/obmenu-generator/icons/92da6c5592403155d5b90447c4b4abc8.png"><action name="Execute"><command><![CDATA[code-oss --unity-launch]]></command></action></item>
+    <item label="DB Browser for SQLite" icon="/home/youcef/.config/obmenu-generator/icons/5fe678927ec9d58cfb5632e62b20f3e4.png"><action name="Execute"><command><![CDATA[sqlitebrowser]]></command></action></item>
+    <item label="Electron" icon="/home/youcef/.config/obmenu-generator/icons/0334ca83a074789d74a0a4de7c84ac8f.png"><action name="Execute"><command><![CDATA[electron]]></command></action></item>
+    <item label="Geany" icon="/home/youcef/.config/obmenu-generator/icons/911f88d2af2dc7954534277250c8bddd.png"><action name="Execute"><command><![CDATA[geany]]></command></action></item>
+    <item label="Qt Assistant" icon="/home/youcef/.config/obmenu-generator/icons/31de88b7b3754eb3a01975369451a625.png"><action name="Execute"><command><![CDATA[assistant]]></command></action></item>
+    <item label="Qt Creator" icon="/home/youcef/.config/obmenu-generator/icons/ba1b9f6085a149c23a1cd7dc70268459.png"><action name="Execute"><command><![CDATA[qtcreator]]></command></action></item>
+    <item label="Qt Designer" icon="/home/youcef/.config/obmenu-generator/icons/7beb423fe895a9882fd9554066f8d9a8.png"><action name="Execute"><command><![CDATA[designer]]></command></action></item>
+    <item label="Qt Linguist" icon="/home/youcef/.config/obmenu-generator/icons/31de88b7b3754eb3a01975369451a625.png"><action name="Execute"><command><![CDATA[linguist]]></command></action></item>
+    <item label="Qt QDbusViewer" icon="/home/youcef/.config/obmenu-generator/icons/31de88b7b3754eb3a01975369451a625.png"><action name="Execute"><command><![CDATA[qdbusviewer]]></command></action></item>
   </menu>
-  <menu id="0.0730130665879969" icon="/home/yahia/.config/obmenu-generator/icons/769f512c5664432bc6e8451682104930.png" label="تعليمي">
-    <item label="LibreOffice Math" icon="/home/yahia/.config/obmenu-generator/icons/24fff00aef4748eab521e1edf201994d.png"><action name="Execute"><command><![CDATA[libreoffice --math]]></command></action></item>
+  <menu id="0.436017917510149" icon="/home/youcef/.config/obmenu-generator/icons/335ee85a385c42312eb5590d42dd1f39.png" label="المكتب">
+    <item label="AbiWord" icon="/home/youcef/.config/obmenu-generator/icons/3587e4ba25cbb345b3c99e3718665c41.png"><action name="Execute"><command><![CDATA[abiword]]></command></action></item>
+    <item label="BooksOrg" icon="/home/youcef/.config/obmenu-generator/icons/f02e7689abb02a3a256a5b0bb802b0e9.png"><action name="Execute"><command><![CDATA[booksorg]]></command></action></item>
+    <item label="Prayer Time" icon="/home/youcef/.config/obmenu-generator/icons/ec6bc2d1e032994fde1ba25b37c88b56.png"><action name="Execute"><command><![CDATA[elokab-adhan]]></command></action></item>
+    <item label="Zathura" icon="/home/youcef/.config/obmenu-generator/icons/51442d9a16a90e3e87519b1bc898cdbe.png"><action name="Execute"><command><![CDATA[zathura]]></command></action></item>
   </menu>
-  <menu id="0.701864575492809" icon="/home/yahia/.config/obmenu-generator/icons/013376b1b98d06a847481646fcba1428.png" label="الالعاب">
-    <item label="Jeu de mémoire sur les molécules" icon="/home/yahia/.config/obmenu-generator/icons/9d22075254d92463eafea4d1186a2cab.png"><action name="Execute"><command><![CDATA[atomix]]></command></action></item>
-    <item label="Jeu de Plate-forme" icon="/home/yahia/.config/obmenu-generator/icons/a6d4282051265e9104894dbbb1d6f0de.png"><action name="Execute"><command><![CDATA[supertux2]]></command></action></item>
-    <item label="صولتار آيسل رايوت" icon="/home/yahia/.config/obmenu-generator/icons/fe116279e75fc01e2673773807beaf60.png"><action name="Execute"><command><![CDATA[sol]]></command></action></item>
-  </menu>
-  <menu id="0.797183217539668" icon="/home/yahia/.config/obmenu-generator/icons/9f3c622a6c3b9c61d8b41232861f277e.png" label="المكتب">
-    <item label="LibreOffice Base" icon="/home/yahia/.config/obmenu-generator/icons/5969a41e24eacc96b9ea4da7627d7d04.png"><action name="Execute"><command><![CDATA[libreoffice --base]]></command></action></item>
-    <item label="LibreOffice Calc" icon="/home/yahia/.config/obmenu-generator/icons/692c32cd3e0c085b4448652205cf3edf.png"><action name="Execute"><command><![CDATA[libreoffice --calc]]></command></action></item>
-    <item label="LibreOffice Draw" icon="/home/yahia/.config/obmenu-generator/icons/2cc9b5cedde669a4e94b78b0fdea7a82.png"><action name="Execute"><command><![CDATA[libreoffice --draw]]></command></action></item>
-    <item label="LibreOffice Impress" icon="/home/yahia/.config/obmenu-generator/icons/afe24c235fe90ea3d183da6621537257.png"><action name="Execute"><command><![CDATA[libreoffice --impress]]></command></action></item>
-    <item label="LibreOffice Math" icon="/home/yahia/.config/obmenu-generator/icons/24fff00aef4748eab521e1edf201994d.png"><action name="Execute"><command><![CDATA[libreoffice --math]]></command></action></item>
-    <item label="LibreOffice Writer" icon="/home/yahia/.config/obmenu-generator/icons/5e4d43ab7b5dab5e985ce3100c732701.png"><action name="Execute"><command><![CDATA[libreoffice --writer]]></command></action></item>
-    <item label="LibreOffice" icon="/home/yahia/.config/obmenu-generator/icons/b573dbc70846e2a3890029291c7e1933.png"><action name="Execute"><command><![CDATA[libreoffice]]></command></action></item>
-    <item label="القرءان المفسر" icon="/home/yahia/.config/obmenu-generator/icons/cc2fe9a7b12337ffe6c7d0e47265a3ca.png"><action name="Execute"><command><![CDATA[mtafsir]]></command></action></item>
-    <item label="عارض المستندات" icon="/home/yahia/.config/obmenu-generator/icons/115c163bc8d62e40cf8b6f0b305400d2.png"><action name="Execute"><command><![CDATA[evince]]></command></action></item>
-    <item label="منظم الكتب" icon="/home/yahia/.config/obmenu-generator/icons/d11c30257be8e8e1cda11ee309a92f2c.png"><action name="Execute"><command><![CDATA[booksorg]]></command></action></item>
-    <item label="مواقيت الاذان" icon="/home/yahia/.config/obmenu-generator/icons/f8b8f1e25bcf8a33a790336893c161d5.png"><action name="Execute"><command><![CDATA[elokab-adhan]]></command></action></item>
-  </menu>
-  <menu id="0.507649760709494" icon="/home/yahia/.config/obmenu-generator/icons/2c6d3d199d9b1dd67df8a114f6a50e96.png" label="تطبيقات أخرى">
-    <item label="jgmenu" icon="/home/yahia/.config/obmenu-generator/icons/14ebad81282af2a884da82d0c44f0c27.png"><action name="Execute"><command><![CDATA[jgmenu_run]]></command></action></item>
-    <item label="Openbox Menu" icon="/home/yahia/.config/obmenu-generator/icons/14ebad81282af2a884da82d0c44f0c27.png"><action name="Execute"><command><![CDATA[xdotool key super+space]]></command></action></item>
-  </menu>
-  <menu id="0.7779405768865" icon="/home/yahia/.config/obmenu-generator/icons/2fc9dd8fa311e3ee5bcb3ded19b4cee1.png" label="اعدادات">
-    <item label="Connman Settings" icon="/home/yahia/.config/obmenu-generator/icons/18d5550c38aa8ac00384b112459d8d1f.png"><action name="Execute"><command><![CDATA[connman-gtk]]></command></action></item>
-    <item label="Connman UI Setup" icon="/home/yahia/.config/obmenu-generator/icons/a9bb34063ab09c6cb2af58a38885de92.png"><action name="Execute"><command><![CDATA[cmst]]></command></action></item>
-    <item label="Openbox Configuration Manager" icon="/home/yahia/.config/obmenu-generator/icons/2c0adeb5cc9bc1bd37eb08aa454fa494.png"><action name="Execute"><command><![CDATA[obconf]]></command></action></item>
-    <item label="Screensaver" icon="/home/yahia/.config/obmenu-generator/icons/715572b2c71d4c9f9322a2bbed41ddd8.png"><action name="Execute"><command><![CDATA[xscreensaver-demo]]></command></action></item>
-    <item label="إضافة وإزالة البرمجيات" icon="/home/yahia/.config/obmenu-generator/icons/7d7076560b5632b298757139599a7f94.png"><action name="Execute"><command><![CDATA[pamac-manager]]></command></action></item>
-    <item label="إعدادات Qt5" icon="/home/yahia/.config/obmenu-generator/icons/0fedfd4d61a2d5404fffe88faa63e1b9.png"><action name="Execute"><command><![CDATA[qt5ct]]></command></action></item>
-    <item label="إعدادات المرقاب" icon="/home/yahia/.config/obmenu-generator/icons/5f60bb2e81db5aad744bd863b291c3ac.png"><action name="Execute"><command><![CDATA[lxrandr]]></command></action></item>
-    <item label="إعدادات ترحيب LightDM GTK+" icon="/home/yahia/.config/obmenu-generator/icons/8e592f1ac9ecd62b72de9e2787315370.png"><action name="Execute"><command><![CDATA[lightdm-gtk-greeter-settings-pkexec]]></command></action></item>
-    <item label="التّطبيقات المحبّذة" icon="/home/yahia/.config/obmenu-generator/icons/2fc9dd8fa311e3ee5bcb3ded19b4cee1.png"><action name="Execute"><command><![CDATA[libfm-pref-apps]]></command></action></item>
-    <item label="تحديث البرمجيات" icon="/home/yahia/.config/obmenu-generator/icons/27a0b3118cea5b1d02779df09160be65.png"><action name="Execute"><command><![CDATA[pamac-updater]]></command></action></item>
-    <item label="تفضيلات سطح المكتب" icon="/home/yahia/.config/obmenu-generator/icons/5ff56e62dc22c7ef00c2f62b82a7fb59.png"><action name="Execute"><command><![CDATA[pcmanfm --desktop-pref]]></command></action></item>
-    <item label="خصّص المظهر والإحساس" icon="/home/yahia/.config/obmenu-generator/icons/0fedfd4d61a2d5404fffe88faa63e1b9.png"><action name="Execute"><command><![CDATA[lxappearance]]></command></action></item>
-    <item label="مدير الائحة :" icon="/home/yahia/.config/obmenu-generator/icons/4bdfc6d254275be3d844a71e0aec0d7b.png"><action name="Execute"><command><![CDATA[tint2conf]]></command></action></item>
+  <menu id="0.108846188746984" icon="/home/youcef/.config/obmenu-generator/icons/419c5e137b31c2d091b56e5eb192f4b9.png" label="اعدادات">
+    <item label="Add/Remove Software" icon="/home/youcef/.config/obmenu-generator/icons/2f51a6321b6a522ba6d8f48199edf4bb.png"><action name="Execute"><command><![CDATA[pamac-manager]]></command></action></item>
+    <item label="Advanced Network Configuration" icon="/home/youcef/.config/obmenu-generator/icons/3f058b89f1aeafc42a4b3c929e0de3ed.png"><action name="Execute"><command><![CDATA[nm-connection-editor]]></command></action></item>
+    <item label="Connman Settings" icon="/home/youcef/.config/obmenu-generator/icons/3f058b89f1aeafc42a4b3c929e0de3ed.png"><action name="Execute"><command><![CDATA[connman-gtk]]></command></action></item>
+    <item label="Connman UI Setup" icon="/home/youcef/.config/obmenu-generator/icons/a9bb34063ab09c6cb2af58a38885de92.png"><action name="Execute"><command><![CDATA[cmst]]></command></action></item>
+    <item label="Customize Look and Feel" icon="/home/youcef/.config/obmenu-generator/icons/0386190621a8a986aa6b4339a90f2721.png"><action name="Execute"><command><![CDATA[lxappearance]]></command></action></item>
+    <item label="Desktop Preferences" icon="/home/youcef/.config/obmenu-generator/icons/0aee2cfb76dcd92c2320298501eab38b.png"><action name="Execute"><command><![CDATA[pcmanfm --desktop-pref]]></command></action></item>
+    <item label="Firewall Configuration" icon="/home/youcef/.config/obmenu-generator/icons/d85b2a17bd4042924642b86f5c42a3a8.png"><action name="Execute"><command><![CDATA[gufw]]></command></action></item>
+    <item label="LightDM GTK+ Greeter settings" icon="/home/youcef/.config/obmenu-generator/icons/a621b1b5caa75809bc24a348105b492d.png"><action name="Execute"><command><![CDATA[lightdm-gtk-greeter-settings-pkexec]]></command></action></item>
+    <item label="Oomox: customize icons and GTK themes" icon="/home/youcef/.config/obmenu-generator/icons/1e8e806e4bf26fa8191b0987ef1dfd25.png"><action name="Execute"><command><![CDATA[oomox-gui]]></command></action></item>
+    <item label="Preferred Applications" icon="/home/youcef/.config/obmenu-generator/icons/419c5e137b31c2d091b56e5eb192f4b9.png"><action name="Execute"><command><![CDATA[libfm-pref-apps]]></command></action></item>
+    <item label="Qt5 Settings" icon="/home/youcef/.config/obmenu-generator/icons/0386190621a8a986aa6b4339a90f2721.png"><action name="Execute"><command><![CDATA[qt5ct]]></command></action></item>
+    <item label="Screensaver" icon="/home/youcef/.config/obmenu-generator/icons/dae200c19f8a07008f83079caf8f8cce.png"><action name="Execute"><command><![CDATA[xscreensaver-demo]]></command></action></item>
+    <item label="Software Update" icon="/home/youcef/.config/obmenu-generator/icons/bfe1d02cea967ca6e7e4de07372df57a.png"><action name="Execute"><command><![CDATA[pamac-manager --updates]]></command></action></item>
+    <item label="Window Effects" icon="/home/youcef/.config/obmenu-generator/icons/cf5ced23d1ce5460c5d3dd9445f0c1db.png"><action name="Execute"><command><![CDATA[compton-conf]]></command></action></item>
   </menu>
   </menu>
   <separator/>
-  <menu id="0.328659189662165" icon="/home/yahia/.config/obmenu-generator/icons/0fedfd4d61a2d5404fffe88faa63e1b9.png" label="التفظيلات">
-    <item label="Tint2 اعداد" icon="/home/yahia/.config/obmenu-generator/icons/4bdfc6d254275be3d844a71e0aec0d7b.png"><action name="Execute"><command><![CDATA[tint2conf]]></command></action></item>
+  <menu id="0.986849206325815" icon="/home/youcef/.config/obmenu-generator/icons/0386190621a8a986aa6b4339a90f2721.png" label="التفظيلات">
+    <item label="الخلفية" icon="/home/youcef/.config/obmenu-generator/icons/0386190621a8a986aa6b4339a90f2721.png"><action name="Execute"><command><![CDATA[nitrogen]]></command></action></item>
   <separator/>
-    <item label="المظهر" icon="/home/yahia/.config/obmenu-generator/icons/0fedfd4d61a2d5404fffe88faa63e1b9.png"><action name="Execute"><command><![CDATA[lxappearance]]></command></action></item>
-    <item label="اعدادات مدير الولوج" icon="/home/yahia/.config/obmenu-generator/icons/0fedfd4d61a2d5404fffe88faa63e1b9.png"><action name="Execute"><command><![CDATA[pkexec lightdm-gtk-greeter-settings]]></command></action></item>
-    <item label="Rofi مظهر" icon="/home/yahia/.config/obmenu-generator/icons/0fedfd4d61a2d5404fffe88faa63e1b9.png"><action name="Execute"><command><![CDATA[rofi-theme-selector]]></command></action></item>
-    <item label="Qt مظهر" icon="/home/yahia/.config/obmenu-generator/icons/0fedfd4d61a2d5404fffe88faa63e1b9.png"><action name="Execute"><command><![CDATA[qt5ct]]></command></action></item>
-    <item label="compositor" icon="/home/yahia/.config/obmenu-generator/icons/9dc0a0ed794cc31220ed3e0769e151c8.png"><action name="Execute"><command><![CDATA[paranoid.py]]></command></action></item>
-    <item label="خلفية الشاشة" icon="/home/yahia/.config/obmenu-generator/icons/5bbeec1414900815afa707cb89646739.png"><action name="Execute"><command><![CDATA[nitrogen]]></command></action></item>
+    <item label="المظهر" icon="/home/youcef/.config/obmenu-generator/icons/0386190621a8a986aa6b4339a90f2721.png"><action name="Execute"><command><![CDATA[lxappearance]]></command></action></item>
+    <item label="اعدادات مدير الولوج" icon="/home/youcef/.config/obmenu-generator/icons/0386190621a8a986aa6b4339a90f2721.png"><action name="Execute"><command><![CDATA[pkexec lightdm-gtk-greeter-settings]]></command></action></item>
+    <item label="Rofi مظهر" icon="/home/youcef/.config/obmenu-generator/icons/0386190621a8a986aa6b4339a90f2721.png"><action name="Execute"><command><![CDATA[rofi-theme-selector]]></command></action></item>
+    <item label="Qt مظهر" icon="/home/youcef/.config/obmenu-generator/icons/0386190621a8a986aa6b4339a90f2721.png"><action name="Execute"><command><![CDATA[qt5ct]]></command></action></item>
+    <item label="compositor" icon="/home/youcef/.config/obmenu-generator/icons/a0143874b0974c14518f2a07c89ed437.png"><action name="Execute"><command><![CDATA[paranoid.py]]></command></action></item>
   </menu>
   <separator/>
-  <menu id="0.770573159761412" icon="/home/yahia/.config/obmenu-generator/icons/2f0d3c9fa56d954ec492905ec8e8101e.png" label="أوبن بوكس">
-    <item label="تحرير menu.xml" icon="/home/yahia/.config/obmenu-generator/icons/2b9cd2f861ce61d4ba34dde2859eabee.png"><action name="Execute"><command><![CDATA[geany ~/.config/openbox/menu.xml]]></command></action></item>
-    <item label="تحرير rc.xml" icon="/home/yahia/.config/obmenu-generator/icons/2b9cd2f861ce61d4ba34dde2859eabee.png"><action name="Execute"><command><![CDATA[geany ~/.config/openbox/rc.xml]]></command></action></item>
-    <item label="تحرير autostart" icon="/home/yahia/.config/obmenu-generator/icons/2b9cd2f861ce61d4ba34dde2859eabee.png"><action name="Execute"><command><![CDATA[geany ~/.config/openbox/autostart]]></command></action></item>
+  <menu id="0.0731217393347769" icon="/home/youcef/.config/obmenu-generator/icons/d4238eb70216d1c2ee88e0225c667b9d.png" label="أوبن بوكس">
+    <item label="تحرير menu.xml" icon="/home/youcef/.config/obmenu-generator/icons/0582f17f9a83b4e0aa0cb518a4b9baae.png"><action name="Execute"><command><![CDATA[geany ~/.config/openbox/menu.xml]]></command></action></item>
+    <item label="تحرير rc.xml" icon="/home/youcef/.config/obmenu-generator/icons/0582f17f9a83b4e0aa0cb518a4b9baae.png"><action name="Execute"><command><![CDATA[geany ~/.config/openbox/rc.xml]]></command></action></item>
+    <item label="تحرير autostart" icon="/home/youcef/.config/obmenu-generator/icons/0582f17f9a83b4e0aa0cb518a4b9baae.png"><action name="Execute"><command><![CDATA[geany ~/.config/openbox/autostart]]></command></action></item>
   <separator/>
-    <item label="اعدادات اوبن بوكس" icon="/home/yahia/.config/obmenu-generator/icons/2f0d3c9fa56d954ec492905ec8e8101e.png"><action name="Execute"><command><![CDATA[obconf]]></command></action></item>
-    <item label="اختصارات المفاتيح" icon="/home/yahia/.config/obmenu-generator/icons/2f0d3c9fa56d954ec492905ec8e8101e.png"><action name="Execute"><command><![CDATA[obkey]]></command></action></item>
+    <item label="اعدادات اوبن بوكس" icon="/home/youcef/.config/obmenu-generator/icons/d4238eb70216d1c2ee88e0225c667b9d.png"><action name="Execute"><command><![CDATA[obconf]]></command></action></item>
+    <item label="اختصارات المفاتيح" icon="/home/youcef/.config/obmenu-generator/icons/d4238eb70216d1c2ee88e0225c667b9d.png"><action name="Execute"><command><![CDATA[obkey]]></command></action></item>
   <separator/>
-    <item label="اعد تحميل أوبن بوكس" icon="/home/yahia/.config/obmenu-generator/icons/2f0d3c9fa56d954ec492905ec8e8101e.png"><action name="Execute"><command><![CDATA[openbox --restart]]></command></action></item>
-    <item label="تحديث اعدادات أوبن بوكس" icon="/home/yahia/.config/obmenu-generator/icons/2f0d3c9fa56d954ec492905ec8e8101e.png"><action name="Execute"><command><![CDATA[openbox --reconfigure]]></command></action></item>
+    <item label="اعد تحميل أوبن بوكس" icon="/home/youcef/.config/obmenu-generator/icons/d4238eb70216d1c2ee88e0225c667b9d.png"><action name="Execute"><command><![CDATA[openbox --restart]]></command></action></item>
+    <item label="تحديث اعدادات أوبن بوكس" icon="/home/youcef/.config/obmenu-generator/icons/d4238eb70216d1c2ee88e0225c667b9d.png"><action name="Execute"><command><![CDATA[openbox --reconfigure]]></command></action></item>
   </menu>
   <separator/>
-  <menu id="0.403089937827186" icon="/home/yahia/.config/obmenu-generator/icons/144d8ff48adf6e738373b753073872c3.png" label="مولد القوائم">
-    <item label="Menu Schema" icon="/home/yahia/.config/obmenu-generator/icons/22d0c359829335642473cac2b7f22e3b.png"><action name="Execute"><command><![CDATA[geany ~/.config/obmenu-generator/schema.pl]]></command></action></item>
-    <item label="Menu Config" icon="/home/yahia/.config/obmenu-generator/icons/22d0c359829335642473cac2b7f22e3b.png"><action name="Execute"><command><![CDATA[geany ~/.config/obmenu-generator/config.pl]]></command></action></item>
+  <menu id="0.57032022321571" icon="/home/youcef/.config/obmenu-generator/icons/f84509ef78fbb066ca84d983e92bacab.png" label="مولد القوائم">
+    <item label="Menu Schema" icon="/home/youcef/.config/obmenu-generator/icons/7dbe2cef63192376aa2717de7c822e3d.png"><action name="Execute"><command><![CDATA[geany ~/.config/obmenu-generator/schema.pl]]></command></action></item>
+    <item label="Menu Config" icon="/home/youcef/.config/obmenu-generator/icons/7dbe2cef63192376aa2717de7c822e3d.png"><action name="Execute"><command><![CDATA[geany ~/.config/obmenu-generator/config.pl]]></command></action></item>
   <separator/>
-    <item label="ولد قائمة قياسية" icon="/home/yahia/.config/obmenu-generator/icons/144d8ff48adf6e738373b753073872c3.png"><action name="Execute"><command><![CDATA[~/.config/obmenu-generator/obmenu-generator -s -c]]></command></action></item>
-    <item label="ولد قائمة قياسية مع ايقونات" icon="/home/yahia/.config/obmenu-generator/icons/144d8ff48adf6e738373b753073872c3.png"><action name="Execute"><command><![CDATA[~/.config/obmenu-generator/obmenu-generator -s -i -c]]></command></action></item>
+    <item label="ولد قائمة قياسية" icon="/home/youcef/.config/obmenu-generator/icons/f84509ef78fbb066ca84d983e92bacab.png"><action name="Execute"><command><![CDATA[~/.config/obmenu-generator/obmenu-generator -s -c]]></command></action></item>
+    <item label="ولد قائمة قياسية مع ايقونات" icon="/home/youcef/.config/obmenu-generator/icons/f84509ef78fbb066ca84d983e92bacab.png"><action name="Execute"><command><![CDATA[~/.config/obmenu-generator/obmenu-generator -s -i -c]]></command></action></item>
   <separator/>
-    <item label="تحديث الايقونات" icon="/home/yahia/.config/obmenu-generator/icons/1a78ec23786c90ae65ce6b4a3238cbed.png"><action name="Execute"><command><![CDATA[~/.config/obmenu-generator/obmenu-generator -d]]></command></action></item>
+    <item label="تحديث الايقونات" icon="/home/youcef/.config/obmenu-generator/icons/aa482997bdf84268590075118dbf70eb.png"><action name="Execute"><command><![CDATA[~/.config/obmenu-generator/obmenu-generator -d]]></command></action></item>
   </menu>
   <separator/>
-    <item label="قفل الشاشة" icon="/home/yahia/.config/obmenu-generator/icons/909b4dbf4051a94520c978cb637b1bc0.png"><action name="Execute"><command><![CDATA[xscreensaver-command -lock]]></command></action></item>
-    <item label="الخروج" icon="/home/yahia/.config/obmenu-generator/icons/ce565dcb53e1f3f10ac194e5dfda514c.png"><action name="Execute"><command><![CDATA[~/.config/openbox/rofi-sh -l]]></command></action></item>
+    <item label="قفل الشاشة" icon="/home/youcef/.config/obmenu-generator/icons/90b4ab5f312a75913858126f80ab80fa.png"><action name="Execute"><command><![CDATA[xscreensaver-command -lock]]></command></action></item>
+    <item label="الخروج" icon="/home/youcef/.config/obmenu-generator/icons/c961ddbfd3ca54d54f6bb800feb883cb.png"><action name="Execute"><command><![CDATA[~/.config/openbox/rofi-sh -l]]></command></action></item>
   </menu>
 </openbox_menu>

@@ -4,7 +4,9 @@
 #
 
 # To set your language for displaying messages and time/date formats, use the following:
-#LANG=en_CA.UTF8
-
+LANG=ar_DZ.UTF8
+#export QT_STYLE_OVERRIDE=gtk2
+export QT_QPA_PLATFORMTHEME=qt5ct
+#export QT_QPA_PLATFORM=gtk2
 # To set your keyboard layout, you need to modify your X config:
 # http://www.google.com/search?q=how+to+set+keyboard+layout+xorg

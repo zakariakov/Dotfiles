@@ -18,6 +18,7 @@ Options:
      -b      Browser search by keyword
      -l      Session logout openbox choice
      -s      Session logout i3 choice
+     -p      Session logout bspwm choice
      -f		 Find files
      -i		 Find icon
      -x      Xrandr options
@@ -27,7 +28,7 @@ EOF
 }
 
 #  Handle command line arguments
-while getopts ":hvqwcbrRlsfixm" opt; do
+while getopts ":hvqwcbrRlspfixm" opt; do
     case $opt in
         h)
             _usage
@@ -90,6 +91,18 @@ while getopts ":hvqwcbrRlsfixm" opt; do
             case "$ANS" in
                 *Lock) xscreensaver-command -lock ;;
                 *Logout) i3 exit ;;
+                *Reboot) systemctl reboot ;;
+                *Shutdown) systemctl poweroff;;
+                *Suspend) systemctl suspend
+            esac
+            ;;  
+        p)
+            ANS=$(echo " Lock| Logout| Reboot| Shutdown| Suspend" | \
+                rofi -sep "|" -dmenu -i -p 'System: ' "" -width 20 \
+                -hide-scrollbar -eh 1 -line-padding 5 -padding 10 -columns 1  -lines 5)
+            case "$ANS" in
+                *Lock) xscreensaver-command -lock ;;
+                *Logout)  bspc quit ;;
                 *Reboot) systemctl reboot ;;
                 *Shutdown) systemctl poweroff;;
                 *Suspend) systemctl suspend

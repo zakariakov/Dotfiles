@@ -307,15 +307,16 @@ function i3powerline_config(){
 		 set_config_i3power "backColor"  $XCOLORBG  "$I3POWERFILE"
 		 set_config_i3power "forColor"   $XCOLORFG  "$I3POWERFILE"
 
-		 set_config_i3power "clockColor"  $XCOLOR7  "$I3POWERFILE"
-		 set_config_i3power "alsaColor"  $XCOLOR6  "$I3POWERFILE"
-		 set_config_i3power "bklightColor"  $XCOLOR9  "$I3POWERFILE"
-		 set_config_i3power "networkColor"  $XCOLOR10  "$I3POWERFILE"
-		 set_config_i3power "batteryColor"  $XCOLOR11  "$I3POWERFILE"
-		 set_config_i3power "tempColor"  $XCOLOR12  "$I3POWERFILE"
-		 set_config_i3power "cpuColor"  $XCOLOR13  "$I3POWERFILE"
-		 set_config_i3power "memColor"  $XCOLOR14  "$I3POWERFILE"
-		 set_config_i3power "diskColor"  $XCOLOR15  "$I3POWERFILE"
+
+		 set_config_i3power "greenColor"  $XCOLOR2  "$I3POWERFILE"
+		 set_config_i3power "greenColor2"  $XCOLOR10  "$I3POWERFILE"
+		 set_config_i3power "bleuColor"  $XCOLOR4  "$I3POWERFILE"
+		 set_config_i3power "bleuColor2"  $XCOLOR12  "$I3POWERFILE"
+		 set_config_i3power "magentaColor"  $XCOLOR5  "$I3POWERFILE"
+		 set_config_i3power "magentaColor2"  $XCOLOR13  "$I3POWERFILE"
+     set_config_i3power "whiteColor"  $XCOLOR7  "$I3POWERFILE"
+
+		
 
 	 echo "[+] i3powerline Colors Scheme genirated"
 	fi

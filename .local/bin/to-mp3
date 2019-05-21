@@ -1,0 +1,4 @@
+#!/bin/sh
+
+#ffmpeg -hide_banner  -i $1  -ab 50k -f mp3  $1.mp3
+file=$1; ffmpeg -hide_banner  -i $1 -ab 50k -f mp3  "${file%.*}.mp3"

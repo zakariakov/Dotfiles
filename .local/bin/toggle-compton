@@ -1,0 +1,10 @@
+#!/bin/bash
+
+if pgrep -x "compton" > /dev/null
+then
+  killall compton &
+else
+  compton $1 $2 &
+fi
+  
+exit 0

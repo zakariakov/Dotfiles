@@ -1,0 +1,14 @@
+#!/bin/bash
+
+PATHDEST=/run/media/youcef/BACKUP/My-Apps
+PATHSOURCE=/home/youcef/MyApps-src
+
+
+
+
+##Folders----------------------
+
+echo -e "\033[35m Backup Apps source .....\033[0m"
+rsync -r  -t  --info=progress2 --delete -l -s $PATHSOURCE $PATHDEST
+
+echo "Done........."

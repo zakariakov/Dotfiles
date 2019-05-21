@@ -68,55 +68,43 @@ _BAT_ () {
     Bat=$(acpi | awk '{print $4}'| tr -d "%,");
     adapt=$(acpi -a | awk '{print $3}');
 
-     if [ "$adapt" = "on-line" ];then
-	 icon0=""
-	 icon1=""
-	 icon2=""
-	 icon3=""
-	 icon4=""
-     else
-	 icon0=""
-	 icon1=""
-	 icon2=""
-	 icon3=""
-	 icon4=""
-     fi
- #if [ "$adapt" = "on-line" ];then
-	#icon0=""
-	#icon1=""
-	#icon2=""
-	#icon3=""
-	#icon4=""
-    #else
-	#icon0=""
-	#icon1=""
-	#icon2=""
-	#icon3=""
-	#icon4=""
-    #fi
-   # [ -z "$Bat" ] && bat="$icon0 $adapt"
-    
-       #[ "$Bat" -lt "30" ] && bat="$icon0 $Bat %"
-       #[ "$Bat" -gt "30" ] && bat="$icon1 $Bat %"
-         #[ "$Bat" -gt "60" ] && bat="$icon2 $Bat %"
-            #[ "$Bat" -it "90" ] && bat="$icon3 $Bat %"
-        #[ "$Bat" -it "99" ] && bat="$icon4 Full"
-   bat="$icon4 $Bat"
-		if  [[ $Bat -ge 100 ]] ; then
-			bat="$icon4  Full"
-		elif [[ $Bat -ge 80 ]] && [[ $Bat -lt 100 ]]; then
-            bat="$icon4 $Bat%"
-        elif [[ $Bat -ge 60 ]] && [[ $Bat -lt 80 ]]; then
-            bat="$icon3 $Bat%"
-        elif [[ $Bat -ge 40 ]] && [[ $Bat -lt 60 ]]; then
-            bat="$icon2$Bat%"    
-        elif [[ $Bat -ge 20 ]] && [[ $Bat -lt 40 ]]; then
-            bat="$icon1$Bat%"    
-        else
-            bat="$icon0$Bat%"    
-        fi
+     #if [ "$adapt" = "on-line" ];then
+	 #icon0=""
+	 #icon1=""
+	 #icon2=""
+	 #icon3=""
+	 #icon4=""
+     #else
+	 #icon0=""
+	 #icon1=""
+	 #icon2=""
+	 #icon3=""
+	 #icon4=""
+     #fi
  
-echo $bat
+	
+     
+        #bat="$icon4 $Bat"
+		#if  [[ $Bat -ge 100 ]] ; then
+			#bat="$icon4  Full"
+		#elif [[ $Bat -ge 80 ]] && [[ $Bat -lt 100 ]]; then
+            #bat="$icon4 $Bat%"
+        #elif [[ $Bat -ge 60 ]] && [[ $Bat -lt 80 ]]; then
+            #bat="$icon3 $Bat%"
+        #elif [[ $Bat -ge 40 ]] && [[ $Bat -lt 60 ]]; then
+            #bat="$icon2$Bat%"    
+        #elif [[ $Bat -ge 20 ]] && [[ $Bat -lt 40 ]]; then
+            #bat="$icon1$Bat%"    
+        #else
+            #bat="$icon0$Bat%"    
+        #fi
+ 
+	if [ "$adapt" = "on-line" ];then
+	 icon=""
+	 else
+	 icon=""
+     fi
+	echo "$icon$Bat%"
 
 }
 
@@ -177,16 +165,22 @@ echo  "$icon $SIZE"
 _WINDOW_ () {
 
     [ -z "$1" ] && icon="" || icon="$1"
-    [ -z "$2" ] && CAR="30" || CAR="$2"
+    [ -z "$2" ] && CAR="150" || CAR="$2"
 
     focus=$(xdotool getactivewindow getwindowname)
     focus_Number=$(xdotool getactivewindow getwindowname | wc -c)
     Focus_N=$(xdotool getactivewindow getwindowname | head -c $CAR )
 
+#if [ -z "$focus" ];then
+        #echo "$icon Welcome"
+ #else
+    #[ "$focus_Number" -gt "$CAR" ] && echo "$icon $Focus_N ..." || echo "$icon $focus"
+#fi
+
 if [ -z "$focus" ];then
-        echo "$icon Welcome"
+        echo "Welcome"
  else
-    [ "$focus_Number" -gt "$CAR" ] && echo "$icon $Focus_N ..." || echo "$icon $focus"
+    [ "$focus_Number" -gt " $CAR" ] && echo " $Focus_N ..." || echo " $focus"
 fi
 }
 
@@ -215,8 +209,8 @@ _MPRIS_ () {
 
     [ -z "$1" ] && icon="" || icon="$1"
 
-icon1=
-icon2=
+icon1=""
+icon2=""
 # NCMP=$(mpc status | awk '/^\[playing\]/{print $1}')
 # _NCMP=$(mpc | head -1 )
 
@@ -225,13 +219,13 @@ icon2=
 # else
 #     echo "$icon1"
 # fi
-
-NCMP=$(playerctl -p goldfinch status)
+#NCMP=$(playerctl -p goldfinch status)
+NCMP=$(playerctl  status)
 #echo $NCMP
 if [ "$NCMP" = "Playing" ];then 
-    echo "$icon2 "
+    echo "$icon2"
 elif [ "$NCMP" = "يشتغل" ];then	
-	 echo "$icon2 "
+	 echo "$icon2"
 else
     echo "$icon1"
 fi
@@ -246,12 +240,12 @@ _TEMP_ () {
 	temp=$(sensors | awk '/^temp1/{print $2}' | tr -d "+°C"  | cut -d. -f1 )
 
 echo " $temp °C"
-   if [ "$temp" -gt "70" ];then
-   echo "<span style=' color:#FF3300;'>' </span> $temp °C"
-   elif [ "$temp" -gt "45" ];then
-    echo " <span style=' color:#0C5210;'>' </span> $temp °C"
+   if [ "$temp" -gt "110" ];then
+   echo "<span style=' color:#FF0000;'> $temp °C</span> "
+   elif [ "$temp" -gt "70" ];then
+    echo " <span style=' color:#FF4D00;'> $temp °C</span>"
    elif [ "$temp" -gt "30" ];then
-   echo "  $temp °C"
+   echo " $temp °C"
    fi
 
 }
@@ -285,17 +279,18 @@ Mute=$(amixer -c 0 get Master | awk '/Mono:/{print $6}' | tr -d "[-]")
 if [ "$Mute" = "off" ];then 
     echo -e " Mute"
 else
-    if [ "$Vol" -gt "80" ];then
-        echo -e " $Vol%"
-    elif [ "$Vol" -gt "60" ];then
-        echo -e " $Vol%"
-    elif [ "$Vol" -gt "40" ];then
-        echo -e " $Vol%"
-    elif [ "$Vol" -gt "20" ];then
-        echo -e " $Vol%"
-    elif [ "$Vol" -eq "0" ];then 
-        echo -e " $Vol%"
-    fi 
+    #if [ "$Vol" -gt "80" ];then
+        #echo -e " $Vol%"
+    #elif [ "$Vol" -gt "60" ];then
+        #echo -e " $Vol%"
+    #elif [ "$Vol" -gt "40" ];then
+        #echo -e " $Vol%"
+    #elif [ "$Vol" -gt "20" ];then
+        #echo -e " $Vol%"
+    #elif [ "$Vol" -eq "0" ];then 
+        #echo -e " $Vol%"
+    #fi 
+    echo -e "$Vol%"
 fi
 }
 
@@ -331,7 +326,7 @@ fi
 if ! [ -e "/sys/class/net/${INTERFACE}/operstate" ] || ! [ "`cat /sys/class/net/${INTERFACE}/operstate`" = "up" ]
 then
    # echo "$INTERFACE "
-    echo "<span style=' color:#686869;'> $INTERFACE </span>"
+    echo "<span style=' color:#686869;'> $INTERFACE </span>"
     exit 0
 fi
 
@@ -371,7 +366,7 @@ tx_rate=$(( $tx_diff / $time_diff ))
 
 # shift by 10 bytes to get KiB/s. If the value is larger than
 # 1024^2 = 1048576, then display MiB/s instead
-echo -n " "
+#echo -n " "
 # incoming
 echo -n "⬇"
 rx_kib=$(( $rx_rate >> 10 ))

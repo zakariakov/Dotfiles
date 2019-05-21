@@ -1,0 +1,12 @@
+#!/bin/bash
+
+PATHDEST=/run/media/youcef/BACKUP/Linux-Backup
+
+
+
+
+
+##Folders----------------------
+
+echo -e "\033[35m Backup pakages .....\033[0m"
+rsync -r  -t  --info=progress2 --delete -l -s /var/cache/pacman/pkg $PATHDEST 

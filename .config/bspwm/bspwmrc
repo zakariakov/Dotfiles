@@ -1,25 +1,39 @@
 #! /bin/sh
 
+# Set environment
+export BSPWM_CONFIG="${XDG_CONFIG_HOME:-$HOME/.config}/bspwm"
+#bspc config external_rules_command ~/.config/bspwm/external_rules.sh
+
 sxhkd &
+#killall qobbar cbatticon volumeicon connman-gtk gxkb  elokab-polkit-agent &
 
 #bspc monitor -d  ➊ ➋ ➌ ➍ ➎  
  #monitors #
 #bspc monitor VGA1  -d    ➏ ➐ ➑ ➒ ➓
 #bspc monitor LVDS1 -d    ➊ ➋ ➌ ➍ ➎
+bspc config  remove_disabled_monitors
+bspc config remove_unplugged_monitors
+
 if xrandr -q | grep 'VGA1 connected'; then
 	xrandr --output VGA1  --primary  --mode 1360x768 --right-of LVDS1
 	bspc monitor LVDS1 -d  ➊ 
-	bspc monitor VGA1 -d  ➋ ➌ ➍ ➎ 
+	bspc monitor  VGA1 -d  ➋ ➌ ➍ ➎ 
 else
-    xrandr --off VGA1
-    xrandr --output LVDS1  --primary  --mode 1360x768 
-	bspc monitor LVDS1 -d  ➊ ➋ ➌ ➍ 
+	bspc monitor  -d  ➊ ➋ ➌ ➍ 
+   #bspc monitor  -d       
 fi
 
-bspc config border_width         2
-bspc config window_gap          10
-
+bspc config border_width          2
+bspc config window_gap            10
+bspc config split_ratio           0.52
+bspc config borderless_monocle    true
+bspc config gapless_monocle       true
+bspc config focus_follows_pointer true
+bspc config border_radius 5
+## config automatic_scheme longest_side|alternate|spiral.
+#bspc config automatic_scheme spiral
 ## Coloring
+
 getcolors () {
 	FOREGROUND=$(xrdb -query | grep 'foreground:'| awk '{print $NF}')
 	BACKGROUND=$(xrdb -query | grep 'background:'| awk '{print $NF}')
@@ -32,6 +46,7 @@ getcolors () {
 	CYAN=$(xrdb -query | grep 'color6:'| awk '{print $NF}')
 	WHITE=$(xrdb -query | grep 'color7:'| awk '{print $NF}')
 }
+
 xrdb ~/.Xresources
 COLOR=$(shuf -n1 -e ~/.colors/*)
 SHORTCOLOR=$(echo $COLOR | sed "s@.*/@@")
@@ -44,87 +59,86 @@ if [ -e ~/.cache/paintee ]; then
 	getcolors
 fi
 
+bspc config focused_border_color	"$RED" 
+bspc config normal_border_color 	"$GREEN"
+bspc config active_border_color 	"$YELLOW"
+bspc config presel_feedback_color	"$GREEN"
+bspc config urgent_border_color		"#FF4500"
 
-bspc config focused_border_color "$BLUE" 
-bspc config normal_border_color "$BLACK"
-bspc config active_border_color "$MAGENTA"
-bspc config presel_feedback_color "$GREEN"
-
-
-#bspc config focused_border_color            \#0073FF
-#bspc config active_border_color             \#008000
-#bspc config normal_border_color             \#16212E
-#bspc config urgent_border_color             \#FF4500
-#bspc config presel_feedback_color           \#FFA500
-#bspc config focused_locked_border_color     \#FF2B00
-#bspc config active_locked_border_color      \#FF0000
-#bspc config normal_locked_border_color      \#000000
-#bspc config focused_sticky_border_color     \#8BC1F5
-#bspc config active_sticky_border_color      \#0081FF
-#bspc config normal_sticky_border_color      \#1A1A1A
-#bspc config focused_private_border_color    \#1E90FF
-#bspc config active_private_border_color     \#1E4AFF
-#bspc config normal_private_border_color     \#1A1A1A
-
-bspc config split_ratio          0.52
-bspc config borderless_monocle   true
-bspc config gapless_monocle      true
+bspc config focused_locked_border_color     #FF2B00
+bspc config active_locked_border_color      #FF0000
+bspc config normal_locked_border_color      #000000
+bspc config focused_sticky_border_color     #8BC1F5
+bspc config active_sticky_border_color      #0081FF
+bspc config normal_sticky_border_color      #1A1A1A
+bspc config focused_private_border_color    #1E90FF
+bspc config active_private_border_color     #1E4AFF
+bspc config normal_private_border_color     #1A1A1A
 
 #bspc rule -a Gimp desktop='^4' state=floating follow=on
 bspc rule -a Firefox desktop='^2' follow=on
+bspc rule -a Pcmanfm desktop='^1' follow=on
 bspc rule -a MPlayer state=floating
 bspc rule -a Nitrogen state=floating
-bspc rule -a Lxappearance state=floating
+bspc rule -a Lxappearance state=floating center=on
 bspc rule -a Gcolor3 state=floating
 bspc rule -a Connman-gtk state=floating
 bspc rule -a elokab-polkit-agent state=floating
 bspc rule -a Zathura state=tiled
-bspc rule -a Kupfer.py focus=on
-bspc rule -a Screenkey manage=off
 
 
-xsettingsd &
+# sxhkd &
+
+# # Autostart
+# "$BSPWM_CONFIG/autostart" &
+
+#xsettingsd &
 ## change layout
-setxkbmap -option grp:alt_shift_toggle fr,ar  -option terminate:ctrl_alt_bksp &
+setxkbmap -option grp:alt_shift_toggle fr,ar -option terminate:ctrl_alt_bksp &
 
 ## compositor
-compton &
+compton --shadow-red 0.7 &
+
 ## Synclient 
 synclient TapButton1=1 TapButton2=3 TapButton3=2 &
 
-
-
-# wallpapers 
+## wallpapers 
 #hsetroot -solid "#242631"
 nitrogen --restore &
-# start polybar
+## start polybar
 #$HOME/.config/bspwm/polybar/run_polybar.sh -r &
 #
-killall qobbar &
+
 killall cbatticon &
 killall volumeicon &
 killall connman-gtk &
 killall gxkb &
 killall elokab-polkit-agent &
-#qobbar -r -c topbar-bspwm &
-# System Tray
+killall qobbar &
+#killall conky &
+##System Tray
 sleep 1 
 
 # polkit
 #/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
-elokab-polkit-agent &
-
+#elokab-polkit-agent &
 ## Notify
 # elokab-notify -t -p 1 &
 dunst &
+ qobbar -r -c bspwm_top_block &
+# qobbar -r -c bspwm-top &
+ qobbar -r -c bspwm_bot &
+#qobbar -r -c greenbar &
+#qobbar  -c purple &
+#qobbar  -c purple-bot &
 
-qobbar -r -c bspwm-top &
-qobbar -r -c bspwm-bot &
+elokab-polkit-agent &
 cbatticon &
 volumeicon &
 connman-gtk &
 gxkb &
 xscreensaver -no-splash &
-conky -c "$HOME/.config/conky/Emays/config/conkyrc2" &
+#conky -c "$HOME/.config/conky/Emays/config/conkyrc2" &
 numlockx on &
 
+#sxhkd -m -1 &

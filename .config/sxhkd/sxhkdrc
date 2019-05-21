@@ -7,32 +7,33 @@ super + Return
 	elokab-terminal
 
 super + ctrl + Return
-    elokab-terminal && state=floating	
+    elokab-terminal -o 10
 	
-super + shift + Return
+super + KP_Enter
     urxvt
     
 ## program launcher
 super + @space
-	dmenu_run
+	dmenu_run -i -nb '#1A1D22' -nf '#FE0059' -sb '#FE0059' -sf  '#1A1D22' -fn 'xos4 Terminus:bold:pixelsize=14'
+#	dmenu_run -i -nb '#263238' -nf '#67E320' -sb '#67E320' -sf  '#263238' -fn 'xos4 Terminus:bold:pixelsize=14'
+#	dmenu_run -i -nb '#191919' -nf '#fea63c' -sb '#fea63c' -sf  '#191919' -fn 'xos4 Terminus:bold:pixelsize=14'
 
 ## make sxhkd reload its configuration files:
 super + Escape
 	pkill -USR1 -x sxhkd
 
-#
-# bspwm hotkeys
-#
-
 ## quit/restart bspwm
 super + alt + {x,r}
 	bspc {quit,wm -r}
 
-## close and kill {_,shift + }w
+
+  
+## close or kill 
 super + x
-    bspc node -c
-     
-#  bspc node -{c,k}
+  bspc node -c
+  
+alt + F4
+  bspc node --close
 
 ## alternate between the tiled and monocle layout
 super + m
@@ -48,24 +49,29 @@ super + g
 
 ## Sreen brightness controls
 XF86MonBrightnessUp 	
-	  xbacklight -inc 5 
+	  xbacklight -inc 5 && ~/.local/bin/brightness.sh
 	  
 XF86MonBrightnessDown 
-	 xbacklight -dec 5 
+	 xbacklight -dec 5 && ~/.local/bin/brightness.sh
 
 ##  Volume
 XF86AudioRaiseVolume 	
-	  amixer -D pulse set Master 5%+ unmute
+	  amixer -D pulse set Master 5%+ unmute && ~/.local/bin/volume.sh 
 	  
 XF86AudioLowerVolume 	
-	  amixer -D pulse set Master 5%- unmute
+	  amixer -D pulse set Master 5%- unmute && ~/.local/bin/volume.sh 
 	  
 XF86AudioMute  			
 	  amixer -D pulse set Master toggle
 
+
+## pavucontrol-qt
+super + v
+  pavucontrol-qt
+
 # screenshot
 Print 					
- scrot
+	scrot
  
 # rofi run
 super + r	
@@ -73,7 +79,7 @@ super + r
 	
 ## toggle compton 
 super + shift + o 			
-	   ~/.local/bin/toggle-compton
+	   ~/.local/bin/toggle-compton --shadow-green 0.8
 
 ##  Switch between open windows  %%
 alt + Tab 				
@@ -84,15 +90,23 @@ super + shift + p
      ~/.config/rofi/rofi-sh -m
 
 ##  morc menu  %%   		
-super+shift+m         	
+super + shift + m         	
      ~/.config/rofi/morc_menu    
+     
+## Change walpapper
+super + shift + w
+   ~/.config/nitrogen/wallchange-sh
+
+## Change color logo
+super + shift + b
+	 ~/.config/nitrogen/colorchange-sh
 
 ##  calculator  %%
 super+c 			
     ~/.config/rofi/rofi-sh -q
 
 ##  Font Awsom Icons  %% 
-  super+i 					
+super+shift+i				
 	 ~/.config/rofi/rofi-sh -i
 
 ## shutdown bspwm  %%  
@@ -100,7 +114,7 @@ super+shift+x
 	 ~/.config/rofi/rofi-sh -p
 
 ## Desplay   %%   
-super+shift+s 			
+super + shift + s 			
 	 ~/.config/rofi/rofi-sh -x
 
 #
@@ -131,13 +145,13 @@ super + ctrl + {m,x,y,z}
 super + {_,shift + }{Left,Down,Up,Right}
 	bspc node -{f,s} {west,south,north,east}
 
-# focus the node for the given path jump
-super + {p,b,comma,period}
-	bspc node -f @{parent,brother,first,second}
-
 # focus the next/previous node in the current desktop
 super + {_,shift + }c
 	bspc node -f {next,prev}.local
+
+# focus the node for the given path jump
+super + {p,b,comma,period}
+	bspc node -f @{parent,brother,first,second}
 
 # focus the next/previous desktop in the current monitor
 super + bracket{left,right}
@@ -153,21 +167,30 @@ super + {o,i}
 	bspc node {older,newer} -f; \
 	bspc wm -h on
 
-# focus or send to the given desktop
-super + {_,shift + }{1-9,0}
-	bspc {desktop -f,node -d} '^{1-9,10}'
+# Move window to left/right desktop
+ctrl + alt + {Left,Right}
+	bspc desktop  {prev,next} --focus
 
-#
-# preselect
-#
+## focus or send to the given desktop
+## Azerty
+# super + {_,shift } + {ampersand,eacute,quotedbl,apostrophe,parentleft,section,egrave,exlam,ccedilla,agrave}
+# 		bspc  {desktop -f,node -d } ^{1-9,10}
+
+## Qwerty
+super + {_,shift } + {1-9,0}
+	bspc  {desktop -f,node -d } ^{1-9,10}
+
+super + {_,shift } + KP_{1-9,0}
+	bspc  {desktop -f,node -d } ^{1-9,10}
+
 
 # preselect the direction
 super + ctrl + {h,j,k,l}
 	bspc node -p {west,south,north,east}
 
-# preselect the ratio
-super + ctrl + {1-9}
-	bspc node -o 0.{1-9}
+super + ctrl + {Left,Down,Up,Right}
+	bspc node -p {west,south,north,east}
+
 
 # cancel the preselection for the focused node
 super + ctrl + space
@@ -181,20 +204,27 @@ super + ctrl + shift + space
 # move/resize
 #
 
-# expand a window by moving one of its side outward
+## expand a window by moving one of its side outward
 super + alt + {h,j,k,l}
 	bspc node -z {left -20 0,bottom 0 20,top 0 -20,right 20 0}
 
-# contract a window by moving one of its side inward
+super + alt + {Left,Down,Up,Right}
+	bspc node -z {left -20 0,bottom 0 20,top 0 -20,right 20 0}
+		
+## contract a window by moving one of its side inward
 super + {h,j,k,l}
 	bspc node -z {left 20 0,bottom 0 -20,top 0 20,right -20 0}
-#	bspc node -z {right -20 0,top 0 20,bottom 0 -20,left 20 0}
+	
 
-# move a floating window
+## move a floating window
 alt + {h,j,k,l}
 	bspc node -v {-20 0,0 20,0 -20,20 0}
+	
+alt + {Left,Down,Up,Right}
+	bspc node -v {-20 0,0 20,0 -20,20 0}
 
-# Change window gap
+
+## Change window gap equal
 alt + {minus,equal}
     bspc config -d focused window_gap $((`bspc config -d focused window_gap` {+,-} 2 ))
 
@@ -202,3 +232,24 @@ alt + {minus,equal}
 # Move or resize window
 super + button{2}
 	bspc pointer -g {move,resize_side,resize_corner}
+
+
+# Rotate all windows [counter-]clockwise by 90 degrees.
+super + {_,shift + }r
+    bspc node @/ --rotate {90,-90}
+
+# Flip desktop: what is on the right/top moves to the left/bottom and
+# vice versa.
+super + ctrl + r
+    bspc node @/ --rotate {180,-180}
+
+super + alt + b
+  qobbar -s -c bspwm_top_block && qobbar -s -c bspwm_bot
+
+# balance windows
+super + b
+  bspc node @parent -B
+
+# zoom (swap to biggest window)
+super + z
+ bspc node -s biggest.local

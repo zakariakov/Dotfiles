@@ -1,0 +1,5 @@
+#!/bin/sh
+
+cat ~/.local/share/zathura/history | grep -Po "\[\K[^\]]*" | dmenu | xargs zathura
+
+exit 0

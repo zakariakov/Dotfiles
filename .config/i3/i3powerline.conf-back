@@ -15,17 +15,17 @@ terminal     ="elokab-terminal"
 filemanager  ="elokab-fm"
 alsacontrol  ="pavucontrol-qt"
 ## Colors Variable
-backColor='#073642'
-forColor='#93a1a1'
+backColor='#222D32'
+forColor='#c0b18b'
 
 redColor='#d15d28'
-greenColor='#859900'
-greenColor2='#999979'
-bleuColor='#268bd2'
-bleuColor2='#4da4d2'
-magentaColor='#a639ff'
-magentaColor2='#6c71c4'
-whiteColor='#93a1a1'
+greenColor='#7b8748'
+greenColor2='#8b9a51'
+bleuColor='#535c5c'
+bleuColor2='#798c8c'
+magentaColor='#775759'
+magentaColor2='#907576'
+whiteColor='#c0b18b'
 
 
 status = Status(logfile='~/i3pystatus.log')
